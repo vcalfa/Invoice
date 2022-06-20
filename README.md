@@ -19,5 +19,4 @@ Keep in mind that we do not expect your code to be production ready. We are look
 * Maintainable
 * Testable
 
-The solution should be published on your personal GitHub account and we prefer to see
-commits that reflect progress rather than one huge commit once your solution is finished.
+The solution should be published on your personal GitHub account and we prefer to see commits that reflect progress rather than one huge commit once your solution is finished.
