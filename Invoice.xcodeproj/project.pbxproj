@@ -9,13 +9,21 @@
 /* Begin PBXBuildFile section */
 		E760299D285E5245006B3237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760299C285E5245006B3237 /* AppDelegate.swift */; };
 		E760299F285E5245006B3237 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760299E285E5245006B3237 /* SceneDelegate.swift */; };
-		E76029A1285E5245006B3237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029A0285E5245006B3237 /* ViewController.swift */; };
+		E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029A0285E5245006B3237 /* InvoiceListViewController.swift */; };
 		E76029A4285E5245006B3237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76029A2285E5245006B3237 /* Main.storyboard */; };
 		E76029A6285E5247006B3237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76029A5285E5247006B3237 /* Assets.xcassets */; };
 		E76029A9285E5247006B3237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76029A7285E5247006B3237 /* LaunchScreen.storyboard */; };
 		E76029B4285E5247006B3237 /* InvoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* InvoiceTests.swift */; };
-		E76029BE285E5247006B3237 /* InvoiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029BD285E5247006B3237 /* InvoiceUITests.swift */; };
-		E76029C0285E5247006B3237 /* InvoiceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029BF285E5247006B3237 /* InvoiceUITestsLaunchTests.swift */; };
+		E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */; };
+		E7CE9716285F297E003C5F11 /* InvoiceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9715285F297E003C5F11 /* InvoiceRecord.swift */; };
+		E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9717285F68FD003C5F11 /* LocalStorage.swift */; };
+		E7CE971A285F6943003C5F11 /* InvoiceListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */; };
+		E7CE971C285F694A003C5F11 /* InvoiceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE971B285F694A003C5F11 /* InvoiceListViewModel.swift */; };
+		E7CE9723285FA140003C5F11 /* InvoiceListRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9722285FA140003C5F11 /* InvoiceListRouterProtocol.swift */; };
+		E7CE9725285FBC98003C5F11 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9724285FBC98003C5F11 /* RootViewController.swift */; };
+		E7CE9727285FC831003C5F11 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9726285FC831003C5F11 /* Configurator.swift */; };
+		E7CE972A285FDA79003C5F11 /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9729285FDA79003C5F11 /* UIControl+Combine.swift */; };
+		E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE972B285FDE52003C5F11 /* InvoiceListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,29 +34,44 @@
 			remoteGlobalIDString = E7602998285E5245006B3237;
 			remoteInfo = Invoice;
 		};
-		E76029BA285E5247006B3237 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E7602991285E5245006B3237 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E7602998285E5245006B3237;
-			remoteInfo = Invoice;
-		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E7CE9721285F80D5003C5F11 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E7602999285E5245006B3237 /* Invoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E760299C285E5245006B3237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E760299E285E5245006B3237 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E76029A0285E5245006B3237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E76029A0285E5245006B3237 /* InvoiceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewController.swift; sourceTree = "<group>"; };
 		E76029A3285E5245006B3237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E76029A5285E5247006B3237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E76029A8285E5247006B3237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76029AA285E5247006B3237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E76029AF285E5247006B3237 /* InvoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76029B3285E5247006B3237 /* InvoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTests.swift; sourceTree = "<group>"; };
-		E76029B9285E5247006B3237 /* InvoiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvoiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E76029BD285E5247006B3237 /* InvoiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceUITests.swift; sourceTree = "<group>"; };
-		E76029BF285E5247006B3237 /* InvoiceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E76029DC285EA03E006B3237 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
+		E7CE9715285F297E003C5F11 /* InvoiceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRecord.swift; sourceTree = "<group>"; };
+		E7CE9717285F68FD003C5F11 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewModelProtocol.swift; sourceTree = "<group>"; };
+		E7CE971B285F694A003C5F11 /* InvoiceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewModel.swift; sourceTree = "<group>"; };
+		E7CE971E285F80D5003C5F11 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E7CE9722285FA140003C5F11 /* InvoiceListRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListRouterProtocol.swift; sourceTree = "<group>"; };
+		E7CE9724285FBC98003C5F11 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E7CE9726285FC831003C5F11 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		E7CE9729285FDA79003C5F11 /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
+		E7CE972B285FDE52003C5F11 /* InvoiceListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,23 +89,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E76029B6285E5247006B3237 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		E7602990285E5245006B3237 = {
 			isa = PBXGroup;
 			children = (
+				E76029DB285EA023006B3237 /* Meta */,
 				E760299B285E5245006B3237 /* Invoice */,
 				E76029B2285E5247006B3237 /* InvoiceTests */,
-				E76029BC285E5247006B3237 /* InvoiceUITests */,
 				E760299A285E5245006B3237 /* Products */,
+				E7CE971D285F80D5003C5F11 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,7 +108,6 @@
 			children = (
 				E7602999285E5245006B3237 /* Invoice.app */,
 				E76029AF285E5247006B3237 /* InvoiceTests.xctest */,
-				E76029B9285E5247006B3237 /* InvoiceUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,12 +115,12 @@
 		E760299B285E5245006B3237 /* Invoice */ = {
 			isa = PBXGroup;
 			children = (
-				E760299C285E5245006B3237 /* AppDelegate.swift */,
-				E760299E285E5245006B3237 /* SceneDelegate.swift */,
-				E76029A0285E5245006B3237 /* ViewController.swift */,
-				E76029A2285E5245006B3237 /* Main.storyboard */,
-				E76029A5285E5247006B3237 /* Assets.xcassets */,
-				E76029A7285E5247006B3237 /* LaunchScreen.storyboard */,
+				E7CE9728285FDA63003C5F11 /* Extension */,
+				E7CE9712285F1A4E003C5F11 /* Model */,
+				E76029CE285E9DA7006B3237 /* Core */,
+				E7CE9711285F1A1D003C5F11 /* Services */,
+				E76029CC285E9D40006B3237 /* Scenes */,
+				E76029CD285E9D76006B3237 /* Resources */,
 				E76029AA285E5247006B3237 /* Info.plist */,
 			);
 			path = Invoice;
@@ -118,13 +134,102 @@
 			path = InvoiceTests;
 			sourceTree = "<group>";
 		};
-		E76029BC285E5247006B3237 /* InvoiceUITests */ = {
+		E76029CC285E9D40006B3237 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E76029BD285E5247006B3237 /* InvoiceUITests.swift */,
-				E76029BF285E5247006B3237 /* InvoiceUITestsLaunchTests.swift */,
+				E76029DE285EA197006B3237 /* AddIncoiceForm */,
+				E76029DD285EA14A006B3237 /* Camera */,
+				E76029CF285E9EEF006B3237 /* InvoiceList */,
 			);
-			path = InvoiceUITests;
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E76029CD285E9D76006B3237 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E76029A2285E5245006B3237 /* Main.storyboard */,
+				E76029A5285E5247006B3237 /* Assets.xcassets */,
+				E76029A7285E5247006B3237 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E76029CE285E9DA7006B3237 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E760299C285E5245006B3237 /* AppDelegate.swift */,
+				E760299E285E5245006B3237 /* SceneDelegate.swift */,
+				E7CE9724285FBC98003C5F11 /* RootViewController.swift */,
+				E7CE9726285FC831003C5F11 /* Configurator.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E76029CF285E9EEF006B3237 /* InvoiceList */ = {
+			isa = PBXGroup;
+			children = (
+				E76029A0285E5245006B3237 /* InvoiceListViewController.swift */,
+				E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */,
+				E7CE971B285F694A003C5F11 /* InvoiceListViewModel.swift */,
+				E7CE9722285FA140003C5F11 /* InvoiceListRouterProtocol.swift */,
+				E7CE972B285FDE52003C5F11 /* InvoiceListRouter.swift */,
+			);
+			path = InvoiceList;
+			sourceTree = "<group>";
+		};
+		E76029DB285EA023006B3237 /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				E76029DC285EA03E006B3237 /* README.md */,
+			);
+			path = Meta;
+			sourceTree = "<group>";
+		};
+		E76029DD285EA14A006B3237 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		E76029DE285EA197006B3237 /* AddIncoiceForm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddIncoiceForm;
+			sourceTree = "<group>";
+		};
+		E7CE9711285F1A1D003C5F11 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */,
+				E7CE9717285F68FD003C5F11 /* LocalStorage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7CE9712285F1A4E003C5F11 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE9715285F297E003C5F11 /* InvoiceRecord.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7CE971D285F80D5003C5F11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE971E285F80D5003C5F11 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7CE9728285FDA63003C5F11 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE9729285FDA79003C5F11 /* UIControl+Combine.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,12 +242,15 @@
 				E7602995285E5245006B3237 /* Sources */,
 				E7602996285E5245006B3237 /* Frameworks */,
 				E7602997285E5245006B3237 /* Resources */,
+				E7CE9721285F80D5003C5F11 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Invoice;
+			packageProductDependencies = (
+			);
 			productName = Invoice;
 			productReference = E7602999285E5245006B3237 /* Invoice.app */;
 			productType = "com.apple.product-type.application";
@@ -165,24 +273,6 @@
 			productReference = E76029AF285E5247006B3237 /* InvoiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E76029B8285E5247006B3237 /* InvoiceUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E76029C9285E5247006B3237 /* Build configuration list for PBXNativeTarget "InvoiceUITests" */;
-			buildPhases = (
-				E76029B5285E5247006B3237 /* Sources */,
-				E76029B6285E5247006B3237 /* Frameworks */,
-				E76029B7285E5247006B3237 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E76029BB285E5247006B3237 /* PBXTargetDependency */,
-			);
-			name = InvoiceUITests;
-			productName = InvoiceUITests;
-			productReference = E76029B9285E5247006B3237 /* InvoiceUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,10 +290,6 @@
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = E7602998285E5245006B3237;
 					};
-					E76029B8285E5247006B3237 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = E7602998285E5245006B3237;
-					};
 				};
 			};
 			buildConfigurationList = E7602994285E5245006B3237 /* Build configuration list for PBXProject "Invoice" */;
@@ -215,13 +301,14 @@
 				Base,
 			);
 			mainGroup = E7602990285E5245006B3237;
+			packageReferences = (
+			);
 			productRefGroup = E760299A285E5245006B3237 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E7602998285E5245006B3237 /* Invoice */,
 				E76029AE285E5247006B3237 /* InvoiceTests */,
-				E76029B8285E5247006B3237 /* InvoiceUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,13 +331,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E76029B7285E5247006B3237 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -258,7 +338,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E76029A1285E5245006B3237 /* ViewController.swift in Sources */,
+				E7CE9725285FBC98003C5F11 /* RootViewController.swift in Sources */,
+				E7CE972A285FDA79003C5F11 /* UIControl+Combine.swift in Sources */,
+				E7CE971A285F6943003C5F11 /* InvoiceListViewModelProtocol.swift in Sources */,
+				E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */,
+				E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */,
+				E7CE9727285FC831003C5F11 /* Configurator.swift in Sources */,
+				E7CE9723285FA140003C5F11 /* InvoiceListRouterProtocol.swift in Sources */,
+				E7CE971C285F694A003C5F11 /* InvoiceListViewModel.swift in Sources */,
+				E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */,
+				E7CE9716285F297E003C5F11 /* InvoiceRecord.swift in Sources */,
+				E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */,
 				E760299D285E5245006B3237 /* AppDelegate.swift in Sources */,
 				E760299F285E5245006B3237 /* SceneDelegate.swift in Sources */,
 			);
@@ -272,15 +362,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E76029B5285E5247006B3237 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E76029C0285E5247006B3237 /* InvoiceUITestsLaunchTests.swift in Sources */,
-				E76029BE285E5247006B3237 /* InvoiceUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -288,11 +369,6 @@
 			isa = PBXTargetDependency;
 			target = E7602998285E5245006B3237 /* Invoice */;
 			targetProxy = E76029B0285E5247006B3237 /* PBXContainerItemProxy */;
-		};
-		E76029BB285E5247006B3237 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E7602998285E5245006B3237 /* Invoice */;
-			targetProxy = E76029BA285E5247006B3237 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -440,14 +516,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NC9E3595Y6;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Invoice/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Reciept;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,14 +546,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NC9E3595Y6;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Invoice/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Reciept;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,42 +608,6 @@
 			};
 			name = Release;
 		};
-		E76029CA285E5247006B3237 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NC9E3595Y6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.calfavladimir.visma.InvoiceUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Invoice;
-			};
-			name = Debug;
-		};
-		E76029CB285E5247006B3237 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NC9E3595Y6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.calfavladimir.visma.InvoiceUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Invoice;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -592,15 +634,6 @@
 			buildConfigurations = (
 				E76029C7285E5247006B3237 /* Debug */,
 				E76029C8285E5247006B3237 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E76029C9285E5247006B3237 /* Build configuration list for PBXNativeTarget "InvoiceUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E76029CA285E5247006B3237 /* Debug */,
-				E76029CB285E5247006B3237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
