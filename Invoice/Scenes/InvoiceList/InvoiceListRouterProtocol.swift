@@ -7,7 +7,6 @@
 
 import Foundation
 
-protocol InvoiceListRouterProtocol {
+protocol InvoiceListRouterProtocol: SceneRouter where SceneDestination == InvoiceListDestination {
     
-    func navigateAddInvoice()
 }

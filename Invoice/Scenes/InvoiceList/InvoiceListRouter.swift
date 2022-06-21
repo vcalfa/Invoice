@@ -6,10 +6,31 @@
 //
 
 import Foundation
+import UIKit
 
 struct InvoiceListRouter: InvoiceListRouterProtocol {
     
+    private weak var viewController: UIViewController?
+    
+    init(_ viewController: UIViewController?) {
+        self.viewController = viewController
+    }
+    
+    func route(to destination: InvoiceListDestination) {
+        switch destination {
+        case .addingInvoice:
+            navigateAddInvoice()
+        case .detailInvoice(uuid: let uuid):
+            showDetailInvoice(uuid)
+        }
+    }
+    
     func navigateAddInvoice() {
-        print("navigateAddInvoice")
+        let pickerController = CameraViewController(configurator: CameraConfigurator())
+        viewController?.present(pickerController, animated: true)
+    }
+    
+    func showDetailInvoice(_ id: UUID) {
+        print("navigateDetailInvoice ID: \(id)")
     }
 }

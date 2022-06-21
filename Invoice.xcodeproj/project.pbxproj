@@ -24,6 +24,20 @@
 		E7CE9727285FC831003C5F11 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9726285FC831003C5F11 /* Configurator.swift */; };
 		E7CE972A285FDA79003C5F11 /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9729285FDA79003C5F11 /* UIControl+Combine.swift */; };
 		E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE972B285FDE52003C5F11 /* InvoiceListRouter.swift */; };
+		E7CE976328618E0F003C5F11 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE975E28618E0F003C5F11 /* CameraViewController.swift */; };
+		E7CE976428618E0F003C5F11 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE975F28618E0F003C5F11 /* CameraViewModel.swift */; };
+		E7CE976528618E0F003C5F11 /* CameraViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE976028618E0F003C5F11 /* CameraViewModelProtocol.swift */; };
+		E7CE976628618E0F003C5F11 /* CameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE976128618E0F003C5F11 /* CameraRouter.swift */; };
+		E7CE976728618E0F003C5F11 /* CameraRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE976228618E0F003C5F11 /* CameraRouterProtocol.swift */; };
+		E7CE97FB2861B0EA003C5F11 /* InvoiceListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE97FA2861B0EA003C5F11 /* InvoiceListConfigurator.swift */; };
+		E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */; };
+		E7CE98592861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */; };
+		E7CE985A2861CA94003C5F11 /* AddIncoiceFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */; };
+		E7CE985B2861CA94003C5F11 /* AddIncoiceFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98552861CA94003C5F11 /* AddIncoiceFormViewModel.swift */; };
+		E7CE985C2861CA94003C5F11 /* AddIncoiceFormConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98562861CA94003C5F11 /* AddIncoiceFormConfigurator.swift */; };
+		E7CE985D2861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */; };
+		E7CE985F2861CF14003C5F11 /* CameraConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE985E2861CF14003C5F11 /* CameraConfigurator.swift */; };
+		E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98602861EDA3003C5F11 /* SceneRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +86,20 @@
 		E7CE9726285FC831003C5F11 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		E7CE9729285FDA79003C5F11 /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
 		E7CE972B285FDE52003C5F11 /* InvoiceListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListRouter.swift; sourceTree = "<group>"; };
+		E7CE975E28618E0F003C5F11 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		E7CE975F28618E0F003C5F11 /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		E7CE976028618E0F003C5F11 /* CameraViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModelProtocol.swift; sourceTree = "<group>"; };
+		E7CE976128618E0F003C5F11 /* CameraRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRouter.swift; sourceTree = "<group>"; };
+		E7CE976228618E0F003C5F11 /* CameraRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRouterProtocol.swift; sourceTree = "<group>"; };
+		E7CE97FA2861B0EA003C5F11 /* InvoiceListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListConfigurator.swift; sourceTree = "<group>"; };
+		E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormRouter.swift; sourceTree = "<group>"; };
+		E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModelProtocol.swift; sourceTree = "<group>"; };
+		E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewController.swift; sourceTree = "<group>"; };
+		E7CE98552861CA94003C5F11 /* AddIncoiceFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModel.swift; sourceTree = "<group>"; };
+		E7CE98562861CA94003C5F11 /* AddIncoiceFormConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormConfigurator.swift; sourceTree = "<group>"; };
+		E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormRouterProtocol.swift; sourceTree = "<group>"; };
+		E7CE985E2861CF14003C5F11 /* CameraConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurator.swift; sourceTree = "<group>"; };
+		E7CE98602861EDA3003C5F11 /* SceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +165,9 @@
 		E76029CC285E9D40006B3237 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E7CE972D286118AB003C5F11 /* InvoiceDetail */,
 				E76029DE285EA197006B3237 /* AddIncoiceForm */,
-				E76029DD285EA14A006B3237 /* Camera */,
+				E7CE975D28618DF2003C5F11 /* Camera */,
 				E76029CF285E9EEF006B3237 /* InvoiceList */,
 			);
 			path = Scenes;
@@ -161,6 +190,7 @@
 				E760299E285E5245006B3237 /* SceneDelegate.swift */,
 				E7CE9724285FBC98003C5F11 /* RootViewController.swift */,
 				E7CE9726285FC831003C5F11 /* Configurator.swift */,
+				E7CE98602861EDA3003C5F11 /* SceneRouter.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -168,9 +198,10 @@
 		E76029CF285E9EEF006B3237 /* InvoiceList */ = {
 			isa = PBXGroup;
 			children = (
+				E7CE97FA2861B0EA003C5F11 /* InvoiceListConfigurator.swift */,
 				E76029A0285E5245006B3237 /* InvoiceListViewController.swift */,
-				E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */,
 				E7CE971B285F694A003C5F11 /* InvoiceListViewModel.swift */,
+				E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */,
 				E7CE9722285FA140003C5F11 /* InvoiceListRouterProtocol.swift */,
 				E7CE972B285FDE52003C5F11 /* InvoiceListRouter.swift */,
 			);
@@ -185,16 +216,15 @@
 			path = Meta;
 			sourceTree = "<group>";
 		};
-		E76029DD285EA14A006B3237 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Camera;
-			sourceTree = "<group>";
-		};
 		E76029DE285EA197006B3237 /* AddIncoiceForm */ = {
 			isa = PBXGroup;
 			children = (
+				E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */,
+				E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */,
+				E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */,
+				E7CE98552861CA94003C5F11 /* AddIncoiceFormViewModel.swift */,
+				E7CE98562861CA94003C5F11 /* AddIncoiceFormConfigurator.swift */,
+				E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */,
 			);
 			path = AddIncoiceForm;
 			sourceTree = "<group>";
@@ -230,6 +260,26 @@
 				E7CE9729285FDA79003C5F11 /* UIControl+Combine.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E7CE972D286118AB003C5F11 /* InvoiceDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InvoiceDetail;
+			sourceTree = "<group>";
+		};
+		E7CE975D28618DF2003C5F11 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE985E2861CF14003C5F11 /* CameraConfigurator.swift */,
+				E7CE976128618E0F003C5F11 /* CameraRouter.swift */,
+				E7CE976228618E0F003C5F11 /* CameraRouterProtocol.swift */,
+				E7CE975E28618E0F003C5F11 /* CameraViewController.swift */,
+				E7CE975F28618E0F003C5F11 /* CameraViewModel.swift */,
+				E7CE976028618E0F003C5F11 /* CameraViewModelProtocol.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,17 +390,31 @@
 			files = (
 				E7CE9725285FBC98003C5F11 /* RootViewController.swift in Sources */,
 				E7CE972A285FDA79003C5F11 /* UIControl+Combine.swift in Sources */,
+				E7CE985B2861CA94003C5F11 /* AddIncoiceFormViewModel.swift in Sources */,
 				E7CE971A285F6943003C5F11 /* InvoiceListViewModelProtocol.swift in Sources */,
+				E7CE985A2861CA94003C5F11 /* AddIncoiceFormViewController.swift in Sources */,
+				E7CE985D2861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift in Sources */,
 				E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */,
 				E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */,
 				E7CE9727285FC831003C5F11 /* Configurator.swift in Sources */,
 				E7CE9723285FA140003C5F11 /* InvoiceListRouterProtocol.swift in Sources */,
 				E7CE971C285F694A003C5F11 /* InvoiceListViewModel.swift in Sources */,
+				E7CE976428618E0F003C5F11 /* CameraViewModel.swift in Sources */,
 				E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */,
+				E7CE97FB2861B0EA003C5F11 /* InvoiceListConfigurator.swift in Sources */,
 				E7CE9716285F297E003C5F11 /* InvoiceRecord.swift in Sources */,
 				E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */,
+				E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */,
+				E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */,
+				E7CE976628618E0F003C5F11 /* CameraRouter.swift in Sources */,
+				E7CE976728618E0F003C5F11 /* CameraRouterProtocol.swift in Sources */,
+				E7CE985C2861CA94003C5F11 /* AddIncoiceFormConfigurator.swift in Sources */,
+				E7CE976328618E0F003C5F11 /* CameraViewController.swift in Sources */,
 				E760299D285E5245006B3237 /* AppDelegate.swift in Sources */,
 				E760299F285E5245006B3237 /* SceneDelegate.swift in Sources */,
+				E7CE985F2861CF14003C5F11 /* CameraConfigurator.swift in Sources */,
+				E7CE98592861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift in Sources */,
+				E7CE976528618E0F003C5F11 /* CameraViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

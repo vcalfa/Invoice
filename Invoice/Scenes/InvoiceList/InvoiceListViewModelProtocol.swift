@@ -15,23 +15,27 @@ protocol InvoiceListViewModelInputs {
     var viewDidLoad: PassthroughSubject<(), Never>  { get }
     
     var viewDidAppear: PassthroughSubject<(), Never>  { get }
+    
+    var tapAddInvoice: PassthroughSubject<(), Never>  { get }
+    
+    var tapDetailInvoice: PassthroughSubject<UUID, Never>  { get }
 }
 
 
 //MARK: InvoiceListViewModelOutputs
 
+enum InvoiceListDestination {
+    case addingInvoice
+    case detailInvoice(uuid: UUID)
+}
+
 protocol InvoiceListViewModelOutputs {
     
     var title: String? { get }
     
-    //var items: Array<InvoiceRecord> { get }
-    
-    // Define name Published property wrapper
-    // var itemsPublished: Published<Array<InvoiceRecord>> { get }
-    
-    // Define name publisher
-    // var itemsPublisher: Published<Array<InvoiceRecord>>.Publisher { get }
     var items: Published<Array<InvoiceRecord>>.Publisher { get }
+    
+    var navigateToDestination: PassthroughSubject<InvoiceListDestination, Never> { get }
 }
 
 

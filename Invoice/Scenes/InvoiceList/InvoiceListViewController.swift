@@ -17,19 +17,27 @@ final class InvoiceListViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Int, Item>!
     private var collectionView: UICollectionView!
 
-    private var viewModel: InvoiceListViewModelProtocol = InvoiceListViewModel()
-    private var router: InvoiceListRouterProtocol = InvoiceListRouter()
+    var viewModel: InvoiceListViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureDataSource()
         setupNavigationItem()
-        bindViewModel()
+        bindInput()
+        bindOutput()
         viewModel.inputs.viewDidLoad.send()
     }
     
-    private func bindViewModel() {
+    private func bindInput() {
+        navigationItem.rightBarButtonItem?
+            .publisher.map({ _ in () })
+//            .assign(to: viewModel.inputs.viewDidLoad)
+            .sink(receiveValue: { [viewModel] _ in viewModel?.inputs.tapAddInvoice.send() })
+            .store(in: &cancellables)
+    }
+    
+    private func bindOutput() {
         viewModel.outputs.items
             .sink(receiveValue: itemData)
             .store(in: &cancellables)
@@ -39,12 +47,12 @@ final class InvoiceListViewController: UIViewController {
             .sink(receiveValue: { [weak self] value in self?.navigationItem.title = value })
 //            .assign(to: \.title, on: self.navigationItem)
             .store(in: &cancellables)
-        
-        navigationItem.rightBarButtonItem?
-            .publisher
-            .sink(receiveValue: { [router] _ in router.navigateAddInvoice() })
-            .store(in: &cancellables)
     }
+}
+
+
+extension InvoiceListViewController: ConfigurableViewControllerProtocol {
+    typealias ViewModelType = InvoiceListViewModelProtocol
 }
 
 //MARK: private UI functions
@@ -57,6 +65,7 @@ extension InvoiceListViewController {
     
     private func setupUI() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.delegate = self
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(collectionView)
     }
@@ -93,6 +102,15 @@ extension InvoiceListViewController {
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
             }
         }
+    }
+}
+
+extension InvoiceListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let menuItem = dataSource.itemIdentifier(for: indexPath) else { return }
+        collectionView.deselectItem(at: indexPath, animated: true)
+        viewModel.inputs.tapDetailInvoice.send(menuItem.identifier)
     }
 }
 

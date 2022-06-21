@@ -8,13 +8,12 @@
 import Foundation
 import UIKit
 
-
 final class RootViewController {
     
     private init() {}
     
     static func viewController() -> UIViewController {
-        let invoiceList = InvoiceListViewController(nibName: nil, bundle: nil)
+        let invoiceList = InvoiceListViewController(configurator: InvoiceListConfigurator())
         return UINavigationController(rootViewController: invoiceList)
     }
 }

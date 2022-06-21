@@ -13,15 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-//        window = UIWindow(windowScene: windowScene,
-//                          rootViewController: RootViewController.viewController())
-//        window?.makeKeyAndVisible()
-        
-        
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = RootViewController.viewController()
-        window?.makeKeyAndVisible()
+        window = UIWindow(for: windowScene, rootViewController: RootViewController.viewController())
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,13 +43,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    func stateRestorationActivity(for scene: UIScene) -> NSUserActivity? {
+        return scene.userActivity
+    }
 }
 
 private extension UIWindow {
-    convenience init(windowScene: UIWindowScene, rootViewController: UIViewController?) {
+    convenience init(for windowScene: UIWindowScene, rootViewController: UIViewController?) {
         self.init(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = rootViewController
+        self.windowScene = windowScene
+        self.rootViewController = rootViewController
+        makeKeyAndVisible()
     }
 }
 

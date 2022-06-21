@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct InvoiceRecord: Hashable {
-    private let identifier = UUID()
+    let identifier = UUID()
     
     let date: Date
     let total: Double
@@ -27,5 +27,13 @@ extension InvoiceRecord {
         total = 0
         currency = "SK"
         image = nil
+    }
+    
+    init(image: UIImage?) {
+        self.image = image
+        note = nil
+        date = Date()
+        total = 0
+        currency = "SK"
     }
 }
