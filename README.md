@@ -1,3 +1,11 @@
+# Project templates
+
+To install project templates build `InstallTemplates` target or run:
+
+```
+cp -R ./Meta/CustomTemplates/Combine\ Scene.xctemplate ~/Library/Developer/Xcode/Templates/File\ Templates/Custom/My\ Templates/
+``` 
+
 # The challenge consists:
 
 1. You do your coding, solve the task and send us the results

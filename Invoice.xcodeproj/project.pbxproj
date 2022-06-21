@@ -6,6 +6,20 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E7CE98252861C7DA003C5F11 /* InstallTemplates */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E7CE98262861C7DB003C5F11 /* Build configuration list for PBXAggregateTarget "InstallTemplates" */;
+			buildPhases = (
+				E7CE98292861C7EF003C5F11 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = InstallTemplates;
+			productName = InstallTemplates;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		E760299D285E5245006B3237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760299C285E5245006B3237 /* AppDelegate.swift */; };
 		E760299F285E5245006B3237 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760299E285E5245006B3237 /* SceneDelegate.swift */; };
@@ -92,6 +106,13 @@
 		E7CE976128618E0F003C5F11 /* CameraRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRouter.swift; sourceTree = "<group>"; };
 		E7CE976228618E0F003C5F11 /* CameraRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraRouterProtocol.swift; sourceTree = "<group>"; };
 		E7CE97FA2861B0EA003C5F11 /* InvoiceListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListConfigurator.swift; sourceTree = "<group>"; };
+		E7CE981E2861C75F003C5F11 /* ___FILEBASENAME___Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Router.swift"; sourceTree = "<group>"; };
+		E7CE981F2861C75F003C5F11 /* ___FILEBASENAME___ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___ViewModelProtocol.swift"; sourceTree = "<group>"; };
+		E7CE98202861C75F003C5F11 /* ___FILEBASENAME___ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___ViewController.swift"; sourceTree = "<group>"; };
+		E7CE98212861C75F003C5F11 /* ___FILEBASENAME___ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___ViewModel.swift"; sourceTree = "<group>"; };
+		E7CE98222861C75F003C5F11 /* ___FILEBASENAME___Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Configurator.swift"; sourceTree = "<group>"; };
+		E7CE98232861C75F003C5F11 /* ___FILEBASENAME___RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___RouterProtocol.swift"; sourceTree = "<group>"; };
+		E7CE98242861C75F003C5F11 /* TemplateInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
 		E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormRouter.swift; sourceTree = "<group>"; };
 		E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModelProtocol.swift; sourceTree = "<group>"; };
 		E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +232,7 @@
 		E76029DB285EA023006B3237 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				E7CE97FC2861BC01003C5F11 /* CustomTemplates */,
 				E76029DC285EA03E006B3237 /* README.md */,
 			);
 			path = Meta;
@@ -282,6 +304,28 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		E7CE97FC2861BC01003C5F11 /* CustomTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE981D2861C75F003C5F11 /* Combine Scene.xctemplate */,
+			);
+			path = CustomTemplates;
+			sourceTree = "<group>";
+		};
+		E7CE981D2861C75F003C5F11 /* Combine Scene.xctemplate */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE981E2861C75F003C5F11 /* ___FILEBASENAME___Router.swift */,
+				E7CE981F2861C75F003C5F11 /* ___FILEBASENAME___ViewModelProtocol.swift */,
+				E7CE98202861C75F003C5F11 /* ___FILEBASENAME___ViewController.swift */,
+				E7CE98212861C75F003C5F11 /* ___FILEBASENAME___ViewModel.swift */,
+				E7CE98222861C75F003C5F11 /* ___FILEBASENAME___Configurator.swift */,
+				E7CE98232861C75F003C5F11 /* ___FILEBASENAME___RouterProtocol.swift */,
+				E7CE98242861C75F003C5F11 /* TemplateInfo.plist */,
+			);
+			path = "Combine Scene.xctemplate";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -340,6 +384,9 @@
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = E7602998285E5245006B3237;
 					};
+					E7CE98252861C7DA003C5F11 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 				};
 			};
 			buildConfigurationList = E7602994285E5245006B3237 /* Build configuration list for PBXProject "Invoice" */;
@@ -359,6 +406,7 @@
 			targets = (
 				E7602998285E5245006B3237 /* Invoice */,
 				E76029AE285E5247006B3237 /* InvoiceTests */,
+				E7CE98252861C7DA003C5F11 /* InstallTemplates */,
 			);
 		};
 /* End PBXProject section */
@@ -382,6 +430,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E7CE98292861C7EF003C5F11 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -R ./Meta/CustomTemplates/Combine\\ Scene.xctemplate ~/Library/Developer/Xcode/Templates/File\\ Templates/Custom/My\\ Templates/\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E7602995285E5245006B3237 /* Sources */ = {
@@ -672,6 +740,24 @@
 			};
 			name = Release;
 		};
+		E7CE98272861C7DB003C5F11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NC9E3595Y6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E7CE98282861C7DB003C5F11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NC9E3595Y6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -698,6 +784,15 @@
 			buildConfigurations = (
 				E76029C7285E5247006B3237 /* Debug */,
 				E76029C8285E5247006B3237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7CE98262861C7DB003C5F11 /* Build configuration list for PBXAggregateTarget "InstallTemplates" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7CE98272861C7DB003C5F11 /* Debug */,
+				E7CE98282861C7DB003C5F11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
