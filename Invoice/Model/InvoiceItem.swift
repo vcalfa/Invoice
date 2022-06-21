@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 
-struct InvoiceRecord: Hashable {
+struct InvoiceItem: Hashable {
     let identifier = UUID()
     
+    let invoiceId: UUID?
     let date: Date
     let total: Double
     let currency: String
@@ -19,7 +20,7 @@ struct InvoiceRecord: Hashable {
 }
 
 
-extension InvoiceRecord {
+extension InvoiceItem {
     
     init(note: String?) {
         self.note = note
@@ -27,6 +28,16 @@ extension InvoiceRecord {
         total = 0
         currency = "SK"
         image = nil
+        invoiceId = nil
+    }
+    
+    init(invoice: Self, image: UIImage?) {
+        self.image = image
+        note = invoice.note
+        date = invoice.date
+        total = invoice.total
+        currency = invoice.currency
+        invoiceId = invoice.invoiceId
     }
     
     init(image: UIImage?) {
@@ -35,5 +46,6 @@ extension InvoiceRecord {
         date = Date()
         total = 0
         currency = "SK"
+        invoiceId = nil
     }
 }

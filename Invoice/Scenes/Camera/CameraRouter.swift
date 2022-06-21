@@ -19,15 +19,14 @@ struct CameraRouter: CameraRouterProtocol {
         switch destination {
         case .cancel:
             viewController?.dismiss(animated: true, completion: nil)
-        case .finisAction(image: let image):
-            let configurator = AddIncoiceFormConfigurator(image: image)
-            let addInvoiceForm = AddIncoiceFormViewController(configurator: configurator)
+        case .finishAction(invoice: let invoice):
+            let configurator = AddIncoiceFormConfigurator(invoice: invoice)
+            let addInvoiceForm = AddIncoiceFormViewController.instance(configurator: configurator)
             let navigationController = UINavigationController(rootViewController: addInvoiceForm)
             viewController?.dismiss(animated: true, completion: nil)
             viewController?.presentingViewController?.present(navigationController,
                                                               animated: true,
                                                               completion: nil)
-            break
         }
     }
 }

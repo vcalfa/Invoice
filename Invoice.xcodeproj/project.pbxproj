@@ -24,12 +24,13 @@
 		E760299D285E5245006B3237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760299C285E5245006B3237 /* AppDelegate.swift */; };
 		E760299F285E5245006B3237 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E760299E285E5245006B3237 /* SceneDelegate.swift */; };
 		E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029A0285E5245006B3237 /* InvoiceListViewController.swift */; };
-		E76029A4285E5245006B3237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76029A2285E5245006B3237 /* Main.storyboard */; };
 		E76029A6285E5247006B3237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76029A5285E5247006B3237 /* Assets.xcassets */; };
 		E76029A9285E5247006B3237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76029A7285E5247006B3237 /* LaunchScreen.storyboard */; };
-		E76029B4285E5247006B3237 /* InvoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* InvoiceTests.swift */; };
+		E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */; };
+		E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */; };
+		E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */; };
 		E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */; };
-		E7CE9716285F297E003C5F11 /* InvoiceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9715285F297E003C5F11 /* InvoiceRecord.swift */; };
+		E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9715285F297E003C5F11 /* InvoiceItem.swift */; };
 		E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9717285F68FD003C5F11 /* LocalStorage.swift */; };
 		E7CE971A285F6943003C5F11 /* InvoiceListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */; };
 		E7CE971C285F694A003C5F11 /* InvoiceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE971B285F694A003C5F11 /* InvoiceListViewModel.swift */; };
@@ -52,6 +53,7 @@
 		E7CE985D2861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */; };
 		E7CE985F2861CF14003C5F11 /* CameraConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE985E2861CF14003C5F11 /* CameraConfigurator.swift */; };
 		E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98602861EDA3003C5F11 /* SceneRouter.swift */; };
+		E7CE98632861FF19003C5F11 /* AddIncoiceFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7CE98622861FF19003C5F11 /* AddIncoiceFormViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,15 +84,16 @@
 		E760299C285E5245006B3237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E760299E285E5245006B3237 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E76029A0285E5245006B3237 /* InvoiceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewController.swift; sourceTree = "<group>"; };
-		E76029A3285E5245006B3237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E76029A5285E5247006B3237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E76029A8285E5247006B3237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76029AA285E5247006B3237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E76029AF285E5247006B3237 /* InvoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E76029B3285E5247006B3237 /* InvoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTests.swift; sourceTree = "<group>"; };
+		E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModelTest.swift; sourceTree = "<group>"; };
 		E76029DC285EA03E006B3237 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.Publisher.swift; sourceTree = "<group>"; };
+		E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTest.swift; sourceTree = "<group>"; };
 		E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
-		E7CE9715285F297E003C5F11 /* InvoiceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceRecord.swift; sourceTree = "<group>"; };
+		E7CE9715285F297E003C5F11 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		E7CE9717285F68FD003C5F11 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewModelProtocol.swift; sourceTree = "<group>"; };
 		E7CE971B285F694A003C5F11 /* InvoiceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListViewModel.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormRouterProtocol.swift; sourceTree = "<group>"; };
 		E7CE985E2861CF14003C5F11 /* CameraConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurator.swift; sourceTree = "<group>"; };
 		E7CE98602861EDA3003C5F11 /* SceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRouter.swift; sourceTree = "<group>"; };
+		E7CE98622861FF19003C5F11 /* AddIncoiceFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddIncoiceFormViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +182,8 @@
 		E76029B2285E5247006B3237 /* InvoiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				E76029B3285E5247006B3237 /* InvoiceTests.swift */,
+				E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */,
+				E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */,
 			);
 			path = InvoiceTests;
 			sourceTree = "<group>";
@@ -186,7 +191,6 @@
 		E76029CC285E9D40006B3237 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE972D286118AB003C5F11 /* InvoiceDetail */,
 				E76029DE285EA197006B3237 /* AddIncoiceForm */,
 				E7CE975D28618DF2003C5F11 /* Camera */,
 				E76029CF285E9EEF006B3237 /* InvoiceList */,
@@ -197,7 +201,6 @@
 		E76029CD285E9D76006B3237 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E76029A2285E5245006B3237 /* Main.storyboard */,
 				E76029A5285E5247006B3237 /* Assets.xcassets */,
 				E76029A7285E5247006B3237 /* LaunchScreen.storyboard */,
 			);
@@ -243,10 +246,11 @@
 			children = (
 				E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */,
 				E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */,
-				E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */,
 				E7CE98552861CA94003C5F11 /* AddIncoiceFormViewModel.swift */,
+				E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */,
 				E7CE98562861CA94003C5F11 /* AddIncoiceFormConfigurator.swift */,
 				E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */,
+				E7CE98622861FF19003C5F11 /* AddIncoiceFormViewController.xib */,
 			);
 			path = AddIncoiceForm;
 			sourceTree = "<group>";
@@ -263,7 +267,7 @@
 		E7CE9712285F1A4E003C5F11 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE9715285F297E003C5F11 /* InvoiceRecord.swift */,
+				E7CE9715285F297E003C5F11 /* InvoiceItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,15 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				E7CE9729285FDA79003C5F11 /* UIControl+Combine.swift */,
+				E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		E7CE972D286118AB003C5F11 /* InvoiceDetail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = InvoiceDetail;
 			sourceTree = "<group>";
 		};
 		E7CE975D28618DF2003C5F11 /* Camera */ = {
@@ -416,9 +414,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7CE98632861FF19003C5F11 /* AddIncoiceFormViewController.xib in Resources */,
 				E76029A9285E5247006B3237 /* LaunchScreen.storyboard in Resources */,
 				E76029A6285E5247006B3237 /* Assets.xcassets in Resources */,
-				E76029A4285E5245006B3237 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,12 +463,13 @@
 				E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */,
 				E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */,
 				E7CE9727285FC831003C5F11 /* Configurator.swift in Sources */,
+				E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */,
 				E7CE9723285FA140003C5F11 /* InvoiceListRouterProtocol.swift in Sources */,
 				E7CE971C285F694A003C5F11 /* InvoiceListViewModel.swift in Sources */,
 				E7CE976428618E0F003C5F11 /* CameraViewModel.swift in Sources */,
 				E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */,
 				E7CE97FB2861B0EA003C5F11 /* InvoiceListConfigurator.swift in Sources */,
-				E7CE9716285F297E003C5F11 /* InvoiceRecord.swift in Sources */,
+				E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */,
 				E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */,
 				E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */,
 				E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */,
@@ -490,7 +489,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E76029B4285E5247006B3237 /* InvoiceTests.swift in Sources */,
+				E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */,
+				E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,14 +505,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E76029A2285E5245006B3237 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E76029A3285E5245006B3237 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E76029A7285E5247006B3237 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

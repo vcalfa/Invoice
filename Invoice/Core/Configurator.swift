@@ -42,7 +42,7 @@ protocol Instantiable: AnyObject {
 extension Instantiable where Self: UIViewController {
 
     static func instance<T: ConfiguratorProtocol>(configurator: T) -> Self where Self == T.Controller {
-        let controller: Self = Self(nibName: nil, bundle: nil)
+        let controller: Self = Self(nibName: String(describing: Self.self), bundle: nil)
         controller.configure(configurator: configurator)
         return controller
     }

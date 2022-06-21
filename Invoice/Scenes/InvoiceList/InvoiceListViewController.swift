@@ -10,7 +10,7 @@ import Combine
 
 final class InvoiceListViewController: UIViewController {
 
-    typealias Item = InvoiceRecord
+    typealias Item = InvoiceItem
     
     private var cancellables = Set<AnyCancellable>()
     

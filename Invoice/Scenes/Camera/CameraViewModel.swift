@@ -32,18 +32,27 @@ class CameraViewModel: CameraViewModelInputs, CameraViewModelOutputs {
     
     //MARK: -
     
-    private var router: CameraRouter
+    private let router: CameraRouter
+    private let invoice: InvoiceItem?
     
-    init(router: CameraRouter) {
+    init(router: CameraRouter, invoice: InvoiceItem? = nil) {
         self.router = router
-        title = "Camera"
+        self.invoice = invoice
         
         outputs.navigateToDestination
             .sink(receiveValue: router.route(to:))
             .store(in: &cancellables)
         
+        let finishAction = imageDidTake.map({ [invoice] image -> CameraDestination in
+            if let invoice = invoice {
+                return .finishAction(invoice: InvoiceItem(invoice: invoice, image: image))
+            }
+            let updatedInvoice = image.map({ InvoiceItem(image: $0) })
+            return .finishAction(invoice: updatedInvoice)
+        })
+        
         actionCancel.map({ _ -> CameraDestination in .cancel })
-            .merge(with: imageDidTake.map({ image -> CameraDestination in .finisAction(image: image) }))
+            .merge(with: finishAction)
             .subscribe(navigateToDestination)
             .store(in: &cancellables)
     }

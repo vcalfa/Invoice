@@ -10,14 +10,13 @@ import UIKit
 
 struct AddIncoiceFormConfigurator: ConfiguratorProtocol {
     typealias Controller = AddIncoiceFormViewController
-    private let image: UIImage?
+    private let invoice: InvoiceItem?
     
     func configure(controller: Controller) -> Controller.ViewModelType {
-        let invoice = image.map({ InvoiceRecord(image: $0) })
-        return AddIncoiceFormViewModel(router: AddIncoiceFormRouter(), invoice: invoice)
+        return AddIncoiceFormViewModel(router: AddIncoiceFormRouter(controller), invoice: invoice)
     }
     
-    init(image: UIImage? = nil) {
-        self.image = image
+    init(invoice: InvoiceItem? = nil) {
+        self.invoice = invoice
     }
 }

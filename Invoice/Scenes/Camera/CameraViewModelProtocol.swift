@@ -26,7 +26,7 @@ protocol CameraViewModelInputs {
 
 enum CameraDestination {
     case cancel
-    case finisAction(image: UIImage?)
+    case finishAction(invoice: InvoiceItem?)
 }
 
 protocol CameraViewModelOutputs {
