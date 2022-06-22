@@ -32,8 +32,7 @@ final class InvoiceListViewController: UIViewController {
     private func bindInput() {
         navigationItem.rightBarButtonItem?
             .publisher.map({ _ in () })
-//            .assign(to: viewModel.inputs.viewDidLoad)
-            .sink(receiveValue: { [viewModel] _ in viewModel?.inputs.tapAddInvoice.send() })
+            .subscribe(viewModel.inputs.tapAddInvoice)
             .store(in: &cancellables)
     }
     
@@ -43,9 +42,8 @@ final class InvoiceListViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel.outputs.title
-            .publisher
-            .sink(receiveValue: { [weak self] value in self?.navigationItem.title = value })
-//            .assign(to: \.title, on: self.navigationItem)
+            .publisher.map({ value -> String? in value })
+            .assign(to: \.title, on: navigationItem)
             .store(in: &cancellables)
     }
 }

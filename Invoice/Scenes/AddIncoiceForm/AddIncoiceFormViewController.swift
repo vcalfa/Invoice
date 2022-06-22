@@ -31,7 +31,6 @@ final class AddIncoiceFormViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupUI()
         setupNavigationItem()
         registerKeyboardNotifications()
         configureViews()
@@ -51,8 +50,6 @@ final class AddIncoiceFormViewController: UIViewController {
 // MARK: - View Configurations
 private extension AddIncoiceFormViewController {
 
-    //func setupUI() { }
-
     func setupNavigationItem() {
         navigationItem.leftBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
@@ -62,17 +59,11 @@ private extension AddIncoiceFormViewController {
         imageview.contentMode = .scaleAspectFill
     }
     
-    func setupStyles() {
-//        view.backgroundColor = .green
-    }
+    func setupStyles() { }
     
     func setupLayout() { }
     
     private func bindInput() {
-//        navigationItem.leftBarButtonItem?
-//            .publisher.map({ _ in () })
-//            .subscribe(viewModel.inputs.tapNavigateBack)
-//            .store(in: &cancellables)
 
         imageview.publisher(for: gestureRecognizer)
             .map({ _ in () })

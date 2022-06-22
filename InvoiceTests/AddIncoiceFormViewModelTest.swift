@@ -10,19 +10,12 @@ import XCTest
 
 class AddIncoiceFormViewModelTest: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testAddIncoiceForm1() throws {
         let viewModel = AddIncoiceFormViewModel(router: AddIncoiceFormRouter(nil), invoice: nil)
         XCTAssertEqual(viewModel.outputs.title, "Add invoice")
         XCTAssertEqual(viewModel.outputs.action, .add)
-        XCTAssertEqual(viewModel.outputs.total, nil)
+        XCTAssertNil(viewModel.outputs.total)
+        XCTAssertNil(viewModel.outputs.note)
     }
     
     func testAddIncoiceForm2() throws {
@@ -30,7 +23,8 @@ class AddIncoiceFormViewModelTest: XCTestCase {
         let viewModel = AddIncoiceFormViewModel(router: AddIncoiceFormRouter(nil), invoice: invoice)
         XCTAssertEqual(viewModel.outputs.title, "Add invoice")
         XCTAssertEqual(viewModel.outputs.action, .add)
-        XCTAssertEqual(viewModel.outputs.total, nil)
+        XCTAssertNil(viewModel.outputs.total)
+        XCTAssertEqual(viewModel.outputs.note, "Test")
     }
     
     func testAddIncoiceForm3() throws {
@@ -39,6 +33,7 @@ class AddIncoiceFormViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.outputs.title, "Edit invoice")
         XCTAssertEqual(viewModel.outputs.action, .edit)
         XCTAssertEqual(viewModel.outputs.total, "0,00")
+        XCTAssertEqual(viewModel.outputs.note, "Notee")
     }
     
     func testAddIncoiceForm4() throws {
@@ -47,5 +42,6 @@ class AddIncoiceFormViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.outputs.title, "Edit invoice")
         XCTAssertEqual(viewModel.outputs.action, .edit)
         XCTAssertEqual(viewModel.outputs.total, "1 254,36")
+        XCTAssertEqual(viewModel.outputs.note, "Notee")
     }
 }

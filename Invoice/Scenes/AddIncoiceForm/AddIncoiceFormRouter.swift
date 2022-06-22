@@ -16,15 +16,13 @@ struct AddIncoiceFormRouter: AddIncoiceFormRouterProtocol {
     }
     
     func route(to destination: AddIncoiceFormDestination) {
+        dump(destination, name: "AddIncoiceFormRouter")
         switch destination {
             case .navigateBack:
-                print("AddIncoiceFormRouter.navigateBack")
                 viewController?.dismiss(animated: true)
             case .cancel:
-                print("AddIncoiceFormRouter.cancel")
                 viewController?.dismiss(animated: true)
             case .editPhoto(invoice: let invoice):
-                print("AddIncoiceFormRouter.editPhoto")
                 let cameraController = CameraViewController(configurator: CameraConfigurator(invoice: invoice))
                 viewController?.dismiss(animated: true, completion: nil)
                 viewController?.presentingViewController?.present(cameraController,

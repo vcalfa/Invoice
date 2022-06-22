@@ -17,6 +17,7 @@ struct InvoiceListRouter: InvoiceListRouterProtocol {
     }
     
     func route(to destination: InvoiceListDestination) {
+        dump(destination, name: "InvoiceListRouter")
         switch destination {
         case .addingInvoice:
             navigateAddInvoice()
@@ -31,6 +32,6 @@ struct InvoiceListRouter: InvoiceListRouterProtocol {
     }
     
     func showDetailInvoice(_ id: UUID) {
-        print("navigateDetailInvoice ID: \(id)")
+        
     }
 }
