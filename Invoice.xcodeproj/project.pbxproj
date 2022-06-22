@@ -29,6 +29,9 @@
 		E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */; };
 		E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */; };
 		E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */; };
+		E7B7D95028631AA1005836CF /* ImageStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */; };
+		E7B7D95228631AB0005836CF /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D95128631AB0005836CF /* ImageStore.swift */; };
+		E7B7D95428633193005836CF /* ImageStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D95328633193005836CF /* ImageStoreTest.swift */; };
 		E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */; };
 		E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9715285F297E003C5F11 /* InvoiceItem.swift */; };
 		E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9717285F68FD003C5F11 /* LocalStorage.swift */; };
@@ -92,6 +95,9 @@
 		E76029DC285EA03E006B3237 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.Publisher.swift; sourceTree = "<group>"; };
 		E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTest.swift; sourceTree = "<group>"; };
+		E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreProtocol.swift; sourceTree = "<group>"; };
+		E7B7D95128631AB0005836CF /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		E7B7D95328633193005836CF /* ImageStoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreTest.swift; sourceTree = "<group>"; };
 		E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
 		E7CE9715285F297E003C5F11 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		E7CE9717285F68FD003C5F11 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 			children = (
 				E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */,
 				E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */,
+				E7B7D95328633193005836CF /* ImageStoreTest.swift */,
 			);
 			path = InvoiceTests;
 			sourceTree = "<group>";
@@ -260,6 +267,8 @@
 			children = (
 				E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */,
 				E7CE9717285F68FD003C5F11 /* LocalStorage.swift */,
+				E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */,
+				E7B7D95128631AB0005836CF /* ImageStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -467,6 +476,7 @@
 				E7CE9723285FA140003C5F11 /* InvoiceListRouterProtocol.swift in Sources */,
 				E7CE971C285F694A003C5F11 /* InvoiceListViewModel.swift in Sources */,
 				E7CE976428618E0F003C5F11 /* CameraViewModel.swift in Sources */,
+				E7B7D95028631AA1005836CF /* ImageStoreProtocol.swift in Sources */,
 				E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */,
 				E7CE97FB2861B0EA003C5F11 /* InvoiceListConfigurator.swift in Sources */,
 				E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */,
@@ -481,6 +491,7 @@
 				E760299F285E5245006B3237 /* SceneDelegate.swift in Sources */,
 				E7CE985F2861CF14003C5F11 /* CameraConfigurator.swift in Sources */,
 				E7CE98592861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift in Sources */,
+				E7B7D95228631AB0005836CF /* ImageStore.swift in Sources */,
 				E7CE976528618E0F003C5F11 /* CameraViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */,
+				E7B7D95428633193005836CF /* ImageStoreTest.swift in Sources */,
 				E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
