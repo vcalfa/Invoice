@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import MobileCoreServices
 
 final class CameraViewController: UIImagePickerController {
     
@@ -33,8 +34,7 @@ private extension CameraViewController {
     func configure() {
         delegate = self
         allowsEditing = true
-        mediaTypes = ["public.image"]
-        sourceType = .camera
+        mediaTypes = [kUTTypeImage as String]
     }
 }
 
@@ -43,9 +43,12 @@ extension CameraViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        let image = info[.editedImage] as? UIImage
-        viewModel.inputs.imageDidTake.send(image)
+        if let image = info[.editedImage] as? UIImage {
+            viewModel.inputs.imageDidTake.send(image)
+        }
+        else if let image = info[.originalImage] as? UIImage {
+            viewModel.inputs.imageDidTake.send(image)
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

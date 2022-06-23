@@ -6,13 +6,20 @@
 //
 
 import Foundation
+import UIKit
 
 struct CameraConfigurator: ConfiguratorProtocol {
     typealias Controller = CameraViewController
     private let invoice: InvoiceItem?
     
     func configure(controller: Controller) -> Controller.ViewModelType {
-        controller.sourceType = .camera
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            controller.sourceType = .camera
+        } else {
+            controller.sourceType = .photoLibrary
+        }
+        
         return CameraViewModel(router: CameraRouter(controller), invoice: invoice)
     }
     
