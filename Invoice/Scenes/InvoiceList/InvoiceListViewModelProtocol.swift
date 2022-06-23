@@ -3,7 +3,7 @@
 //  Invoice
 //
 //  Created by Vladimir Calfa on 19/06/2022.
-//
+//  
 
 import Foundation
 import Combine
@@ -20,6 +20,8 @@ protocol InvoiceListViewModelInputs {
     var tapAddInvoice: PassthroughSubject<(), Never>  { get }
     
     var tapDetailInvoice: PassthroughSubject<UUID, Never>  { get }
+    
+    var tapAddRandomInvoices: PassthroughSubject<(), Never> { get }
 }
 
 

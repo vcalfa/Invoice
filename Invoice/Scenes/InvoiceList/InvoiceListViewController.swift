@@ -35,10 +35,14 @@ final class InvoiceListViewController: UIViewController {
             .publisher.map({ _ in () })
             .subscribe(viewModel.inputs.tapAddInvoice)
             .store(in: &cancellables)
+        
+        navigationItem.leftBarButtonItem?
+            .publisher.map({ _ in () })
+            .subscribe(viewModel.inputs.tapAddRandomInvoices)
+            .store(in: &cancellables)
     }
     
     private func bindOutput() {
-        
         viewModel.outputs.title
             .publisher.map({ value -> String? in value })
             .assign(to: \.title, on: navigationItem)
@@ -62,6 +66,7 @@ extension InvoiceListViewController {
     
     private func setupNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "+\(InvoiceListViewModel.generateRandomInvoices)", style: .plain, target: nil, action: nil)
     }
     
     private func setupUI() {

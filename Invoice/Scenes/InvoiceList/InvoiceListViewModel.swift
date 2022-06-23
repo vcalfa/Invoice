@@ -11,6 +11,8 @@ import CoreData
 
 class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelInputs, InvoiceListViewModelOutputs {
     
+    static let generateRandomInvoices = 100
+    
     var inputs: InvoiceListViewModelInputs { self }
     var outputs: InvoiceListViewModelOutputs { self }
     
@@ -35,16 +37,23 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     
     let tapAddInvoice = PassthroughSubject<(), Never>()
     
+    let tapAddRandomInvoices = PassthroughSubject<(), Never>()
+    
     let tapDetailInvoice = PassthroughSubject<UUID, Never>()
     
     //MARK: -
     
     private let router: InvoiceListRouter
     private let storage: LocalStoreProtocol
+    private let invoiceManager: InvoiceManagerProtocol
     
-    init(router: InvoiceListRouter, storage: LocalStoreProtocol) {
+    init(router: InvoiceListRouter,
+         storage: LocalStoreProtocol,
+         invoiceManager: InvoiceManagerProtocol)
+    {
         self.router = router
         self.storage = storage
+        self.invoiceManager = invoiceManager
         
         outputs.navigateToDestination
             .sink(receiveValue: router.route(to:))
@@ -55,6 +64,19 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
         tapAddInvoice.map({ _ -> InvoiceListDestination in .addingInvoice })
             .merge(with: tapDetailInvoice.map({ id -> InvoiceListDestination in .detailInvoice(uuid: id) }))
             .subscribe(navigateToDestination)
+            .store(in: &cancellables)
+        
+        
+        tapAddRandomInvoices
+            .sink(receiveValue: { [weak self] invoice in
+                for i in 1...Self.generateRandomInvoices {
+                    dump(i, name: "Generate")
+                    let invoice = InvoiceItem.random()
+                    self?.invoiceManager.write(invoice, completition: { result in
+                        dump(result)
+                    })
+                }
+            })
             .store(in: &cancellables)
     }
     
