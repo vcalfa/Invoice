@@ -23,6 +23,12 @@ protocol AddIncoiceFormViewModelInputs {
     var tapEditPhoto: PassthroughSubject<(), Never> { get }
     
     var tapSaveAddAction: PassthroughSubject<(), Never> { get }
+    
+    var noteUpdated: PassthroughSubject<String?, Never> { get }
+    
+    var totalUpdated: PassthroughSubject<String?, Never> { get }
+    
+    var dateUpdated: PassthroughSubject<Date, Never> { get }
 }
 
 
@@ -38,17 +44,17 @@ enum ActionType {
 
 protocol AddIncoiceFormViewModelOutputs {
     
-    var title: String? { get }
+    var title: Published<String?>.Publisher { get }
     
-    var image: UIImage? { get }
+    var image: Published<UIImage?>.Publisher { get }
     
-    var note: String? { get }
+    var note: Published<String?>.Publisher { get }
+    
+    var date: Published<Date>.Publisher { get }
 
-    var date: Date? { get }
-
-    var total: String? { get }
+    var total: Published<String?>.Publisher { get }
     
-    var action: ActionType? { get }
+    var action: Published<ActionType>.Publisher { get }
     
     var navigateToDestination: PassthroughSubject<AddIncoiceFormDestination, Never> { get }
 }

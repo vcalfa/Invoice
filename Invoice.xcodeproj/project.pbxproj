@@ -33,8 +33,11 @@
 		E7B7D95028631AA1005836CF /* ImageStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */; };
 		E7B7D95228631AB0005836CF /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D95128631AB0005836CF /* ImageStore.swift */; };
 		E7B7D95428633193005836CF /* ImageStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D95328633193005836CF /* ImageStoreTest.swift */; };
+		E7B7D97F286376A3005836CF /* InvoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D97E286376A3005836CF /* InvoiceManager.swift */; };
+		E7B7D981286376D4005836CF /* InvoiceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */; };
 		E7B7D984286382CA005836CF /* Invoice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */; };
 		E7B7D985286382CA005836CF /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D983286382CA005836CF /* Invoice+CoreDataProperties.swift */; };
+		E7B7D9882863A3FA005836CF /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E7B7D9872863A3FA005836CF /* CombineCocoa */; };
 		E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */; };
 		E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9715285F297E003C5F11 /* InvoiceItem.swift */; };
 		E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9717285F68FD003C5F11 /* LocalStorage.swift */; };
@@ -102,6 +105,8 @@
 		E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreProtocol.swift; sourceTree = "<group>"; };
 		E7B7D95128631AB0005836CF /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		E7B7D95328633193005836CF /* ImageStoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreTest.swift; sourceTree = "<group>"; };
+		E7B7D97E286376A3005836CF /* InvoiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManager.swift; sourceTree = "<group>"; };
+		E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManagerProtocol.swift; sourceTree = "<group>"; };
 		E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E7B7D983286382CA005836CF /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B7D9882863A3FA005836CF /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,8 +290,10 @@
 			children = (
 				E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */,
 				E7CE9717285F68FD003C5F11 /* LocalStorage.swift */,
-				E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */,
 				E7B7D95128631AB0005836CF /* ImageStore.swift */,
+				E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */,
+				E7B7D97E286376A3005836CF /* InvoiceManager.swift */,
+				E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 			);
 			name = Invoice;
 			packageProductDependencies = (
+				E7B7D9872863A3FA005836CF /* CombineCocoa */,
 			);
 			productName = Invoice;
 			productReference = E7602999285E5245006B3237 /* Invoice.app */;
@@ -423,6 +432,7 @@
 			);
 			mainGroup = E7602990285E5245006B3237;
 			packageReferences = (
+				E7B7D9862863A3FA005836CF /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 			);
 			productRefGroup = E760299A285E5245006B3237 /* Products */;
 			projectDirPath = "";
@@ -499,7 +509,9 @@
 				E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */,
 				E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */,
 				E7B7D985286382CA005836CF /* Invoice+CoreDataProperties.swift in Sources */,
+				E7B7D981286376D4005836CF /* InvoiceManagerProtocol.swift in Sources */,
 				E7B7D984286382CA005836CF /* Invoice+CoreDataClass.swift in Sources */,
+				E7B7D97F286376A3005836CF /* InvoiceManager.swift in Sources */,
 				E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */,
 				E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */,
 				E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */,
@@ -822,6 +834,26 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E7B7D9862863A3FA005836CF /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E7B7D9872863A3FA005836CF /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7B7D9862863A3FA005836CF /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCVersionGroup section */
 		E7B7D94C2862F82D005836CF /* MainModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;

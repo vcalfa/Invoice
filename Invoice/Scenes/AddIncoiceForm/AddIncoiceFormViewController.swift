@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CombineCocoa
 
 final class AddIncoiceFormViewController: UIViewController {
     
@@ -36,8 +37,8 @@ final class AddIncoiceFormViewController: UIViewController {
         configureViews()
         setupStyles()
         setupLayout()
-        bindInput()
         bindOutput()
+        bindInput()
         viewModel.inputs.viewDidLoad.send()
     }
 
@@ -52,14 +53,19 @@ private extension AddIncoiceFormViewController {
 
     func setupNavigationItem() {
         navigationItem.leftBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
     }
 
     func configureViews() {
         imageview.contentMode = .scaleAspectFill
     }
     
-    func setupStyles() { }
+    func setupStyles() {
+        noteTextView.clipsToBounds = true
+        noteTextView.layer.cornerRadius = 5.0
+        noteTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        noteTextView.layer.borderWidth = 0.7
+    }
     
     func setupLayout() { }
     
@@ -70,42 +76,62 @@ private extension AddIncoiceFormViewController {
             .subscribe(viewModel.inputs.tapEditPhoto)
             .store(in: &cancellables)
         
-        navigationItem.rightBarButtonItem?
-            .publisher.map({ _ in () })
-            .subscribe(viewModel.inputs.tapSaveAddAction)
-            .store(in: &cancellables)
-        
         navigationItem.leftBarButtonItem?
             .publisher.map({ _ in () })
             .subscribe(viewModel.inputs.tapCancel)
+            .store(in: &cancellables)
+        
+        noteTextView.valuePublisher
+            .subscribe(viewModel.inputs.noteUpdated)
+            .store(in: &cancellables)
+
+        totalTextField.textPublisher
+            .subscribe(viewModel.inputs.totalUpdated)
+            .store(in: &cancellables)
+        
+        datePicker.datePublisher
+            .subscribe(viewModel.inputs.dateUpdated)
             .store(in: &cancellables)
     }
     
     private func bindOutput() {
         viewModel.outputs.image
-            .publisher.map({ val -> UIImage? in val })
             .assign(to: \.image, on: imageview)
             .store(in: &cancellables)
         
         viewModel.outputs.title
-            .publisher.map({ val -> String? in val })
             .assign(to: \.title, on: navigationItem)
             .store(in: &cancellables)
         
         viewModel.outputs.note
-            .publisher.map({ val -> String? in val })
             .assign(to: \.text, on: noteTextView)
             .store(in: &cancellables)
         
         viewModel.outputs.total
-            .publisher.map({ val -> String? in val })
             .assign(to: \.text, on: totalTextField)
             .store(in: &cancellables)
 
         viewModel.outputs.date
-            .publisher
             .assign(to: \.date, on: datePicker)
             .store(in: &cancellables)
+        
+        viewModel.outputs.action
+            .map(updateRightBarButton)
+            .assign(to: \.rightBarButtonItem, on: navigationItem)
+            .store(in: &cancellables)
+    }
+    
+    private func updateRightBarButton(_ action: ActionType) -> UIBarButtonItem {
+        var barButtonItem: UIBarButtonItem!
+        switch action {
+        case .edit: barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
+        case .add: barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        }
+        
+        barButtonItem.publisher.map({ _ in () })
+            .subscribe(self.viewModel.inputs.tapSaveAddAction)
+            .store(in: &self.cancellables)
+        return barButtonItem
     }
 }
 
@@ -132,16 +158,32 @@ private extension AddIncoiceFormViewController {
 
         scrollView.scrollIndicatorInsets = scrollView.contentInset
 
-        //let selectedRange = scrollView.selectedRange
-        //scrollView.scrollRangeToVisible(selectedRange)
+        if let firstResponder = scrollView.firstResponder {
+            let offsetRect = firstResponder.bounds.offsetBy(dx: 0, dy: 12)
+            let adjustedRect = firstResponder.convert(offsetRect, to: scrollView)
+            scrollView.scrollRectToVisible(adjustedRect, animated: true)
+        }
     }
 }
+
+private extension UIView {
+    var firstResponder: UIView? {
+        guard !isFirstResponder else { return self }
+        
+        for subview in subviews {
+            if let firstResponder = subview.firstResponder {
+                return firstResponder
+            }
+        }
+        return nil
+    }
+}
+
 
 // MARK: - ConfigurableViewControllerProtocol
 extension AddIncoiceFormViewController: ConfigurableViewControllerProtocol {
     typealias ViewModelType = AddIncoiceFormViewModelProtocol
 }
-
 
 // MARK: - Instantiable
 extension AddIncoiceFormViewController: Instantiable { }

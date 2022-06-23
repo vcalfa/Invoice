@@ -44,11 +44,7 @@ class CameraViewModel: CameraViewModelInputs, CameraViewModelOutputs {
             .store(in: &cancellables)
         
         let finishAction = imageDidTake.map({ [invoice] image -> CameraDestination in
-            if let invoice = invoice {
-                return .finishAction(invoice: InvoiceItem(invoice: invoice, image: image))
-            }
-            let updatedInvoice = image.map({ InvoiceItem(image: $0) })
-            return .finishAction(invoice: updatedInvoice)
+            .finishAction(invoice: InvoiceItem(invoice: invoice, image: image))
         })
         
         actionCancel.map({ _ -> CameraDestination in .cancel })

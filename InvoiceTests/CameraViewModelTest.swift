@@ -11,10 +11,10 @@ import XCTest
 class CameraViewModelTest: XCTestCase {
 
 
-    func testCameraViewModelCase1() throws {
-        
-        let invoice = InvoiceItem(invoiceId: UUID(), date: Date.now, total: 0.0, currency: "$", note: "Notee", image: nil)
-        let viewModel = CameraViewModel(router: CameraRouter(nil), invoice: invoice)
-        
-    }
+//    func testCameraViewModelCase1() throws {
+//        
+//        let invoice = InvoiceItem(invoiceId: UUID(), date: Date.now, total: 0.0, currencyCode: "USD", note: "Notee", image: nil, imageId: nil)
+//        let viewModel = CameraViewModel(router: CameraRouter(nil), invoice: invoice)
+//        
+//    }
 }

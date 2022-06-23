@@ -13,7 +13,10 @@ struct AddIncoiceFormConfigurator: ConfiguratorProtocol {
     private let invoice: InvoiceItem?
     
     func configure(controller: Controller) -> Controller.ViewModelType {
-        return AddIncoiceFormViewModel(router: AddIncoiceFormRouter(controller), invoice: invoice)
+        return AddIncoiceFormViewModel(router: AddIncoiceFormRouter(controller),
+                                       invoiceManager: InvoiceManager(localStore: LocalStorage(),
+                                                                      imageStore: ImageStore()),
+                                       invoice: invoice)
     }
     
     init(invoice: InvoiceItem? = nil) {
