@@ -30,9 +30,16 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
         
         diffableDataSource = UICollectionViewDiffableDataSource<Int, NSManagedObjectID>(collectionView: collectionView) { [weak self]
             (collectionView, indexPath, objectID) -> UICollectionViewCell? in
-            guard let object = try? self?.managedObjectContext.existingObject(with: objectID) as? ResultType else {
-                fatalError("Managed object should be available")
+//            guard let object = try? self?.managedObjectContext.existingObject(with: objectID) as? ResultType else {
+//                return nil
+//                fatalError("Managed object should be available")
+//            }
+            if objectID.isTemporaryID {
+                let object = self?.managedObjectContext.object(with: objectID) as? ResultType
+                return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
             }
+            
+            let object = try? self?.managedObjectContext.existingObject(with: objectID) as? ResultType
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
         }
         
