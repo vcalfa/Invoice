@@ -9,6 +9,15 @@
           "revision": "4e262c2f9fb1cee1cb3be5717f7e6b55eb823971",
           "version": "0.4.0"
         }
+      },
+      {
+        "package": "CombineExt",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineExt.git",
+        "state": {
+          "branch": null,
+          "revision": "38a4d4cb01f8c7750671c786d33dfbea00cbd131",
+          "version": "1.6.1"
+        }
       }
     ]
   },

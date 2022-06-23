@@ -2,7 +2,7 @@
 //  Invoice+CoreDataProperties.swift
 //  Invoice
 //
-//  Created by Vladimir Calfa on 22/06/2022.
+//  Created by Vladimir Calfa on 23/06/2022.
 //
 //
 
@@ -16,12 +16,12 @@ extension Invoice {
         return NSFetchRequest<Invoice>(entityName: "Invoice")
     }
 
+    @NSManaged public var currencyCode: String?
+    @NSManaged public var date: Date?
+    @NSManaged public var imageId: UUID?
     @NSManaged public var invoiceId: UUID?
     @NSManaged public var note: String?
-    @NSManaged public var date: Date?
-    @NSManaged public var total: Double
-    @NSManaged public var imageId: UUID?
-    @NSManaged public var currencyCode: String?
+    @NSManaged public var total: NSNumber?
 
 }
 

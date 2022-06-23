@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import CoreData
 
 protocol LocalStoreProtocol {
+    
+    var getContext: NSManagedObjectContext? { get }
+
     func fetchAllInvoices() -> [Invoice]?
+    func fetch(invoiceId: UUID?) -> Invoice?    
 }

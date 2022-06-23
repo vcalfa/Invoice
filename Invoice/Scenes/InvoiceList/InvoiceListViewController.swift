@@ -108,7 +108,7 @@ extension InvoiceListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let menuItem = dataSource.itemIdentifier(for: indexPath) else { return }
         collectionView.deselectItem(at: indexPath, animated: true)
-        viewModel.inputs.tapDetailInvoice.send(menuItem.identifier)
+        menuItem.invoiceId.map { viewModel.inputs.tapDetailInvoice.send($0) }
     }
 }
 

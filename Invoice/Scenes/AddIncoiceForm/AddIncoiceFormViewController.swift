@@ -77,8 +77,19 @@ private extension AddIncoiceFormViewController {
             .store(in: &cancellables)
         
         navigationItem.leftBarButtonItem?
-            .publisher.map({ _ in () })
+            .publisher.map({
+                dump($0)
+                return ()
+            })
             .subscribe(viewModel.inputs.tapCancel)
+            .store(in: &cancellables)
+        
+        navigationItem.rightBarButtonItem?
+            .publisher.map({
+                dump($0)
+                return ()
+            })
+            .subscribe(viewModel.inputs.tapSaveAddAction)
             .store(in: &cancellables)
         
         noteTextView.valuePublisher
@@ -122,16 +133,10 @@ private extension AddIncoiceFormViewController {
     }
     
     private func updateRightBarButton(_ action: ActionType) -> UIBarButtonItem {
-        var barButtonItem: UIBarButtonItem!
         switch action {
-        case .edit: barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
-        case .add: barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        case .edit: return UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
+        case .add: return UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         }
-        
-        barButtonItem.publisher.map({ _ in () })
-            .subscribe(self.viewModel.inputs.tapSaveAddAction)
-            .store(in: &self.cancellables)
-        return barButtonItem
     }
 }
 

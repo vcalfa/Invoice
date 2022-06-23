@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CombineExt
 import UIKit
 
 class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormViewModelOutputs {
@@ -117,11 +118,11 @@ class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormView
         navigateToDestination
             .sink(receiveValue: router.route(to:))
             .store(in: &cancellables)
-
-        tapSaveAddAction
-            .combineLatest($updatedValue) { $1 }
+        
+        tapSaveAddAction.withLatestFrom($updatedValue)
             .compactMap({ $0 })
             .sink(receiveValue: { [weak self] invoice in
+                dump(invoice)
                 self?.invoiceManager.write(invoice, completition: { result in
                     dump(result)
                 })

@@ -27,6 +27,8 @@
 		E76029A6285E5247006B3237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76029A5285E5247006B3237 /* Assets.xcassets */; };
 		E76029A9285E5247006B3237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76029A7285E5247006B3237 /* LaunchScreen.storyboard */; };
 		E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */; };
+		E7A2A59028646DEC00EFE717 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = E7A2A58F28646DEC00EFE717 /* CombineExt */; };
+		E7A2A5942864B55000EFE717 /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A5932864B55000EFE717 /* Invoice+CoreDataProperties.swift */; };
 		E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */; };
 		E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */; };
 		E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D94C2862F82D005836CF /* MainModel.xcdatamodeld */; };
@@ -36,7 +38,6 @@
 		E7B7D97F286376A3005836CF /* InvoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D97E286376A3005836CF /* InvoiceManager.swift */; };
 		E7B7D981286376D4005836CF /* InvoiceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */; };
 		E7B7D984286382CA005836CF /* Invoice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */; };
-		E7B7D985286382CA005836CF /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D983286382CA005836CF /* Invoice+CoreDataProperties.swift */; };
 		E7B7D9882863A3FA005836CF /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E7B7D9872863A3FA005836CF /* CombineCocoa */; };
 		E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */; };
 		E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9715285F297E003C5F11 /* InvoiceItem.swift */; };
@@ -99,6 +100,7 @@
 		E76029AF285E5247006B3237 /* InvoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModelTest.swift; sourceTree = "<group>"; };
 		E76029DC285EA03E006B3237 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		E7A2A5932864B55000EFE717 /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.Publisher.swift; sourceTree = "<group>"; };
 		E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTest.swift; sourceTree = "<group>"; };
 		E7B7D94D2862F82D005836CF /* MainModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MainModel.xcdatamodel; sourceTree = "<group>"; };
@@ -108,7 +110,6 @@
 		E7B7D97E286376A3005836CF /* InvoiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManager.swift; sourceTree = "<group>"; };
 		E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManagerProtocol.swift; sourceTree = "<group>"; };
 		E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E7B7D983286382CA005836CF /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
 		E7CE9715285F297E003C5F11 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		E7CE9717285F68FD003C5F11 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A2A59028646DEC00EFE717 /* CombineExt in Frameworks */,
 				E7B7D9882863A3FA005836CF /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,7 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */,
-				E7B7D983286382CA005836CF /* Invoice+CoreDataProperties.swift */,
+				E7A2A5932864B55000EFE717 /* Invoice+CoreDataProperties.swift */,
 				E7B7D94C2862F82D005836CF /* MainModel.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -377,6 +379,7 @@
 			name = Invoice;
 			packageProductDependencies = (
 				E7B7D9872863A3FA005836CF /* CombineCocoa */,
+				E7A2A58F28646DEC00EFE717 /* CombineExt */,
 			);
 			productName = Invoice;
 			productReference = E7602999285E5245006B3237 /* Invoice.app */;
@@ -433,6 +436,7 @@
 			mainGroup = E7602990285E5245006B3237;
 			packageReferences = (
 				E7B7D9862863A3FA005836CF /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+				E7A2A58E28646DEC00EFE717 /* XCRemoteSwiftPackageReference "CombineExt" */,
 			);
 			productRefGroup = E760299A285E5245006B3237 /* Products */;
 			projectDirPath = "";
@@ -508,7 +512,7 @@
 				E7CE97FB2861B0EA003C5F11 /* InvoiceListConfigurator.swift in Sources */,
 				E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */,
 				E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */,
-				E7B7D985286382CA005836CF /* Invoice+CoreDataProperties.swift in Sources */,
+				E7A2A5942864B55000EFE717 /* Invoice+CoreDataProperties.swift in Sources */,
 				E7B7D981286376D4005836CF /* InvoiceManagerProtocol.swift in Sources */,
 				E7B7D984286382CA005836CF /* Invoice+CoreDataClass.swift in Sources */,
 				E7B7D97F286376A3005836CF /* InvoiceManager.swift in Sources */,
@@ -836,6 +840,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E7A2A58E28646DEC00EFE717 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		E7B7D9862863A3FA005836CF /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa";
@@ -847,6 +859,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E7A2A58F28646DEC00EFE717 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7A2A58E28646DEC00EFE717 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
 		E7B7D9872863A3FA005836CF /* CombineCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7B7D9862863A3FA005836CF /* XCRemoteSwiftPackageReference "CombineCocoa" */;

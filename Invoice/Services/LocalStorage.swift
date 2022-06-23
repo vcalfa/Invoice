@@ -20,8 +20,34 @@ class LocalStorage {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "MainModel")
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
+                
+                // Dangerous!!!! on any CoreData initialization error we delete
+                // the datastore with data and trying to initialize the CoreData stack again
+                
+                let storeCoordinator = container.persistentStoreCoordinator
+                
+                if let persistentStore = storeCoordinator.persistentStores.first,
+                   
+                    let url = persistentStore.url {
+                    if #available(iOS 15.0, *) {
+                        let type = NSPersistentStore.StoreType(rawValue: persistentStore.type)
+                        try? storeCoordinator.destroyPersistentStore(at: url, type: type, options: nil)
+                    } else {
+                        try? storeCoordinator.destroyPersistentStore(at: url, ofType: persistentStore.type, options: nil)
+                    }
+                    
+                    container.loadPersistentStores { (storeDescription, error) in
+                        if let error = error as NSError? {
+                            fatalError("Unresolved error \(error), \(error.userInfo)")
+                        }
+                    }
+                }
+                
+                
+                
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                  
@@ -54,12 +80,35 @@ class LocalStorage {
             }
         }
     }
-
 }
 
 
 extension LocalStorage: LocalStoreProtocol {
+    
+    var getContext: NSManagedObjectContext? {
+        persistentContainer.viewContext
+    }
+        
     func fetchAllInvoices() -> [Invoice]? {
-        return try? persistentContainer.viewContext.fetch(Invoice.fetchRequest())
+        return try? getContext?.fetch(Invoice.fetchRequest())
+    }
+    
+    func fetch(invoiceId: UUID?) -> Invoice? {
+        guard let invoiceId = invoiceId,
+              let managedContext = getContext else {
+            return nil
+        }
+        
+        let fetchRequest = NSFetchRequest<Invoice>(entityName: "Invoice")
+        fetchRequest.predicate = NSPredicate(format: "%K == %@", #keyPath(Invoice.invoiceId), invoiceId as CVarArg)
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            let result: [Invoice]? = try managedContext.fetch(fetchRequest)
+            return result?.first
+        } catch let error as NSError {
+           dump("Retrieving Invoice failed. \(error): \(error.userInfo)")
+           return nil
+        }
     }
 }

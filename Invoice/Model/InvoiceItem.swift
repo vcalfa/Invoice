@@ -27,11 +27,21 @@ extension InvoiceItem {
     init(_ coreDataObject: Invoice) {
         note = coreDataObject.note
         date = coreDataObject.date
-        total = coreDataObject.total
+        total = coreDataObject.total?.doubleValue
         currencyCode = coreDataObject.currencyCode
         imageId = coreDataObject.imageId
         invoiceId = coreDataObject.invoiceId
         image = nil
+    }
+    
+    init(invoiceId: UUID) {
+        self.invoiceId = invoiceId
+        date = nil
+        total = nil
+        currencyCode = nil
+        note = nil
+        image = nil
+        imageId = nil
     }
     
     init(invoice: Self?, image: UIImage? = nil, note: String? = nil, date: Date? = nil, total: Double? = nil) {
