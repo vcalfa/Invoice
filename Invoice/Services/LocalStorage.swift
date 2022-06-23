@@ -10,6 +10,8 @@ import CoreData
 
 class LocalStorage {
     
+    static let shared = LocalStorage()
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -24,8 +26,8 @@ class LocalStorage {
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 
-                // Dangerous!!!! on any CoreData initialization error we delete
-                // the datastore with data and trying to initialize the CoreData stack again
+                // Dangerous!!!! On anyone CoreData initialization error we delete
+                // the datastore with data and we try to initialize the CoreData stack again
                 
                 let storeCoordinator = container.persistentStoreCoordinator
                 
@@ -45,8 +47,6 @@ class LocalStorage {
                         }
                     }
                 }
-                
-                
                 
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.

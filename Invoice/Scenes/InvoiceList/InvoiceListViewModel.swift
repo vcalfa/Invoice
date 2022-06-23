@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelInputs, InvoiceListViewModelOutputs {
     
@@ -38,10 +39,12 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     
     //MARK: -
     
-    private var router: InvoiceListRouter
+    private let router: InvoiceListRouter
+    private let storage: LocalStoreProtocol
     
     init(router: InvoiceListRouter, storage: LocalStoreProtocol) {
         self.router = router
+        self.storage = storage
         
         outputs.navigateToDestination
             .sink(receiveValue: router.route(to:))
@@ -49,11 +52,13 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
         
         title = "Invoices"
         
-        itemsWrapper = storage.fetchAllInvoices()?.compactMap{ InvoiceItem($0) }
-        
         tapAddInvoice.map({ _ -> InvoiceListDestination in .addingInvoice })
             .merge(with: tapDetailInvoice.map({ id -> InvoiceListDestination in .detailInvoice(uuid: id) }))
             .subscribe(navigateToDestination)
             .store(in: &cancellables)
     }
+    
+    //MARK: The CoreData
+    
+    var managedObjectContext: NSManagedObjectContext? { storage.getContext }
 }

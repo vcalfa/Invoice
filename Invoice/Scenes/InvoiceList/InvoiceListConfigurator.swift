@@ -12,6 +12,6 @@ struct InvoiceListConfigurator: ConfiguratorProtocol {
     
     func configure(controller: Controller) -> Controller.ViewModelType {
         return InvoiceListViewModel(router: InvoiceListRouter(controller),
-                                    storage: LocalStorage())
+                                    storage: LocalStorage.shared)
     }
 }

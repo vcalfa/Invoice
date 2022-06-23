@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 //MARK: InvoiceListViewModelInputs
 
@@ -33,9 +34,9 @@ protocol InvoiceListViewModelOutputs {
     
     var title: String? { get }
     
-    var items: Published<[InvoiceItem]?>.Publisher { get }
-    
     var navigateToDestination: PassthroughSubject<InvoiceListDestination, Never> { get }
+    
+    var managedObjectContext: NSManagedObjectContext? { get }
 }
 
 

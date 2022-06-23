@@ -29,6 +29,7 @@
 		E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */; };
 		E7A2A59028646DEC00EFE717 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = E7A2A58F28646DEC00EFE717 /* CombineExt */; };
 		E7A2A5942864B55000EFE717 /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A5932864B55000EFE717 /* Invoice+CoreDataProperties.swift */; };
+		E7A2A5962865019B00EFE717 /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A5952865019A00EFE717 /* ListDataSource.swift */; };
 		E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */; };
 		E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */; };
 		E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D94C2862F82D005836CF /* MainModel.xcdatamodeld */; };
@@ -101,6 +102,7 @@
 		E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModelTest.swift; sourceTree = "<group>"; };
 		E76029DC285EA03E006B3237 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E7A2A5932864B55000EFE717 /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E7A2A5952865019A00EFE717 /* ListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
 		E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.Publisher.swift; sourceTree = "<group>"; };
 		E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTest.swift; sourceTree = "<group>"; };
 		E7B7D94D2862F82D005836CF /* MainModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MainModel.xcdatamodel; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				E7CE9719285F6943003C5F11 /* InvoiceListViewModelProtocol.swift */,
 				E7CE9722285FA140003C5F11 /* InvoiceListRouterProtocol.swift */,
 				E7CE972B285FDE52003C5F11 /* InvoiceListRouter.swift */,
+				E7A2A5952865019A00EFE717 /* ListDataSource.swift */,
 			);
 			path = InvoiceList;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				E7B7D981286376D4005836CF /* InvoiceManagerProtocol.swift in Sources */,
 				E7B7D984286382CA005836CF /* Invoice+CoreDataClass.swift in Sources */,
 				E7B7D97F286376A3005836CF /* InvoiceManager.swift in Sources */,
+				E7A2A5962865019B00EFE717 /* ListDataSource.swift in Sources */,
 				E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */,
 				E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */,
 				E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */,

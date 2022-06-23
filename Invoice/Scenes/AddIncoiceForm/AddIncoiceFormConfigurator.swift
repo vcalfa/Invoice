@@ -14,7 +14,7 @@ struct AddIncoiceFormConfigurator: ConfiguratorProtocol {
     
     func configure(controller: Controller) -> Controller.ViewModelType {
         return AddIncoiceFormViewModel(router: AddIncoiceFormRouter(controller),
-                                       invoiceManager: InvoiceManager(localStore: LocalStorage(),
+                                       invoiceManager: InvoiceManager(localStore: LocalStorage.shared,
                                                                       imageStore: ImageStore()),
                                        invoice: invoice)
     }
