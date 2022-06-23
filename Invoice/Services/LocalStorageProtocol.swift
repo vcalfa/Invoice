@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LocalStoreProtocol {
-    
+    func fetchAllInvoices() -> [Invoice]?
 }

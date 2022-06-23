@@ -115,19 +115,18 @@ extension InvoiceListViewController: UICollectionViewDelegate {
 //MARK: bind functions
 
 extension InvoiceListViewController {
-    func itemData(_ items: [Item]) {
-
+    
+    func itemData(_ items: [Item]?) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Item>()
         let sections = [0]
         snapshot.appendSections(sections)
         dataSource.apply(snapshot, animatingDifferences: false)
-
+        
         for section in sections {
             var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<Item>()
-            let headerItem = Item(note: "Section \(section)")
-            sectionSnapshot.append([headerItem])
-            sectionSnapshot.append(items, to: headerItem)
-            sectionSnapshot.expand([headerItem])
+            if let items = items {
+                sectionSnapshot.append(items)
+            }
             dataSource.apply(sectionSnapshot, to: section)
         }
     }

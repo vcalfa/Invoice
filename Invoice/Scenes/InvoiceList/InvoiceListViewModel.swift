@@ -19,9 +19,9 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     
     @Published private(set) var title: String?
     
-    @Published private var itemsWrapper: [InvoiceItem] = []
+    @Published private var itemsWrapper: [InvoiceItem]?
     
-    var items: Published<[InvoiceItem]>.Publisher { $itemsWrapper }
+    var items: Published<[InvoiceItem]?>.Publisher { $itemsWrapper }
     
     let navigateToDestination = PassthroughSubject<InvoiceListDestination, Never>()
     //MARK: -
@@ -49,7 +49,7 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
         
         title = "Invoices"
         
-        itemsWrapper = (1..<10).map({ InvoiceItem(note: "Invoice \($0)") })
+        itemsWrapper = storage.fetchAllInvoices()?.compactMap{ InvoiceItem($0) }
         
         tapAddInvoice.map({ _ -> InvoiceListDestination in .addingInvoice })
             .merge(with: tapDetailInvoice.map({ id -> InvoiceListDestination in .detailInvoice(uuid: id) }))

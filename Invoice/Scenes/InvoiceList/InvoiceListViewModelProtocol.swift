@@ -33,7 +33,7 @@ protocol InvoiceListViewModelOutputs {
     
     var title: String? { get }
     
-    var items: Published<Array<InvoiceItem>>.Publisher { get }
+    var items: Published<[InvoiceItem]?>.Publisher { get }
     
     var navigateToDestination: PassthroughSubject<InvoiceListDestination, Never> { get }
 }
