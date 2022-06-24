@@ -34,8 +34,8 @@ class ImageStore {
         }
     }
     
-    private func save(image: UIImage, location: DirectoryType) -> Result<UUID, ImageStoreError> {
-        let imageUUID = UUID()
+    private func save(image: UIImage, uuid: UUID?, location: DirectoryType) -> Result<UUID, ImageStoreError> {
+        let imageUUID = uuid ?? UUID()
         
         let existingImagePaths = documentsDirectories(location).compactMap {
                 $0.appendingPathComponent(imageUUID.uuidString)
@@ -83,8 +83,8 @@ class ImageStore {
 }
 
 extension ImageStore: ImageStoreProtocol {
-    func save(image: UIImage) -> Result<UUID, ImageStoreError> {
-        save(image: image, location: .invoiceImages)
+    func save(image: UIImage, uuid: UUID? = nil) -> Result<UUID, ImageStoreError> {
+        save(image: image, uuid: uuid, location: .invoiceImages)
     }
     
     func fetch(imageId: UUID) -> Result<(UIImage, UUID), ImageStoreError> {

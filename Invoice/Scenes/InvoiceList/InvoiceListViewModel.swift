@@ -11,7 +11,7 @@ import CoreData
 
 class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelInputs, InvoiceListViewModelOutputs {
     
-    static let generateRandomInvoices = 100
+    static let generateRandomInvoices = 20
     
     var inputs: InvoiceListViewModelInputs { self }
     var outputs: InvoiceListViewModelOutputs { self }
@@ -72,7 +72,7 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
                 for i in 1...Self.generateRandomInvoices {
                     dump(i, name: "Generate")
                     let invoice = InvoiceItem.random()
-                    self?.invoiceManager.write(invoice, completition: { result in
+                    self?.invoiceManager.save(invoice, completition: { result in
                         dump(result)
                     })
                 }

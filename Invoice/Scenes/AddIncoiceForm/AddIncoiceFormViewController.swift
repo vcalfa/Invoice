@@ -20,6 +20,7 @@ final class AddIncoiceFormViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var totalTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
+    @IBOutlet weak var currencyLabel: UILabel!
     
     private var gestureRecognizer: UITapGestureRecognizer {
         let doubleTap = UITapGestureRecognizer()
@@ -124,6 +125,10 @@ private extension AddIncoiceFormViewController {
 
         viewModel.outputs.date
             .assign(to: \.date, on: datePicker)
+            .store(in: &cancellables)
+        
+        viewModel.outputs.currencySymbol
+            .assign(to: \.text, on: currencyLabel)
             .store(in: &cancellables)
         
         viewModel.outputs.action

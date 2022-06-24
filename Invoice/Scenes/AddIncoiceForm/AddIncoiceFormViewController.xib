@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddIncoiceFormViewController" customModule="Invoice" customModuleProvider="target">
             <connections>
+                <outlet property="currencyLabel" destination="fTe-Dc-SfM" id="Pdc-d3-1q1"/>
                 <outlet property="datePicker" destination="OgX-4S-YIB" id="6ri-vY-Nhy"/>
                 <outlet property="imageview" destination="M8P-Z2-crm" id="n0H-rZ-LRC"/>
                 <outlet property="noteTextView" destination="KJv-mK-vuK" id="Uvq-xw-ybw"/>
@@ -40,7 +41,7 @@
                                 <constraint firstAttribute="width" constant="40" id="NAG-Za-48f"/>
                                 <constraint firstAttribute="height" constant="50" id="g0O-6C-mRW"/>
                             </constraints>
-                            <color key="tintColor" systemColor="labelColor"/>
+                            <color key="tintColor" systemColor="tintColor"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" image="tap"/>
                         </button>
@@ -61,20 +62,26 @@
                                         </datePicker>
                                     </subviews>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rS1-RQ-6zu">
+                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rS1-RQ-6zu">
                                     <rect key="frame" x="0.0" y="62" width="382" height="34"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jek-yB-Vh3">
-                                            <rect key="frame" x="0.0" y="0.0" width="229" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="208.5" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="55.0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gwq-Hx-Yzq">
-                                            <rect key="frame" x="229" y="0.0" width="153" height="34"/>
+                                            <rect key="frame" x="213.5" y="0.0" width="153" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" keyboardType="decimalPad" textContentType="flight-number"/>
                                         </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-Dc-SfM">
+                                            <rect key="frame" x="371.5" y="0.0" width="10.5" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Gwq-Hx-Yzq" firstAttribute="width" secondItem="rS1-RQ-6zu" secondAttribute="width" multiplier="0.4" id="YfF-zT-dGZ"/>
@@ -103,9 +110,9 @@
                     <constraints>
                         <constraint firstItem="M8P-Z2-crm" firstAttribute="top" secondItem="Lhj-vT-sU1" secondAttribute="top" id="3zE-Fj-kzQ"/>
                         <constraint firstItem="M8P-Z2-crm" firstAttribute="leading" secondItem="Lhj-vT-sU1" secondAttribute="leading" id="H7D-tP-Pwu"/>
+                        <constraint firstItem="0xA-LM-Kk0" firstAttribute="trailing" secondItem="OgX-4S-YIB" secondAttribute="trailing" id="Jvl-13-wpe"/>
                         <constraint firstItem="mKm-pW-Zfq" firstAttribute="bottom" secondItem="piu-PK-yLM" secondAttribute="bottom" constant="12" id="Mu0-nt-9r2"/>
                         <constraint firstItem="0xA-LM-Kk0" firstAttribute="bottom" secondItem="M8P-Z2-crm" secondAttribute="bottom" constant="-4" id="WWL-6D-dqS"/>
-                        <constraint firstItem="0xA-LM-Kk0" firstAttribute="trailing" secondItem="Gwq-Hx-Yzq" secondAttribute="trailing" id="ZAk-Y6-7zA"/>
                         <constraint firstAttribute="trailing" secondItem="M8P-Z2-crm" secondAttribute="trailing" id="Zt3-kv-7Cn"/>
                         <constraint firstItem="piu-PK-yLM" firstAttribute="top" secondItem="M8P-Z2-crm" secondAttribute="bottom" constant="12" id="fgt-dm-X7j"/>
                     </constraints>
@@ -138,6 +145,9 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

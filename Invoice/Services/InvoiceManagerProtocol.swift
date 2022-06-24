@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol InvoiceManagerProtocol {
-    func write(_ invoice: InvoiceItem, completition: ((Result<InvoiceItem, StoreError>) -> ())?)
-    func getImage(for_ invoice: InvoiceItem, completition: ((Result<UIImage, Error>) -> ())?)
-    func getInvoice(invoiceId: UUID, completition: ((Result<InvoiceItem, Error>) -> ())?)
+    func save(_ invoice: InvoiceItem, completition: ((Result<InvoiceItem, StoreError>) -> ())?)
+    func getImage(for invoice: InvoiceItem, completition: ((Result<UIImage?, ImageStoreError>) -> ())?)
+    func getInvoice(invoiceId: UUID, completition: ((Result<InvoiceItem, StoreError>) -> ())?)
 }

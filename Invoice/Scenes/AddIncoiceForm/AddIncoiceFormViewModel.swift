@@ -40,6 +40,9 @@ class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormView
     
     @Published private(set) var _total: String?
     var total: Published<String?>.Publisher { $_total }
+    
+    @Published private(set) var _currencySymbol: String?
+    var currencySymbol: Published<String?>.Publisher { $_currencySymbol }
                                             
     @Published private(set) var _action: ActionType = .add
     var action: Published<ActionType>.Publisher { $_action }
@@ -70,32 +73,47 @@ class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormView
     let dateUpdated = PassthroughSubject<Date, Never>()
     
     //MARK: -
+    private let initialValue = CurrentValueSubject<InvoiceItem?, Never>(nil)
+    private let initialUUIDValue = CurrentValueSubject<UUID?, Never>(nil)
     private let router: AddIncoiceFormRouter
     private let invoiceManager: InvoiceManagerProtocol
-    private let initialValue: InvoiceItem?
     private let locale: Locale
     
     init(router: AddIncoiceFormRouter,
          invoiceManager: InvoiceManagerProtocol,
          invoice: InvoiceItem? = nil,
+         invoiceID: UUID? = nil,
          locale: Locale = Locale.current)
     {
         self.router = router
         self.invoiceManager = invoiceManager
         self.locale = locale
-        initialValue = invoice
-        setModel(invoice)
+        initialValue.send(invoice)
+        initialUUIDValue.send(invoiceID)
         bindNavigation()
         bindUpdateInvoice()
     }
     
     private func bindUpdateInvoice() {
         
-//        updatedValue.publisher
-//            .sink { invoice in
-//                dump(invoice, name: "new invoice")
-//            }
-//            .store(in: &cancellables)
+        initialValue
+            .sink(receiveValue: setModel)
+            .store(in: &cancellables)
+        
+        initialUUIDValue
+            .compactMap({ $0 })
+            .sink(receiveValue: { [weak self] invoiceId in
+                self?.invoiceManager.getInvoice(invoiceId: invoiceId, completition: { result in
+                    dump(result)
+                    switch result {
+                    case .success(let invoice):
+                        self?.setModel(invoice)
+                    case .failure(_):
+                        break
+                    }
+                })
+            })
+            .store(in: &cancellables)
         
         noteUpdated.combineLatest($updatedValue)
             .map { InvoiceItem(invoice: $1, note: $0) }
@@ -123,8 +141,9 @@ class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormView
             .compactMap({ $0 })
             .sink(receiveValue: { [weak self] invoice in
                 dump(invoice)
-                self?.invoiceManager.write(invoice, completition: { result in
+                self?.invoiceManager.save(invoice, completition: { result in
                     dump(result)
+                    self?.tapCancel.send(())
                 })
             })
             .store(in: &cancellables)
@@ -142,8 +161,22 @@ class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormView
     }
     
     private func setModel(_ invoice: InvoiceItem?) {
-        _image = invoice?.image
+        
+        if let image = invoice?.image {
+            _image = image
+        }
+        else if let invoice = invoice, let _ = invoice.imageId {
+            invoiceManager.getImage(for: invoice) { [weak self] resul in
+                switch resul {
+                case .success(let image):
+                    self?._image = image
+                case .failure(_):
+                    self?._image = nil
+                }
+            }
+        }
         _date = invoice?.date ?? Date()
+        _currencySymbol = invoice?.currencyCode.map({ $0.currencySymbol })
         _total = invoice.flatMap { $0.total }
                        .flatMap { totalFormater.string(from: NSNumber(value: $0)) }
         _note = invoice?.note

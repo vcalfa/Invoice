@@ -65,6 +65,10 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
     
     func getObject(for indexPath: IndexPath) -> ResultType? {
         guard let objectID = diffableDataSource.itemIdentifier(for: indexPath) else { return nil }
+        if objectID.isTemporaryID {
+            let object = managedObjectContext.object(with: objectID) as? ResultType
+            return object
+        }
         return try? managedObjectContext.existingObject(with: objectID) as? ResultType
     }
 
@@ -76,6 +80,14 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
             guard let currentIndex = currentSnapshot.indexOfItem(itemIdentifier), let index = snapshot.indexOfItem(itemIdentifier), index == currentIndex else {
                 return nil
             }
+            
+            if itemIdentifier.isTemporaryID {
+                let object = managedObjectContext.object(with: itemIdentifier)
+                if object.isUpdated {
+                    return itemIdentifier
+                }
+            }
+            
             guard let existingObject = try? managedObjectContext.existingObject(with: itemIdentifier),
                   existingObject.isUpdated
             else {

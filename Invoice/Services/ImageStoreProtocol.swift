@@ -15,6 +15,6 @@ enum ImageStoreError: Error, Equatable {
 }
 
 protocol ImageStoreProtocol {
-    func save(image: UIImage) -> Result<UUID, ImageStoreError>
+    func save(image: UIImage, uuid: UUID?) -> Result<UUID, ImageStoreError>
     func fetch(imageId: UUID) -> Result<(UIImage, UUID), ImageStoreError>
 }

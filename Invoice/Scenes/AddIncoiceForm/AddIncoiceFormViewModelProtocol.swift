@@ -54,6 +54,8 @@ protocol AddIncoiceFormViewModelOutputs {
 
     var total: Published<String?>.Publisher { get }
     
+    var currencySymbol: Published<String?>.Publisher { get }
+    
     var action: Published<ActionType>.Publisher { get }
     
     var navigateToDestination: PassthroughSubject<AddIncoiceFormDestination, Never> { get }
