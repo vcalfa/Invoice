@@ -109,10 +109,9 @@ extension InvoiceListViewController {
     
     private func invoiceFetchRequest() -> NSFetchRequest<CoreDataItem> {
         let request = NSFetchRequest<CoreDataItem>(entityName: "Invoice")
-        let dateSort = NSSortDescriptor(key: "date", ascending: true)
+        let dateSort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [dateSort]
         request.fetchBatchSize = 50
-        //request.fetchLimit = 20  // WTF!!! dot set fetch limit,.... but fetchBatchSize !!!!!
         return request
     }
 }
