@@ -62,6 +62,9 @@ class LocalStorage {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        
         return container
     }()
 
@@ -85,17 +88,20 @@ class LocalStorage {
 
 extension LocalStorage: LocalStoreProtocol {
     
-    var getContext: NSManagedObjectContext? {
+    var viewContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
         
     func fetchAllInvoices() -> [Invoice]? {
-        return try? getContext?.fetch(Invoice.fetchRequest())
+        return try? viewContext.fetch(Invoice.fetchRequest())
     }
     
     func fetch(invoiceId: UUID?) -> Invoice? {
-        guard let invoiceId = invoiceId,
-              let managedContext = getContext else {
+        fetch(invoiceId: invoiceId, context: viewContext)
+    }
+    
+    private func fetch(invoiceId: UUID?, context: NSManagedObjectContext) -> Invoice? {
+        guard let invoiceId = invoiceId else {
             return nil
         }
         
@@ -104,11 +110,37 @@ extension LocalStorage: LocalStoreProtocol {
         fetchRequest.fetchLimit = 1
         
         do {
-            let result: [Invoice]? = try managedContext.fetch(fetchRequest)
+            let result: [Invoice]? = try context.fetch(fetchRequest)
             return result?.first
         } catch let error as NSError {
            dump("Retrieving Invoice failed. \(error): \(error.userInfo)")
            return nil
+        }
+    }
+    
+    func save(invoice: InvoiceItem, completition: ((Result<InvoiceItem, Error>) -> ())?) {
+
+        persistentContainer.performBackgroundTask { [weak self] backgroundContext in
+
+            var storedInvoice = self?.fetch(invoiceId: invoice.invoiceId, context: backgroundContext)
+            
+            if let updateInvoice = storedInvoice {
+                updateInvoice.update(with: invoice)
+            } else {
+                let newInvoice = Invoice(context: backgroundContext)
+                newInvoice.invoiceId = UUID()
+                newInvoice.update(with: invoice)
+                storedInvoice = newInvoice
+            }
+
+            do {
+                try backgroundContext.save()
+                
+                completition?(.success(invoice))
+            } catch let error as NSError {
+                dump("Failed to save session data! \(error): \(error.userInfo)")
+                completition?(.failure(error))
+            }
         }
     }
 }

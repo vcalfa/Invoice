@@ -54,6 +54,16 @@ extension InvoiceItem {
         invoiceId = invoice?.invoiceId
         imageId = invoice?.imageId
     }
+    
+    init(invoice: Self, imageId: UUID? = nil) {
+        self.image = invoice.image
+        self.note = invoice.note
+        self.date = invoice.date
+        self.total =  invoice.total
+        currencyCode = invoice.currencyCode
+        invoiceId = invoice.invoiceId
+        self.imageId = imageId ?? invoice.imageId
+    }
 }
 
 extension InvoiceItem {

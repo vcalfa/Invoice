@@ -11,7 +11,7 @@ import CoreData
 
 class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelInputs, InvoiceListViewModelOutputs {
     
-    static let generateRandomInvoices = 20
+    static let generateRandomInvoices = 5
     
     var inputs: InvoiceListViewModelInputs { self }
     var outputs: InvoiceListViewModelOutputs { self }
@@ -73,7 +73,9 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
                     dump(i, name: "Generate")
                     let invoice = InvoiceItem.random()
                     self?.invoiceManager.save(invoice, completition: { result in
-                        dump(result)
+                        DispatchQueue.main.async {
+                            dump(result)
+                        }
                     })
                 }
             })
@@ -82,5 +84,5 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     
     //MARK: The CoreData
     
-    var managedObjectContext: NSManagedObjectContext? { storage.getContext }
+    var managedObjectContext: NSManagedObjectContext? { storage.viewContext }
 }

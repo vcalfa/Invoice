@@ -143,7 +143,9 @@ class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormView
                 dump(invoice)
                 self?.invoiceManager.save(invoice, completition: { result in
                     dump(result)
-                    self?.tapCancel.send(())
+                    DispatchQueue.main.async {
+                        self?.tapCancel.send(())
+                    }
                 })
             })
             .store(in: &cancellables)

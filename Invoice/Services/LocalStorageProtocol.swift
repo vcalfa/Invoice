@@ -10,8 +10,9 @@ import CoreData
 
 protocol LocalStoreProtocol {
     
-    var getContext: NSManagedObjectContext? { get }
+    var viewContext: NSManagedObjectContext { get }
 
     func fetchAllInvoices() -> [Invoice]?
-    func fetch(invoiceId: UUID?) -> Invoice?    
+    func fetch(invoiceId: UUID?) -> Invoice?
+    func save(invoice: InvoiceItem, completition: ((Result<InvoiceItem, Error>) -> ())?)
 }

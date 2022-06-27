@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum StoreError: Error {
-    case crazyCoreData
     case notFound
+    case notSaved
 }
 
 class InvoiceManager: InvoiceManagerProtocol {
@@ -18,35 +18,34 @@ class InvoiceManager: InvoiceManagerProtocol {
     private let localStore: LocalStoreProtocol
     private let imageStore: ImageStoreProtocol
     
+    private let savaQueue = DispatchQueue(label: "InvoiceManager.save")
+    
     public init(localStore: LocalStoreProtocol, imageStore: ImageStoreProtocol) {
         self.localStore = localStore
         self.imageStore = imageStore
     }
     
     func save(_ invoice: InvoiceItem, completition: ((Result<InvoiceItem, StoreError>) -> ())?) {
-        guard let managedContext = localStore.getContext else {
-            completition?(.failure(.crazyCoreData))
-            return
-        }
         
-        let result = saveImage(invoice)
-        var storedInvoice = localStore.fetch(invoiceId: invoice.invoiceId)
-        if let updateInvoice = storedInvoice {
-            updateInvoice.update(with: invoice)
-        } else {
-            let newInvoice = Invoice(context: managedContext)
-            newInvoice.invoiceId = UUID()
-            newInvoice.update(with: invoice)
-            newInvoice.imageId = result.flatMap({ try? $0.get() })
-            storedInvoice = newInvoice
-        }
-        
-        do {
-            try managedContext.save()
-            completition?(.success(invoice))
-        } catch let error as NSError {
-            dump("Failed to save session data! \(error): \(error.userInfo)")
-            completition?(.failure(.crazyCoreData))
+        savaQueue.async { [weak self] in
+            guard let self = self else {
+                completition?(.failure(.notSaved))
+                return
+            }
+            
+            let imageSaveResult = self.saveImage(invoice)
+            
+            let imageId = imageSaveResult.flatMap({ try? $0.get() })
+            let saveInvoice = InvoiceItem(invoice: invoice, imageId: imageId)
+            
+            self.localStore.save(invoice: saveInvoice) { result in
+                switch result {
+                case .success:
+                    completition?(.success(invoice))
+                case .failure:
+                    completition?(.failure(.notSaved))
+                }
+            }
         }
     }
     
