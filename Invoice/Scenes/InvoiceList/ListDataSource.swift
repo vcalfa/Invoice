@@ -16,30 +16,33 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
     private weak var collectionView: UICollectionView?
     
     private var fetchedResultsController: NSFetchedResultsController<ResultType>!
-    private var diffableDataSource: UICollectionViewDiffableDataSource<Int, NSManagedObjectID>!
+    private var diffableDataSource: UICollectionViewDiffableDataSource<Date, NSManagedObjectID>!
     
     private let managedObjectContext: NSManagedObjectContext
+    private let bgManagedObjectContext: NSManagedObjectContext
     
     init(collectionView: UICollectionView,
          managedObjectContext: NSManagedObjectContext,
+         bgManagedObjectContext: NSManagedObjectContext,
          fetchrequest: NSFetchRequest<ResultType>,
          cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, ResultType>) {
         self.collectionView = collectionView
         self.managedObjectContext = managedObjectContext
+        self.bgManagedObjectContext = bgManagedObjectContext
         super.init()
         
-        diffableDataSource = UICollectionViewDiffableDataSource<Int, NSManagedObjectID>(collectionView: collectionView) { [weak self]
+        diffableDataSource = UICollectionViewDiffableDataSource<Date, NSManagedObjectID>(collectionView: collectionView) { [weak self]
             (collectionView, indexPath, objectID) -> UICollectionViewCell? in
 //            guard let object = try? self?.managedObjectContext.existingObject(with: objectID) as? ResultType else {
 //                return nil
 //                fatalError("Managed object should be available")
 //            }
             if objectID.isTemporaryID {
-                let object = self?.managedObjectContext.object(with: objectID) as? ResultType
+                let object = self?.bgManagedObjectContext.object(with: objectID) as? ResultType
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
             }
             
-            let object = try? self?.managedObjectContext.existingObject(with: objectID) as? ResultType
+            let object = try? self?.bgManagedObjectContext.existingObject(with: objectID) as? ResultType
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
         }
         
@@ -49,8 +52,8 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
     private func initializeFetchedResultsController(fetchRequest: NSFetchRequest<ResultType>) {
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                              managedObjectContext: managedObjectContext,
-                                                              sectionNameKeyPath: nil,
+                                                              managedObjectContext: bgManagedObjectContext,
+                                                              sectionNameKeyPath: "section",
                                                               cacheName: nil)
         fetchedResultsController.delegate = self
     }
@@ -66,15 +69,15 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
     func getObject(for indexPath: IndexPath) -> ResultType? {
         guard let objectID = diffableDataSource.itemIdentifier(for: indexPath) else { return nil }
         if objectID.isTemporaryID {
-            let object = managedObjectContext.object(with: objectID) as? ResultType
+            let object = bgManagedObjectContext.object(with: objectID) as? ResultType
             return object
         }
-        return try? managedObjectContext.existingObject(with: objectID) as? ResultType
+        return try? bgManagedObjectContext.existingObject(with: objectID) as? ResultType
     }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-        var snapshot = snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
-        let currentSnapshot = diffableDataSource.snapshot() as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
+        var snapshot = snapshot as NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>
+        let currentSnapshot = diffableDataSource.snapshot() as NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>
 
         let reloadIdentifiers: [NSManagedObjectID] = snapshot.itemIdentifiers.compactMap { itemIdentifier in
             guard let currentIndex = currentSnapshot.indexOfItem(itemIdentifier), let index = snapshot.indexOfItem(itemIdentifier), index == currentIndex else {
@@ -82,13 +85,13 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
             }
             
             if itemIdentifier.isTemporaryID {
-                let object = managedObjectContext.object(with: itemIdentifier)
+                let object = bgManagedObjectContext.object(with: itemIdentifier)
                 if object.isUpdated {
                     return itemIdentifier
                 }
             }
             
-            guard let existingObject = try? managedObjectContext.existingObject(with: itemIdentifier),
+            guard let existingObject = try? bgManagedObjectContext.existingObject(with: itemIdentifier),
                   existingObject.isUpdated
             else {
                 return nil
@@ -97,7 +100,9 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
         }
         snapshot.reloadItems(reloadIdentifiers)
 
-        let shouldAnimate = collectionView?.numberOfSections != 0
-        diffableDataSource.apply(snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>, animatingDifferences: shouldAnimate)
+        DispatchQueue.main.async {
+            let shouldAnimate = self.collectionView?.numberOfSections != 0
+            self.diffableDataSource.apply(snapshot as NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>, animatingDifferences: shouldAnimate)
+        }
     }
 }

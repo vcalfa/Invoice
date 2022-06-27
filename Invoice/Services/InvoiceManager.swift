@@ -18,7 +18,7 @@ class InvoiceManager: InvoiceManagerProtocol {
     private let localStore: LocalStoreProtocol
     private let imageStore: ImageStoreProtocol
     
-    private let savaQueue = DispatchQueue(label: "InvoiceManager.save")
+    private let savaQueue = DispatchQueue(label: "InvoiceManager.save", qos: .utility)
     
     public init(localStore: LocalStoreProtocol, imageStore: ImageStoreProtocol) {
         self.localStore = localStore

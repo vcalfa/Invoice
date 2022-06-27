@@ -11,7 +11,7 @@ import CoreData
 
 class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelInputs, InvoiceListViewModelOutputs {
     
-    static let generateRandomInvoices = 5
+    static let generateRandomInvoices = 50
     
     var inputs: InvoiceListViewModelInputs { self }
     var outputs: InvoiceListViewModelOutputs { self }
@@ -85,4 +85,6 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     //MARK: The CoreData
     
     var managedObjectContext: NSManagedObjectContext? { storage.viewContext }
+    
+    var bgManagedObjectContext: NSManagedObjectContext? { storage.bgViewContext }
 }

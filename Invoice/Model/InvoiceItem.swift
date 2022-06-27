@@ -71,7 +71,7 @@ extension InvoiceItem {
     static func random() -> Self {
         let image = ["IMG_1529", "IMG_1530", "IMG_1531"].randomElement().flatMap { UIImage(named: $0) }
         let currency = ["CZK", "USD", "EUR", "DKK"].randomElement() ?? "EUR"
-        let date = Date.randomBetween(start: Date.parse("2000-01-01"), end: Date())
+        let date = Date.randomBetween(start: Date.parse("2020-01-01"), end: Date())
         return InvoiceItem(invoiceId: nil ,date: date, total: Double.random(min: 0.00, max: 9900.0), currencyCode: currency, note: Lorem.sentences(1), image: image, imageId: nil)
     }
 }

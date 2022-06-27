@@ -102,6 +102,7 @@ extension InvoiceListViewController {
         
         dataSource = ListDataSource(collectionView: collectionView,
                                     managedObjectContext: viewModel.outputs.managedObjectContext!,
+                                    bgManagedObjectContext: viewModel.outputs.bgManagedObjectContext!,
                                     fetchrequest: invoiceFetchRequest(),
                                     cellRegistration: cellRegistration)
         

@@ -2,7 +2,7 @@
 //  Invoice+CoreDataProperties.swift
 //  Invoice
 //
-//  Created by Vladimir Calfa on 23/06/2022.
+//  Created by Vladimir Calfa on 28/06/2022.
 //
 //
 
@@ -22,6 +22,7 @@ extension Invoice {
     @NSManaged public var invoiceId: UUID?
     @NSManaged public var note: String?
     @NSManaged public var total: NSNumber?
+    @NSManaged public var section: Date?
 
 }
 

@@ -64,7 +64,8 @@ class LocalStorage {
         })
         
         container.viewContext.automaticallyMergesChangesFromParent = true
-        
+        bgViewContext = container.newBackgroundContext()
+        bgViewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
 
@@ -83,6 +84,8 @@ class LocalStorage {
             }
         }
     }
+    
+    var bgViewContext: NSManagedObjectContext!
 }
 
 
@@ -91,6 +94,10 @@ extension LocalStorage: LocalStoreProtocol {
     var viewContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
+    
+//    var bgViewContext: NSManagedObjectContext {
+//        persistentContainer.newBackgroundContext()
+//    }
         
     func fetchAllInvoices() -> [Invoice]? {
         return try? viewContext.fetch(Invoice.fetchRequest())
@@ -119,9 +126,13 @@ extension LocalStorage: LocalStoreProtocol {
     }
     
     func save(invoice: InvoiceItem, completition: ((Result<InvoiceItem, Error>) -> ())?) {
+        let backgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        backgroundContext.parent = bgViewContext
+        backgroundContext.automaticallyMergesChangesFromParent = true
+        backgroundContext.perform { [weak self]  in
 
-        persistentContainer.performBackgroundTask { [weak self] backgroundContext in
-
+            
+            
             var storedInvoice = self?.fetch(invoiceId: invoice.invoiceId, context: backgroundContext)
             
             if let updateInvoice = storedInvoice {
@@ -135,6 +146,11 @@ extension LocalStorage: LocalStoreProtocol {
 
             do {
                 try backgroundContext.save()
+                
+                backgroundContext.parent?.perform {
+                    // Save viewContext on the main queue in order to store changes persistently
+                    try? backgroundContext.parent?.save()
+                }
                 
                 completition?(.success(invoice))
             } catch let error as NSError {

@@ -39,6 +39,8 @@ protocol InvoiceListViewModelOutputs {
     var navigateToDestination: PassthroughSubject<InvoiceListDestination, Never> { get }
     
     var managedObjectContext: NSManagedObjectContext? { get }
+    
+    var bgManagedObjectContext: NSManagedObjectContext? { get }
 }
 
 
