@@ -25,7 +25,8 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
          managedObjectContext: NSManagedObjectContext,
          bgManagedObjectContext: NSManagedObjectContext,
          fetchrequest: NSFetchRequest<ResultType>,
-         cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, ResultType>) {
+         cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, ResultType>,
+         headerRegistration: UICollectionView.SupplementaryRegistration<UICollectionReusableView>) {
         self.collectionView = collectionView
         self.managedObjectContext = managedObjectContext
         self.bgManagedObjectContext = bgManagedObjectContext
@@ -45,6 +46,28 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
             let object = try? self?.bgManagedObjectContext.existingObject(with: objectID) as? ResultType
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
         }
+        
+        diffableDataSource?.supplementaryViewProvider = { [weak self] (collectionView: UICollectionView,
+                                                           kind: String,
+                                                           indexPath: IndexPath) -> UICollectionReusableView? in
+            let header: UICollectionReusableView = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
+
+            header.backgroundColor = .lightGray
+            
+            let currentSnapshot = self?.diffableDataSource?.snapshot() as? NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>
+            let x = indexPath.section
+            
+            
+//            let sectionss = self?.diffableDataSource?.snapshot().sectionIdentifiers[indexPath.section]
+            
+//            if let section = currentSnapshot?.sectionIdentifiers[x] as? Date {
+//                dump(section)
+//                header.label.text = "\(section)"
+//            }
+            return header
+        }
+
+        
         
         initializeFetchedResultsController(fetchRequest: fetchrequest)
     }

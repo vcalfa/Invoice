@@ -79,7 +79,7 @@ extension InvoiceListViewController {
     private func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { section, layoutEnvironment in
             var config = UICollectionLayoutListConfiguration(appearance: .plain)
-            config.headerMode = .none
+            config.headerMode = .supplementary
             return NSCollectionLayoutSection.list(using: config, layoutEnvironment: layoutEnvironment)
         }
     }
@@ -93,6 +93,15 @@ extension InvoiceListViewController {
 //            cell.accessories = [.outlineDisclosure()]
 //        }
         
+        
+        let headerRegistration = UICollectionView.SupplementaryRegistration
+            <UICollectionReusableView>(elementKind: UICollectionView.elementKindSectionHeader) {
+            supplementaryView, string, indexPath in
+//            supplementaryView.label.text = "\(string) for section \(indexPath.section)"
+            supplementaryView.backgroundColor = .lightGray
+        }
+        
+        
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, CoreDataItem> { (cell, indexPath, item) in
             var content = cell.defaultContentConfiguration()
             content.text = item.note
@@ -104,7 +113,8 @@ extension InvoiceListViewController {
                                     managedObjectContext: viewModel.outputs.managedObjectContext!,
                                     bgManagedObjectContext: viewModel.outputs.bgManagedObjectContext!,
                                     fetchrequest: invoiceFetchRequest(),
-                                    cellRegistration: cellRegistration)
+                                    cellRegistration: cellRegistration,
+                                    headerRegistration: headerRegistration)
         
     }
     
