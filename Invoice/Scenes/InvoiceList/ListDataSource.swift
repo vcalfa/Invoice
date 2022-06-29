@@ -13,10 +13,12 @@ import UIKit
 
 class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResultsControllerDelegate where ResultType: Hashable {
     
+    private typealias SectionType = String
+
     private weak var collectionView: UICollectionView?
     
     private var fetchedResultsController: NSFetchedResultsController<ResultType>!
-    private var diffableDataSource: UICollectionViewDiffableDataSource<Date, NSManagedObjectID>!
+    private var diffableDataSource: UICollectionViewDiffableDataSource<SectionType, NSManagedObjectID>!
     
     private let managedObjectContext: NSManagedObjectContext
     private let bgManagedObjectContext: NSManagedObjectContext
@@ -25,19 +27,16 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
          managedObjectContext: NSManagedObjectContext,
          bgManagedObjectContext: NSManagedObjectContext,
          fetchrequest: NSFetchRequest<ResultType>,
+         sectionNameKeyPath: String?,
          cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, ResultType>,
-         headerRegistration: UICollectionView.SupplementaryRegistration<UICollectionReusableView>) {
+         headerRegistration: UICollectionView.SupplementaryRegistration<InvoceListHeaderCell>) {
         self.collectionView = collectionView
         self.managedObjectContext = managedObjectContext
         self.bgManagedObjectContext = bgManagedObjectContext
         super.init()
         
-        diffableDataSource = UICollectionViewDiffableDataSource<Date, NSManagedObjectID>(collectionView: collectionView) { [weak self]
+        diffableDataSource = UICollectionViewDiffableDataSource<SectionType, NSManagedObjectID>(collectionView: collectionView) { [weak self]
             (collectionView, indexPath, objectID) -> UICollectionViewCell? in
-//            guard let object = try? self?.managedObjectContext.existingObject(with: objectID) as? ResultType else {
-//                return nil
-//                fatalError("Managed object should be available")
-//            }
             if objectID.isTemporaryID {
                 let object = self?.bgManagedObjectContext.object(with: objectID) as? ResultType
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
@@ -47,36 +46,22 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
         }
         
-        diffableDataSource?.supplementaryViewProvider = { [weak self] (collectionView: UICollectionView,
-                                                           kind: String,
-                                                           indexPath: IndexPath) -> UICollectionReusableView? in
-            let header: UICollectionReusableView = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
-
-            header.backgroundColor = .lightGray
-            
-            let currentSnapshot = self?.diffableDataSource?.snapshot() as? NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>
-            let x = indexPath.section
-            
-            
-//            let sectionss = self?.diffableDataSource?.snapshot().sectionIdentifiers[indexPath.section]
-            
-//            if let section = currentSnapshot?.sectionIdentifiers[x] as? Date {
-//                dump(section)
-//                header.label.text = "\(section)"
-//            }
+        diffableDataSource?.supplementaryViewProvider = { (collectionView, string, indexPath) -> InvoceListHeaderCell in
+            let header = collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
+            let currentSnapshot = self.diffableDataSource?.snapshot()
+            let section = currentSnapshot?.sectionIdentifiers[indexPath.section]
+            header.title.text = section
             return header
         }
-
         
-        
-        initializeFetchedResultsController(fetchRequest: fetchrequest)
+        initializeFetchedResultsController(fetchRequest: fetchrequest, sectionNameKeyPath: sectionNameKeyPath)
     }
     
-    private func initializeFetchedResultsController(fetchRequest: NSFetchRequest<ResultType>) {
+    private func initializeFetchedResultsController(fetchRequest: NSFetchRequest<ResultType>, sectionNameKeyPath: String?) {
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                               managedObjectContext: bgManagedObjectContext,
-                                                              sectionNameKeyPath: "section",
+                                                              sectionNameKeyPath: sectionNameKeyPath,
                                                               cacheName: nil)
         fetchedResultsController.delegate = self
     }
@@ -99,8 +84,8 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
     }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-        var snapshot = snapshot as NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>
-        let currentSnapshot = diffableDataSource.snapshot() as NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>
+        var snapshot = snapshot as NSDiffableDataSourceSnapshot<SectionType, NSManagedObjectID>
+        let currentSnapshot = diffableDataSource.snapshot() as NSDiffableDataSourceSnapshot<SectionType, NSManagedObjectID>
 
         let reloadIdentifiers: [NSManagedObjectID] = snapshot.itemIdentifiers.compactMap { itemIdentifier in
             guard let currentIndex = currentSnapshot.indexOfItem(itemIdentifier), let index = snapshot.indexOfItem(itemIdentifier), index == currentIndex else {
@@ -125,7 +110,7 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
 
         DispatchQueue.main.async {
             let shouldAnimate = self.collectionView?.numberOfSections != 0
-            self.diffableDataSource.apply(snapshot as NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>, animatingDifferences: shouldAnimate)
+            self.diffableDataSource.apply(snapshot as NSDiffableDataSourceSnapshot<SectionType, NSManagedObjectID>, animatingDifferences: shouldAnimate)
         }
     }
 }

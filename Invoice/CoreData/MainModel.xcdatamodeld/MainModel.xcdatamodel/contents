@@ -6,10 +6,9 @@
         <attribute name="imageId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="invoiceId" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="note" optional="YES" attributeType="String"/>
-        <attribute name="section" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="total" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="NSNumber"/>
     </entity>
     <elements>
-        <element name="Invoice" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Invoice" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

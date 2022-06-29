@@ -74,12 +74,24 @@ extension InvoiceListViewController {
         collectionView.delegate = self
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(collectionView)
+        collectionView.register(InvoceListHeaderCell.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "InvoceListHeaderCell")
     }
     
     private func createLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { section, layoutEnvironment in
             var config = UICollectionLayoutListConfiguration(appearance: .plain)
             config.headerMode = .supplementary
+            config.trailingSwipeActionsConfigurationProvider = { indexPath in
+                let del = UIContextualAction(style: .destructive, title: "Delete") {
+                    [weak self] action, view, completion in
+//                    self?.delete(at: indexPath)
+                    completion(true)
+                }
+                return UISwipeActionsConfiguration(actions: [del])
+            }
+            
             return NSCollectionLayoutSection.list(using: config, layoutEnvironment: layoutEnvironment)
         }
     }
@@ -95,10 +107,10 @@ extension InvoiceListViewController {
         
         
         let headerRegistration = UICollectionView.SupplementaryRegistration
-            <UICollectionReusableView>(elementKind: UICollectionView.elementKindSectionHeader) {
+            <InvoceListHeaderCell>(elementKind: UICollectionView.elementKindSectionHeader) {
             supplementaryView, string, indexPath in
-//            supplementaryView.label.text = "\(string) for section \(indexPath.section)"
-            supplementaryView.backgroundColor = .lightGray
+//            supplementaryView.title.text = "\(string) for section \(indexPath.section)"
+//            supplementaryView.backgroundColor = .lightGray
         }
         
         
@@ -113,6 +125,7 @@ extension InvoiceListViewController {
                                     managedObjectContext: viewModel.outputs.managedObjectContext!,
                                     bgManagedObjectContext: viewModel.outputs.bgManagedObjectContext!,
                                     fetchrequest: invoiceFetchRequest(),
+                                    sectionNameKeyPath: #keyPath(Invoice.relativeDay),
                                     cellRegistration: cellRegistration,
                                     headerRegistration: headerRegistration)
         
@@ -120,7 +133,7 @@ extension InvoiceListViewController {
     
     private func invoiceFetchRequest() -> NSFetchRequest<CoreDataItem> {
         let request = NSFetchRequest<CoreDataItem>(entityName: "Invoice")
-        let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        let dateSort = NSSortDescriptor(key: #keyPath(CoreDataItem.date), ascending: false)
         request.sortDescriptors = [dateSort]
         request.fetchBatchSize = 50
         return request

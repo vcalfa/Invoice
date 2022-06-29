@@ -15,20 +15,34 @@ public class Invoice: NSManagedObject {
     func update(with item: InvoiceItem) {
         note = item.note
         date = item.date
-        section = date?.section()
         total = item.total.map{ NSNumber(value: $0) }
         imageId = item.imageId
         currencyCode = item.currencyCode
     }
-}
-
-private extension Date {
     
-    func section() -> Date {
-        let components = Calendar.current.dateComponents([.year, .month], from: self)
-        guard let date = Calendar.current.date(from: components) else {
-            fatalError("Failed to strip time from Date object")
+    @objc
+    var relativeDay: String {
+        
+        guard let date = self.date else {
+            return "Unknown"
         }
-        return date
+        
+        if Calendar.current.isDateInToday(date) {
+            return "Today"
+        }
+        else if Calendar.current.isDateInYesterday(date) {
+            return "Yesterday"
+        }
+        else if Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 8 <= 7 {
+            return "Resent 7 days"
+        }
+        else if Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 31 <= 30 {
+            return "Resent 30 days"
+        }
+        else if Calendar.current.dateComponents([.day], from: Date(), to: date).day ?? -1 >= 0 {
+            return "In future"
+        }
+        
+        return date.dateString("YYYY MMMM")
     }
 }

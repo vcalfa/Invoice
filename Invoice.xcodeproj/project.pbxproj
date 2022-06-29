@@ -35,6 +35,8 @@
 		E7A2A59F28653CC900EFE717 /* Currency+symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A59E28653CC900EFE717 /* Currency+symbol.swift */; };
 		E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */; };
 		E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */; };
+		E7B6924C286C8E6B004070E2 /* InvoceListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B6924B286C8E6B004070E2 /* InvoceListHeaderCell.swift */; };
+		E7B6924E286C964A004070E2 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B6924D286C964A004070E2 /* UIView+Layout.swift */; };
 		E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D94C2862F82D005836CF /* MainModel.xcdatamodeld */; };
 		E7B7D95028631AA1005836CF /* ImageStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */; };
 		E7B7D95228631AB0005836CF /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D95128631AB0005836CF /* ImageStore.swift */; };
@@ -111,6 +113,8 @@
 		E7A2A59E28653CC900EFE717 /* Currency+symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+symbol.swift"; sourceTree = "<group>"; };
 		E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.Publisher.swift; sourceTree = "<group>"; };
 		E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTest.swift; sourceTree = "<group>"; };
+		E7B6924B286C8E6B004070E2 /* InvoceListHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoceListHeaderCell.swift; sourceTree = "<group>"; };
+		E7B6924D286C964A004070E2 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		E7B7D94D2862F82D005836CF /* MainModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MainModel.xcdatamodel; sourceTree = "<group>"; };
 		E7B7D94F28631AA1005836CF /* ImageStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStoreProtocol.swift; sourceTree = "<group>"; };
 		E7B7D95128631AB0005836CF /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 		E76029CF285E9EEF006B3237 /* InvoiceList */ = {
 			isa = PBXGroup;
 			children = (
+				E7B6924A286C8E3F004070E2 /* InvoiceItemCell */,
+				E7B69248286C8E28004070E2 /* Header */,
 				E7CE97FA2861B0EA003C5F11 /* InvoiceListConfigurator.swift */,
 				E76029A0285E5245006B3237 /* InvoiceListViewController.swift */,
 				E7CE971B285F694A003C5F11 /* InvoiceListViewModel.swift */,
@@ -286,6 +292,21 @@
 				E7CE98622861FF19003C5F11 /* AddIncoiceFormViewController.xib */,
 			);
 			path = AddIncoiceForm;
+			sourceTree = "<group>";
+		};
+		E7B69248286C8E28004070E2 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				E7B6924B286C8E6B004070E2 /* InvoceListHeaderCell.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		E7B6924A286C8E3F004070E2 /* InvoiceItemCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InvoiceItemCell;
 			sourceTree = "<group>";
 		};
 		E7B7D94B2862F807005836CF /* CoreData */ = {
@@ -335,6 +356,7 @@
 				E7A2A59728650F8500EFE717 /* Date+Random.swift */,
 				E7A2A59C286510C600EFE717 /* Double+Random.swift */,
 				E7A2A59E28653CC900EFE717 /* Currency+symbol.swift */,
+				E7B6924D286C964A004070E2 /* UIView+Layout.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -515,10 +537,12 @@
 				E7CE985B2861CA94003C5F11 /* AddIncoiceFormViewModel.swift in Sources */,
 				E7CE971A285F6943003C5F11 /* InvoiceListViewModelProtocol.swift in Sources */,
 				E7CE985A2861CA94003C5F11 /* AddIncoiceFormViewController.swift in Sources */,
+				E7B6924C286C8E6B004070E2 /* InvoceListHeaderCell.swift in Sources */,
 				E7A2A59D286510C600EFE717 /* Double+Random.swift in Sources */,
 				E7CE985D2861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift in Sources */,
 				E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */,
 				E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */,
+				E7B6924E286C964A004070E2 /* UIView+Layout.swift in Sources */,
 				E7CE9727285FC831003C5F11 /* Configurator.swift in Sources */,
 				E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */,
 				E7A2A59828650F8500EFE717 /* Date+Random.swift in Sources */,

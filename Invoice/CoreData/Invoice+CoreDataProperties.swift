@@ -22,7 +22,6 @@ extension Invoice {
     @NSManaged public var invoiceId: UUID?
     @NSManaged public var note: String?
     @NSManaged public var total: NSNumber?
-    @NSManaged public var section: Date?
 
 }
 
