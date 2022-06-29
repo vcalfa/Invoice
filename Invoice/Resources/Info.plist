@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>sk.calfavladimir.visma.Invoice.activity.editInvoice</string>
+		<string>sk.calfavladimir.visma.Invoice.activity.takePhoto</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Used to take invoice or receipt photos</string>
 	<key>UIApplicationSceneManifest</key>

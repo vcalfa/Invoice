@@ -44,6 +44,7 @@
 		E7B7D984286382CA005836CF /* Invoice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */; };
 		E7B7D9882863A3FA005836CF /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E7B7D9872863A3FA005836CF /* CombineCocoa */; };
 		E7BAE8CB286A644E00D41248 /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE8CA286A644E00D41248 /* Invoice+CoreDataProperties.swift */; };
+		E7C6C590286D127C00E53786 /* InvoiceItem+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C6C58F286D127C00E53786 /* InvoiceItem+Codable.swift */; };
 		E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */; };
 		E7CE9716285F297E003C5F11 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9715285F297E003C5F11 /* InvoiceItem.swift */; };
 		E7CE9718285F68FD003C5F11 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9717285F68FD003C5F11 /* LocalStorage.swift */; };
@@ -119,6 +120,7 @@
 		E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManagerProtocol.swift; sourceTree = "<group>"; };
 		E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E7BAE8CA286A644E00D41248 /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E7C6C58F286D127C00E53786 /* InvoiceItem+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvoiceItem+Codable.swift"; sourceTree = "<group>"; };
 		E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
 		E7CE9715285F297E003C5F11 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		E7CE9717285F68FD003C5F11 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
@@ -205,7 +207,6 @@
 				E7CE9711285F1A1D003C5F11 /* Services */,
 				E76029CC285E9D40006B3237 /* Scenes */,
 				E76029CD285E9D76006B3237 /* Resources */,
-				E76029AA285E5247006B3237 /* Info.plist */,
 			);
 			path = Invoice;
 			sourceTree = "<group>";
@@ -233,6 +234,7 @@
 		E76029CD285E9D76006B3237 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E76029AA285E5247006B3237 /* Info.plist */,
 				E76029A5285E5247006B3237 /* Assets.xcassets */,
 				E76029A7285E5247006B3237 /* LaunchScreen.storyboard */,
 			);
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				E7CE9715285F297E003C5F11 /* InvoiceItem.swift */,
+				E7C6C58F286D127C00E53786 /* InvoiceItem+Codable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */,
 				E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */,
 				E7CE976628618E0F003C5F11 /* CameraRouter.swift in Sources */,
+				E7C6C590286D127C00E53786 /* InvoiceItem+Codable.swift in Sources */,
 				E7CE976728618E0F003C5F11 /* CameraRouterProtocol.swift in Sources */,
 				E7CE985C2861CA94003C5F11 /* AddIncoiceFormConfigurator.swift in Sources */,
 				E7CE976328618E0F003C5F11 /* CameraViewController.swift in Sources */,
@@ -710,7 +714,7 @@
 				DEVELOPMENT_TEAM = NC9E3595Y6;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Invoice/Info.plist;
+				INFOPLIST_FILE = Invoice/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Receipt;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -740,7 +744,7 @@
 				DEVELOPMENT_TEAM = NC9E3595Y6;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Invoice/Info.plist;
+				INFOPLIST_FILE = Invoice/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Receipt;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
