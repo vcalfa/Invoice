@@ -135,6 +135,12 @@ private extension AddIncoiceFormViewController {
             .map(updateRightBarButton)
             .assign(to: \.rightBarButtonItem, on: navigationItem)
             .store(in: &cancellables)
+        
+        viewModel.inputs.viewDidAppear
+            .sink { [weak self] _ in
+                self?.configureUserActivity()
+            }
+            .store(in: &cancellables)
     }
     
     private func updateRightBarButton(_ action: ActionType) -> UIBarButtonItem {
@@ -197,3 +203,15 @@ extension AddIncoiceFormViewController: ConfigurableViewControllerProtocol {
 
 // MARK: - Instantiable
 extension AddIncoiceFormViewController: Instantiable { }
+
+extension AddIncoiceFormViewController: StateRestorable {
+    
+    var defaulUserActivity: NSUserActivity? {
+        NSUserActivity(activityType: ActivityType.editInvoice)
+    }
+    
+    func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity? {
+        userActivity?.delegate = viewModel.userActivityDelegate
+        return userActivity
+    }
+}

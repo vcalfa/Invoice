@@ -10,7 +10,7 @@ import Combine
 import CombineExt
 import UIKit
 
-class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormViewModelOutputs {
+class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoiceFormViewModelOutputs {
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -88,6 +88,7 @@ class AddIncoiceFormViewModel: AddIncoiceFormViewModelInputs, AddIncoiceFormView
         self.router = router
         self.invoiceManager = invoiceManager
         self.locale = locale
+        super.init()
         initialValue.send(invoice)
         initialUUIDValue.send(invoiceID)
         bindNavigation()
@@ -196,4 +197,5 @@ extension AddIncoiceFormViewModel: AddIncoiceFormViewModelProtocol {
     
     var inputs: AddIncoiceFormViewModelInputs { self }
     var outputs: AddIncoiceFormViewModelOutputs { self }
+    var userActivityDelegate: NSUserActivityDelegate { self }
 }

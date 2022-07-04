@@ -10,7 +10,7 @@ import UIKit
 
 final class RootViewController {
     
-    private init() {}
+    private init() { }
     
     static func viewController() -> UIViewController {
         let invoiceList = InvoiceListViewController(configurator: InvoiceListConfigurator())

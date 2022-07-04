@@ -47,6 +47,12 @@ final class InvoiceListViewController: UIViewController {
             .publisher.map({ value -> String? in value })
             .assign(to: \.title, on: navigationItem)
             .store(in: &cancellables)
+        
+        viewModel.inputs.viewDidAppear
+            .sink { [weak self] _ in
+                self?.configureUserActivity()
+            }
+            .store(in: &cancellables)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,6 +135,24 @@ extension InvoiceListViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         dataSource.getObject(for: indexPath).map {
             $0.invoiceId.map { viewModel.inputs.tapDetailInvoice.send($0) }
+        }
+    }
+}
+
+extension InvoiceListViewController: StateRestorable {
+    
+    var defaulUserActivity: NSUserActivity? { nil }
+    
+    func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity? { nil }
+    
+    @discardableResult
+    func restore(with userActivity: NSUserActivity?) -> Bool {
+        switch userActivity?.activityType {
+        case ActivityType.editInvoice?, ActivityType.takePhoto?:
+            let restored = viewModel.inputs.restoreState(with: userActivity)
+            return restored
+        default:
+            return false
         }
     }
 }

@@ -35,6 +35,15 @@ private extension CameraViewController {
         delegate = self
         allowsEditing = true
         mediaTypes = [kUTTypeImage as String]
+        bindOutput()
+    }
+    
+    private func bindOutput() {
+        viewModel.inputs.viewDidAppear
+            .sink { [weak self] _ in
+                self?.configureUserActivity()
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -78,3 +87,15 @@ extension CameraViewController: ConfigurableViewControllerProtocol {
 
 //// MARK: - CInstantiable
 extension CameraViewController: Instantiable { }
+
+extension CameraViewController: StateRestorable {
+    
+    var defaulUserActivity: NSUserActivity? {
+        NSUserActivity(activityType: ActivityType.takePhoto)
+    }
+    
+    func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity? {
+        userActivity?.delegate = viewModel.userActivityDelegate
+        return userActivity
+    }
+}

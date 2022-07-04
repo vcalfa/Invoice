@@ -67,4 +67,5 @@ protocol AddIncoiceFormViewModelOutputs {
 protocol AddIncoiceFormViewModelProtocol: AnyObject {
     var inputs: AddIncoiceFormViewModelInputs { get }
     var outputs: AddIncoiceFormViewModelOutputs { get }
+    var userActivityDelegate: NSUserActivityDelegate { get }
 }

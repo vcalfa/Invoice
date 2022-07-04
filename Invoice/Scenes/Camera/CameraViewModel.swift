@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class CameraViewModel: CameraViewModelInputs, CameraViewModelOutputs {
+class CameraViewModel: NSObject, CameraViewModelInputs, CameraViewModelOutputs {
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -33,11 +33,12 @@ class CameraViewModel: CameraViewModelInputs, CameraViewModelOutputs {
     //MARK: -
     
     private let router: CameraRouter
-    private let invoice: InvoiceItem?
+    let invoice: InvoiceItem?
     
     init(router: CameraRouter, invoice: InvoiceItem? = nil) {
         self.router = router
         self.invoice = invoice
+        super.init()
         
         outputs.navigateToDestination
             .sink(receiveValue: router.route(to:))
@@ -62,4 +63,5 @@ extension CameraViewModel: CameraViewModelProtocol {
     
     var inputs: CameraViewModelInputs { self }
     var outputs: CameraViewModelOutputs { self }
+    var userActivityDelegate: NSUserActivityDelegate { self }
 }

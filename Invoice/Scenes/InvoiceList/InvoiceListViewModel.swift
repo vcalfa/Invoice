@@ -18,7 +18,7 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     
     private var cancellables = Set<AnyCancellable>()
     
-    //MARK: InvoiceListViewModelProtocol
+    //MARK: InvoiceListViewModelOutputs
     
     @Published private(set) var title: String?
     
@@ -29,7 +29,7 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     let navigateToDestination = PassthroughSubject<InvoiceListDestination, Never>()
     //MARK: -
     
-    //MARK: InvoiceListViewModelProtocol
+    //MARK: InvoiceListViewModelInputs
     
     let viewDidLoad = PassthroughSubject<(), Never>()
     
@@ -45,14 +45,17 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     
     private let router: InvoiceListRouter
     private let storage: LocalStoreProtocol
+    private let stateRostorationRouter: InvoiceListStateRestorationProtocol
     private let invoiceManager: InvoiceManagerProtocol
     
     init(router: InvoiceListRouter,
          storage: LocalStoreProtocol,
+         stateRostorationRouter: InvoiceListStateRestorationProtocol,
          invoiceManager: InvoiceManagerProtocol)
     {
         self.router = router
         self.storage = storage
+        self.stateRostorationRouter = stateRostorationRouter
         self.invoiceManager = invoiceManager
         
         outputs.navigateToDestination
@@ -80,6 +83,10 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
                 }
             })
             .store(in: &cancellables)
+    }
+    
+    func restoreState(with userActivity: NSUserActivity?) -> Bool {
+        stateRostorationRouter.restore(userActivity)
     }
     
     //MARK: The CoreData

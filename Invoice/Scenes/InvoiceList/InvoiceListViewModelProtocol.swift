@@ -22,6 +22,8 @@ protocol InvoiceListViewModelInputs {
     var tapDetailInvoice: PassthroughSubject<UUID, Never>  { get }
     
     var tapAddRandomInvoices: PassthroughSubject<(), Never> { get }
+    
+    func restoreState(with userActivity: NSUserActivity?) -> Bool
 }
 
 

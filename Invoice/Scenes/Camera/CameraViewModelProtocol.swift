@@ -40,4 +40,5 @@ protocol CameraViewModelOutputs {
 protocol CameraViewModelProtocol: AnyObject {
     var inputs: CameraViewModelInputs { get }
     var outputs: CameraViewModelOutputs { get }
+    var userActivityDelegate: NSUserActivityDelegate { get }
 }
