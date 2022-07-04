@@ -9,7 +9,7 @@ import Foundation
 
 struct InvoiceListConfigurator: ConfiguratorProtocol {
     typealias Controller = InvoiceListViewController
-    
+
     func configure(controller: Controller) -> Controller.ViewModelType {
         return InvoiceListViewModel(router: InvoiceListRouter(controller),
                                     storage: LocalStorage.shared,

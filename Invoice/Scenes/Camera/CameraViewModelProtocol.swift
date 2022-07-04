@@ -8,21 +8,19 @@
 import Combine
 import UIKit
 
-//MARK: CameraViewModelInputs
+// MARK: CameraViewModelInputs
 
 protocol CameraViewModelInputs {
+    var viewDidLoad: PassthroughSubject<Void, Never> { get }
 
-    var viewDidLoad: PassthroughSubject<(), Never>  { get }
-    
-    var viewDidAppear: PassthroughSubject<(), Never>  { get }
-    
-    var actionCancel: PassthroughSubject<(), Never>  { get }
-    
-    var imageDidTake: PassthroughSubject<UIImage?, Never>  { get }
+    var viewDidAppear: PassthroughSubject<Void, Never> { get }
+
+    var actionCancel: PassthroughSubject<Void, Never> { get }
+
+    var imageDidTake: PassthroughSubject<UIImage?, Never> { get }
 }
 
-
-//MARK: CameraViewModelOutputs
+// MARK: CameraViewModelOutputs
 
 enum CameraDestination {
     case cancel
@@ -30,12 +28,10 @@ enum CameraDestination {
 }
 
 protocol CameraViewModelOutputs {
-    
     var navigateToDestination: PassthroughSubject<CameraDestination, Never> { get }
 }
 
-
-//MARK: CameraViewModelProtocol
+// MARK: CameraViewModelProtocol
 
 protocol CameraViewModelProtocol: AnyObject {
     var inputs: CameraViewModelInputs { get }

@@ -5,16 +5,14 @@
 //  Created by Vladimir Calfa on 22/06/2022.
 //
 
-import XCTest
 @testable import Invoice
+import XCTest
 
 class CameraViewModelTest: XCTestCase {
-
-
 //    func testCameraViewModelCase1() throws {
-//        
+//
 //        let invoice = InvoiceItem(invoiceId: UUID(), date: Date.now, total: 0.0, currencyCode: "USD", note: "Notee", image: nil, imageId: nil)
 //        let viewModel = CameraViewModel(router: CameraRouter(nil), invoice: invoice)
-//        
+//
 //    }
 }

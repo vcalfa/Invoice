@@ -13,16 +13,14 @@ protocol InvoiceListStateRestorationProtocol {
 }
 
 struct InvoiceListStateRestoration: InvoiceListStateRestorationProtocol {
-    
     private weak var viewController: UIViewController?
-    
+
     init(_ viewController: UIViewController?) {
         self.viewController = viewController
     }
-    
+
     func restore(_ userActivity: NSUserActivity?) -> Bool {
         dump(userActivity, name: "Restore with userActvityObject")
-        
 
         switch userActivity?.activityType {
         case ActivityType.takePhoto?:
@@ -37,15 +35,15 @@ struct InvoiceListStateRestoration: InvoiceListStateRestorationProtocol {
         default:
             return false
         }
-        
+
         return false
     }
-    
+
     func navigateAddInvoice(_ invoice: InvoiceItem?) {
         let pickerController = CameraViewController(configurator: CameraConfigurator(invoice: invoice))
         viewController?.present(pickerController, animated: true)
     }
-    
+
     func showDetailInvoice(_ invoice: InvoiceItem?) {
         let configurator = AddIncoiceFormConfigurator(invoice: invoice)
         let addInvoiceForm = AddIncoiceFormViewController.instance(configurator: configurator)

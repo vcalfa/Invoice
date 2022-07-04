@@ -8,18 +8,17 @@
 import UIKit
 
 struct CameraRouter: CameraRouterProtocol {
-    
     private weak var viewController: UIViewController?
-    
+
     init(_ viewController: UIViewController?) {
         self.viewController = viewController
     }
-    
+
     func route(to destination: CameraDestination) {
         switch destination {
         case .cancel:
             viewController?.dismiss(animated: true, completion: nil)
-        case .finishAction(invoice: let invoice):
+        case let .finishAction(invoice: invoice):
             let configurator = AddIncoiceFormConfigurator(invoice: invoice)
             let addInvoiceForm = AddIncoiceFormViewController.instance(configurator: configurator)
             let navigationController = UINavigationController(rootViewController: addInvoiceForm)

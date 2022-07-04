@@ -12,7 +12,7 @@ struct AddIncoiceFormConfigurator: ConfiguratorProtocol {
     typealias Controller = AddIncoiceFormViewController
     private let invoice: InvoiceItem?
     private let invoiceId: UUID?
-    
+
     func configure(controller: Controller) -> Controller.ViewModelType {
         return AddIncoiceFormViewModel(router: AddIncoiceFormRouter(controller),
                                        invoiceManager: InvoiceManager(localStore: LocalStorage.shared,
@@ -20,7 +20,7 @@ struct AddIncoiceFormConfigurator: ConfiguratorProtocol {
                                        invoice: invoice,
                                        invoiceID: invoiceId)
     }
-    
+
     init(invoice: InvoiceItem? = nil, invoiceId: UUID? = nil) {
         self.invoice = invoice
         self.invoiceId = invoiceId

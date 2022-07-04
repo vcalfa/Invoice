@@ -1,20 +1,19 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
-import UIKit
 import Combine
+import UIKit
 
 final class ___VARIABLE_productName:identifier___ViewController: UIViewController {
-    
     private var cancellables = Set<AnyCancellable>()
-    
-    var viewModel: ___VARIABLE_productName:identifier___ViewModelProtocol! 
+
+    var viewModel: ___VARIABLE_productName: identifier___ViewModelProtocol!
 
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupUI()
-        //setupNavigationItem()
+        // setupUI()
+        // setupNavigationItem()
         configureViews()
         setupStyles()
         setupLayout()
@@ -30,31 +29,27 @@ final class ___VARIABLE_productName:identifier___ViewController: UIViewControlle
 }
 
 // MARK: - View Configurations
-private extension ___VARIABLE_productName:identifier___ViewController {
 
-    //func setupUI() { }
+private extension ___VARIABLE_productName: identifier___ViewController {
+    // func setupUI() { }
 
-    //func setupNavigationItem() { }
+    // func setupNavigationItem() { }
 
-    func configureViews() {
-        
-    }
-    
+    func configureViews() {}
+
     func setupStyles() {
-       // view.backgroundColor = .green
+        // view.backgroundColor = .green
     }
-    
-    func setupLayout() {
-        
-    }
-    
+
+    func setupLayout() {}
+
     private func bindInput() {
         navigationItem.leftBarButtonItem?
-            .publisher.map({ _ in () })
+            .publisher.map { _ in () }
             .sink(receiveValue: { [viewModel] _ in viewModel?.inputs.tapNavigateBack.send() })
             .store(in: &cancellables)
     }
-    
+
     private func bindOutput() {
         viewModel.outputs.title
             .publisher
@@ -63,16 +58,18 @@ private extension ___VARIABLE_productName:identifier___ViewController {
     }
 }
 
-// MARK: - 
-extension ___VARIABLE_productName:identifier___ViewController {
+// MARK: -
+
+extension ___VARIABLE_productName: identifier___ViewController {
     // Remove if not needed
 }
 
 // MARK: - ConfigurableViewControllerProtocol
+
 extension ___VARIABLE_productName:identifier___ViewController: ConfigurableViewControllerProtocol {
-    typealias ViewModelType = ___VARIABLE_productName:identifier___ViewModelProtocol
+    typealias ViewModelType = ___VARIABLE_productName: identifier___ViewModelProtocol
 }
 
-
 // MARK: - Instantiable
-extension ___VARIABLE_productName:identifier___ViewController: Instantiable { }
+
+extension ___VARIABLE_productName:identifier___ViewController: Instantiable {}

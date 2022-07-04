@@ -20,24 +20,23 @@ enum UserActivityKey {
 
 protocol StateRestorable {
     var defaulUserActivity: NSUserActivity? { get }
-    
+
     func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity?
-    
+
     func configureUserActivity()
-    
+
     @discardableResult func restore(with userActivity: NSUserActivity?) -> Bool
 }
 
 extension StateRestorable where Self: UIViewController {
-    
     func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity? {
         return userActivity
     }
-    
+
     func configureUserActivity() {
         let currentUserActivity = defaulUserActivity
         view.window?.windowScene?.userActivity = updateUserActivity(currentUserActivity)
     }
-    
-    @discardableResult func restore(with userActivity: NSUserActivity?) -> Bool { return true }
+
+    @discardableResult func restore(with _: NSUserActivity?) -> Bool { return true }
 }

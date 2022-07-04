@@ -5,30 +5,29 @@
 //  Created by Vladimir Calfa on 21/06/2022.
 //
 
-import UIKit
 import Combine
 import CombineCocoa
+import UIKit
 
 final class AddIncoiceFormViewController: UIViewController {
-    
     private var cancellables = Set<AnyCancellable>()
-    
-    var viewModel: AddIncoiceFormViewModelProtocol! 
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageview: UIImageView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var totalTextField: UITextField!
-    @IBOutlet weak var noteTextView: UITextView!
-    @IBOutlet weak var currencyLabel: UILabel!
-    
+    var viewModel: AddIncoiceFormViewModelProtocol!
+
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var imageview: UIImageView!
+    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var totalTextField: UITextField!
+    @IBOutlet var noteTextView: UITextView!
+    @IBOutlet var currencyLabel: UILabel!
+
     private var gestureRecognizer: UITapGestureRecognizer {
         let doubleTap = UITapGestureRecognizer()
         doubleTap.numberOfTouchesRequired = 1
         doubleTap.numberOfTapsRequired = 2
         return doubleTap
     }
-    
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -50,49 +49,48 @@ final class AddIncoiceFormViewController: UIViewController {
 }
 
 // MARK: - View Configurations
-private extension AddIncoiceFormViewController {
 
+private extension AddIncoiceFormViewController {
     func setupNavigationItem() {
-        navigationItem.leftBarButtonItem =  UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
     }
 
     func configureViews() {
         imageview.contentMode = .scaleAspectFill
     }
-    
+
     func setupStyles() {
         noteTextView.clipsToBounds = true
         noteTextView.layer.cornerRadius = 5.0
         noteTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         noteTextView.layer.borderWidth = 0.7
     }
-    
-    func setupLayout() { }
-    
-    private func bindInput() {
 
+    func setupLayout() {}
+
+    private func bindInput() {
         imageview.publisher(for: gestureRecognizer)
-            .map({ _ in () })
+            .map { _ in () }
             .subscribe(viewModel.inputs.tapEditPhoto)
             .store(in: &cancellables)
-        
+
         navigationItem.leftBarButtonItem?
-            .publisher.map({
+            .publisher.map {
                 dump($0)
                 return ()
-            })
+            }
             .subscribe(viewModel.inputs.tapCancel)
             .store(in: &cancellables)
-        
+
         navigationItem.rightBarButtonItem?
-            .publisher.map({
+            .publisher.map {
                 dump($0)
                 return ()
-            })
+            }
             .subscribe(viewModel.inputs.tapSaveAddAction)
             .store(in: &cancellables)
-        
+
         noteTextView.valuePublisher
             .subscribe(viewModel.inputs.noteUpdated)
             .store(in: &cancellables)
@@ -100,25 +98,25 @@ private extension AddIncoiceFormViewController {
         totalTextField.textPublisher
             .subscribe(viewModel.inputs.totalUpdated)
             .store(in: &cancellables)
-        
+
         datePicker.datePublisher
             .subscribe(viewModel.inputs.dateUpdated)
             .store(in: &cancellables)
     }
-    
+
     private func bindOutput() {
         viewModel.outputs.image
             .assign(to: \.image, on: imageview)
             .store(in: &cancellables)
-        
+
         viewModel.outputs.title
             .assign(to: \.title, on: navigationItem)
             .store(in: &cancellables)
-        
+
         viewModel.outputs.note
             .assign(to: \.text, on: noteTextView)
             .store(in: &cancellables)
-        
+
         viewModel.outputs.total
             .assign(to: \.text, on: totalTextField)
             .store(in: &cancellables)
@@ -126,23 +124,23 @@ private extension AddIncoiceFormViewController {
         viewModel.outputs.date
             .assign(to: \.date, on: datePicker)
             .store(in: &cancellables)
-        
+
         viewModel.outputs.currencySymbol
             .assign(to: \.text, on: currencyLabel)
             .store(in: &cancellables)
-        
+
         viewModel.outputs.action
             .map(updateRightBarButton)
             .assign(to: \.rightBarButtonItem, on: navigationItem)
             .store(in: &cancellables)
-        
+
         viewModel.inputs.viewDidAppear
             .sink { [weak self] _ in
                 self?.configureUserActivity()
             }
             .store(in: &cancellables)
     }
-    
+
     private func updateRightBarButton(_ action: ActionType) -> UIBarButtonItem {
         switch action {
         case .edit: return UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
@@ -152,14 +150,14 @@ private extension AddIncoiceFormViewController {
 }
 
 // MARK: - adjust scrollView insets
+
 private extension AddIncoiceFormViewController {
-    
     func registerKeyboardNotifications() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-    
+
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
 
@@ -185,7 +183,7 @@ private extension AddIncoiceFormViewController {
 private extension UIView {
     var firstResponder: UIView? {
         guard !isFirstResponder else { return self }
-        
+
         for subview in subviews {
             if let firstResponder = subview.firstResponder {
                 return firstResponder
@@ -195,21 +193,21 @@ private extension UIView {
     }
 }
 
-
 // MARK: - ConfigurableViewControllerProtocol
+
 extension AddIncoiceFormViewController: ConfigurableViewControllerProtocol {
     typealias ViewModelType = AddIncoiceFormViewModelProtocol
 }
 
 // MARK: - Instantiable
-extension AddIncoiceFormViewController: Instantiable { }
+
+extension AddIncoiceFormViewController: Instantiable {}
 
 extension AddIncoiceFormViewController: StateRestorable {
-    
     var defaulUserActivity: NSUserActivity? {
         NSUserActivity(activityType: ActivityType.editInvoice)
     }
-    
+
     func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity? {
         userActivity?.delegate = viewModel.userActivityDelegate
         return userActivity

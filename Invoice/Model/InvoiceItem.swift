@@ -5,10 +5,10 @@
 //  Created by Vladimir Calfa on 19/06/2022.
 //
 
-import Foundation
-import UIKit
 import CoreData
+import Foundation
 import LoremSwiftum
+import UIKit
 
 struct InvoiceItem: Hashable {
     // let identifier = UUID()
@@ -21,9 +21,7 @@ struct InvoiceItem: Hashable {
     let imageId: UUID?
 }
 
-
 extension InvoiceItem {
-    
     init(_ coreDataObject: Invoice) {
         note = coreDataObject.note
         date = coreDataObject.date
@@ -33,7 +31,7 @@ extension InvoiceItem {
         invoiceId = coreDataObject.invoiceId
         image = nil
     }
-    
+
     init(invoiceId: UUID) {
         self.invoiceId = invoiceId
         date = nil
@@ -43,7 +41,7 @@ extension InvoiceItem {
         image = nil
         imageId = nil
     }
-    
+
     init(invoice: Self?, image: UIImage? = nil, note: String? = nil, date: Date? = nil, total: Double? = nil) {
         self.image = image ?? invoice?.image
         self.note = note ?? invoice?.note
@@ -53,12 +51,12 @@ extension InvoiceItem {
         invoiceId = invoice?.invoiceId
         imageId = invoice?.imageId
     }
-    
+
     init(invoice: Self, imageId: UUID? = nil) {
-        self.image = invoice.image
-        self.note = invoice.note
-        self.date = invoice.date
-        self.total =  invoice.total
+        image = invoice.image
+        note = invoice.note
+        date = invoice.date
+        total = invoice.total
         currencyCode = invoice.currencyCode
         invoiceId = invoice.invoiceId
         self.imageId = imageId ?? invoice.imageId
@@ -66,11 +64,10 @@ extension InvoiceItem {
 }
 
 extension InvoiceItem {
-    
     static func random() -> Self {
         let image = ["IMG_1529", "IMG_1530", "IMG_1531"].randomElement().flatMap { UIImage(named: $0) }
         let currency = ["CZK", "USD", "EUR", "DKK"].randomElement() ?? "EUR"
         let date = Date.randomBetween(start: Date.parse("2020-01-01"), end: Date())
-        return InvoiceItem(invoiceId: nil ,date: date, total: Double.random(min: 0.00, max: 9900.0), currencyCode: currency, note: Lorem.sentences(1), image: image, imageId: nil)
+        return InvoiceItem(invoiceId: nil, date: date, total: Double.random(min: 0.00, max: 9900.0), currencyCode: currency, note: Lorem.sentences(1), image: image, imageId: nil)
     }
 }

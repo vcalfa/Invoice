@@ -7,6 +7,4 @@
 
 import Foundation
 
-protocol AddIncoiceFormRouterProtocol: SceneRouter where SceneDestination == AddIncoiceFormDestination {
-    
-}
+protocol AddIncoiceFormRouterProtocol: SceneRouter where SceneDestination == AddIncoiceFormDestination {}

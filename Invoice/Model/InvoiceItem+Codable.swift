@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension InvoiceItem: Codable {
-    
     private enum CoderKeys: String, CodingKey {
         case invoiceId
         case date
@@ -19,7 +18,7 @@ extension InvoiceItem: Codable {
         case image
         case imageId
     }
-    
+
     // MARK: - Codable
 
     func encode(to encoder: Encoder) throws {
@@ -33,10 +32,10 @@ extension InvoiceItem: Codable {
         try container.encode(encodedImageString, forKey: .image)
         try container.encode(imageId, forKey: .imageId)
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CoderKeys.self)
-        
+
         let decodedInvoiceId = try? values.decode(String.self, forKey: .invoiceId)
         invoiceId = decodedInvoiceId.flatMap { UUID(uuidString: $0) }
         date = try? values.decode(Date.self, forKey: .date)
@@ -44,8 +43,8 @@ extension InvoiceItem: Codable {
         currencyCode = try? values.decode(String.self, forKey: .currencyCode)
         note = try? values.decode(String.self, forKey: .note)
         let encodedImageString = try? values.decode(String.self, forKey: .image)
-        image = encodedImageString.flatMap { Data(base64Encoded: $0)  }
-                .flatMap { UIImage.init(data: $0) }
+        image = encodedImageString.flatMap { Data(base64Encoded: $0) }
+            .flatMap { UIImage(data: $0) }
         let decodedImageId = try? values.decode(String.self, forKey: .imageId)
         imageId = decodedImageId.flatMap { UUID(uuidString: $0) }
     }

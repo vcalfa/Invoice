@@ -9,28 +9,27 @@ import Foundation
 import UIKit
 
 struct InvoiceListRouter: InvoiceListRouterProtocol {
-    
     private weak var viewController: UIViewController?
-    
+
     init(_ viewController: UIViewController?) {
         self.viewController = viewController
     }
-    
+
     func route(to destination: InvoiceListDestination) {
         dump(destination, name: "InvoiceListRouter")
         switch destination {
         case .addingInvoice:
             navigateAddInvoice()
-        case .detailInvoice(uuid: let uuid):
+        case let .detailInvoice(uuid: uuid):
             showDetailInvoice(uuid)
         }
     }
-    
+
     func navigateAddInvoice() {
         let pickerController = CameraViewController(configurator: CameraConfigurator())
         viewController?.present(pickerController, animated: true)
     }
-    
+
     func showDetailInvoice(_ id: UUID) {
         let configurator = AddIncoiceFormConfigurator(invoiceId: id)
         let addInvoiceForm = AddIncoiceFormViewController.instance(configurator: configurator)

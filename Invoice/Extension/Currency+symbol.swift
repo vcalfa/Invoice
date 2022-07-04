@@ -8,11 +8,11 @@
 import Foundation
 
 class Currency {
-    static let shared: Currency = Currency()
+    static let shared: Currency = .init()
 
-    private var cache: [String:String] = [:]
+    private var cache: [String: String] = [:]
 
-    func findSymbol(currencyCode:String) -> String {
+    func findSymbol(currencyCode: String) -> String {
         if let hit = cache[currencyCode] { return hit }
         guard currencyCode.count < 4 else { return "" }
 

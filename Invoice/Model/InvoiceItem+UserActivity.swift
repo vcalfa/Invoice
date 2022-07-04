@@ -13,13 +13,12 @@ extension InvoiceItem {
         let invoiceItemData = [UserActivityKey.invoiceItemKey: data]
         userActivity.addUserInfoEntries(from: invoiceItemData as [AnyHashable: Any])
     }
-    
+
     init?(userActivity: NSUserActivity?) {
-        
         guard let data = userActivity?.userInfo?[UserActivityKey.invoiceItemKey] as? Data else {
             return nil
         }
-        
+
         let decoder = JSONDecoder()
         do {
             self = try decoder.decode(InvoiceItem.self, from: data)

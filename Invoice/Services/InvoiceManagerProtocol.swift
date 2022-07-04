@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-
 protocol InvoiceManagerProtocol {
-    func save(_ invoice: InvoiceItem, completition: ((Result<InvoiceItem, StoreError>) -> ())?)
-    func getImage(for invoice: InvoiceItem, completition: ((Result<UIImage?, ImageStoreError>) -> ())?)
-    func getInvoice(invoiceId: UUID, completition: ((Result<InvoiceItem, StoreError>) -> ())?)
+    func save(_ invoice: InvoiceItem, completition: ((Result<InvoiceItem, StoreError>) -> Void)?)
+    func getImage(for invoice: InvoiceItem, completition: ((Result<UIImage?, ImageStoreError>) -> Void)?)
+    func getInvoice(invoiceId: UUID, completition: ((Result<InvoiceItem, StoreError>) -> Void)?)
 }

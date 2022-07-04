@@ -7,6 +7,4 @@
 
 import Foundation
 
-protocol InvoiceListRouterProtocol: SceneRouter where SceneDestination == InvoiceListDestination {
-    
-}
+protocol InvoiceListRouterProtocol: SceneRouter where SceneDestination == InvoiceListDestination {}

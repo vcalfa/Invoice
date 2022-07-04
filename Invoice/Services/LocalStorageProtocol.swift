@@ -5,15 +5,14 @@
 //  Created by Vladimir Calfa on 19/06/2022.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 protocol LocalStoreProtocol {
-    
     var viewContext: NSManagedObjectContext { get }
     var bgViewContext: NSManagedObjectContext! { get }
-    
+
     func fetchAllInvoices() -> [Invoice]?
     func fetch(invoiceId: UUID?) -> Invoice?
-    func save(invoice: InvoiceItem, completition: ((Result<InvoiceItem, Error>) -> ())?)
+    func save(invoice: InvoiceItem, completition: ((Result<InvoiceItem, Error>) -> Void)?)
 }

@@ -7,6 +7,4 @@
 
 import Foundation
 
-protocol CameraRouterProtocol: SceneRouter where SceneDestination == CameraDestination {
-    
-}
+protocol CameraRouterProtocol: SceneRouter where SceneDestination == CameraDestination {}

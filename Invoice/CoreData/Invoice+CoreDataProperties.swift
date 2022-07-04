@@ -6,26 +6,21 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
-
-extension Invoice {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Invoice> {
+public extension Invoice {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<Invoice> {
         return NSFetchRequest<Invoice>(entityName: "Invoice")
     }
 
-    @NSManaged public var currencyCode: String?
-    @NSManaged public var date: Date?
-    @NSManaged public var imageId: UUID?
-    @NSManaged public var invoiceId: UUID?
-    @NSManaged public var note: String?
-    @NSManaged public var total: NSNumber?
-    @NSManaged public var section: Date?
-
+    @NSManaged var currencyCode: String?
+    @NSManaged var date: Date?
+    @NSManaged var imageId: UUID?
+    @NSManaged var invoiceId: UUID?
+    @NSManaged var note: String?
+    @NSManaged var total: NSNumber?
+    @NSManaged var section: Date?
 }
 
-extension Invoice : Identifiable {
-
-}
+extension Invoice: Identifiable {}

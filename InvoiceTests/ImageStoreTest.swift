@@ -5,48 +5,45 @@
 //  Created by Vladimir Calfa on 22/06/2022.
 //
 
-import XCTest
 @testable import Invoice
+import XCTest
 
 class ImageStoreTest: XCTestCase {
-
-    
     func testGetImageCase1() throws {
         let store = ImageStore()
         let randomId = UUID()
         let result = store.fetch(imageId: randomId)
-        
+
         switch result {
         case .success:
             XCTFail("Notpossible to reach the success state")
-        case .failure(let error):
+        case let .failure(error):
             XCTAssertEqual(error, ImageStoreError.imageNotFound(uuid: randomId))
         }
-
     }
-    
+
     func testSaveAndGetImageCase1() throws {
         let store = ImageStore()
         let image = UIColor.green.image(CGSize(width: 64, height: 64))
-        
+
         let result = store.save(image: image)
-        
+
         switch result {
-        case .success(let saveuuid):
+        case let .success(saveuuid):
             XCTAssertNotNil(saveuuid)
-            
+
             let result = store.fetch(imageId: saveuuid)
-            
+
             switch result {
             case .success(let (image, getuuid)):
                 XCTAssertNotNil(getuuid)
                 XCTAssertEqual(saveuuid, getuuid)
                 XCTAssertNotNil(image)
-            case .failure(let error):
+            case let .failure(error):
                 XCTFail("Image not saved: \(error)")
             }
-            
-        case .failure(let error):
+
+        case let .failure(error):
             XCTFail("Image not saved: \(error)")
         }
     }
