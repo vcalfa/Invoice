@@ -26,6 +26,11 @@ final class CameraViewController: UIImagePickerController {
         super.viewDidAppear(animated)
         viewModel.inputs.viewDidAppear.send()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.inputs.viewWillDisappear.send()
+    }
 }
 
 // MARK: - View Configurations
@@ -35,6 +40,7 @@ private extension CameraViewController {
         delegate = self
         allowsEditing = true
         mediaTypes = [kUTTypeImage as String]
+        bindInput()
         bindOutput()
     }
 
@@ -42,6 +48,14 @@ private extension CameraViewController {
         viewModel.inputs.viewDidAppear
             .sink { [weak self] _ in
                 self?.configureUserActivity()
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func bindInput() {
+        viewModel.inputs.viewWillDisappear
+            .sink { [weak self] _ in
+                self?.clearRestoreState()
             }
             .store(in: &cancellables)
     }

@@ -46,6 +46,11 @@ final class AddIncoiceFormViewController: UIViewController {
         super.viewDidAppear(animated)
         viewModel.inputs.viewDidAppear.send()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.inputs.viewWillDisappear.send()
+    }
 }
 
 // MARK: - View Configurations
@@ -137,6 +142,12 @@ private extension AddIncoiceFormViewController {
         viewModel.inputs.viewDidAppear
             .sink { [weak self] _ in
                 self?.configureUserActivity()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.inputs.viewWillDisappear
+            .sink { [weak self] _ in
+                self?.clearRestoreState()
             }
             .store(in: &cancellables)
     }

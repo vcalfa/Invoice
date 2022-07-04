@@ -15,6 +15,8 @@ protocol CameraViewModelInputs {
 
     var viewDidAppear: PassthroughSubject<Void, Never> { get }
 
+    var viewWillDisappear: PassthroughSubject<Void, Never> { get }
+    
     var actionCancel: PassthroughSubject<Void, Never> { get }
 
     var imageDidTake: PassthroughSubject<UIImage?, Never> { get }

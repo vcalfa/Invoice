@@ -15,6 +15,8 @@ protocol AddIncoiceFormViewModelInputs {
 
     var viewDidAppear: PassthroughSubject<Void, Never> { get }
 
+    var viewWillDisappear: PassthroughSubject<Void, Never> { get }
+    
     var tapNavigateBack: PassthroughSubject<Void, Never> { get }
 
     var tapCancel: PassthroughSubject<Void, Never> { get }

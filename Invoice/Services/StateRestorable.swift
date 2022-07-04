@@ -24,6 +24,8 @@ protocol StateRestorable {
     func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity?
 
     func configureUserActivity()
+    
+    func clearRestoreState()
 
     @discardableResult func restore(with userActivity: NSUserActivity?) -> Bool
 }
@@ -33,6 +35,10 @@ extension StateRestorable where Self: UIViewController {
         return userActivity
     }
 
+    func clearRestoreState() {
+        view.window?.windowScene?.userActivity = nil
+    }
+    
     func configureUserActivity() {
         let currentUserActivity = defaulUserActivity
         view.window?.windowScene?.userActivity = updateUserActivity(currentUserActivity)

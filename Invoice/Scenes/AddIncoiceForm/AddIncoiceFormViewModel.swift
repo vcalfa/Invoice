@@ -58,6 +58,8 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
 
     let viewDidAppear = PassthroughSubject<Void, Never>()
 
+    let viewWillDisappear = PassthroughSubject<Void, Never>()
+
     let tapNavigateBack = PassthroughSubject<Void, Never>()
 
     let tapCancel = PassthroughSubject<Void, Never>()

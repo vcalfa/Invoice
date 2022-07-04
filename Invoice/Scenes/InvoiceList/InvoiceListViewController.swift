@@ -132,7 +132,7 @@ extension InvoiceListViewController: UICollectionViewDelegate {
 }
 
 extension InvoiceListViewController: StateRestorable {
-    var defaulUserActivity: NSUserActivity? { nil }
+    var defaulUserActivity: NSUserActivity? { NSUserActivity(activityType: "") }
 
     func updateUserActivity(_: NSUserActivity?) -> NSUserActivity? { nil }
 

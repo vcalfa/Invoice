@@ -26,6 +26,8 @@ class CameraViewModel: NSObject, CameraViewModelInputs, CameraViewModelOutputs {
 
     let viewDidAppear = PassthroughSubject<Void, Never>()
 
+    let viewWillDisappear = PassthroughSubject<Void, Never>()
+    
     let actionCancel = PassthroughSubject<Void, Never>()
 
     let imageDidTake = PassthroughSubject<UIImage?, Never>()
