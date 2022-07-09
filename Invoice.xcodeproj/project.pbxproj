@@ -43,6 +43,7 @@
 		E7B7D981286376D4005836CF /* InvoiceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */; };
 		E7B7D984286382CA005836CF /* Invoice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */; };
 		E7B7D9882863A3FA005836CF /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E7B7D9872863A3FA005836CF /* CombineCocoa */; };
+		E7B81A182879F8E1004F9010 /* InfoPlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B81A172879F8E1004F9010 /* InfoPlist.swift */; };
 		E7BAE8CB286A644E00D41248 /* Invoice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BAE8CA286A644E00D41248 /* Invoice+CoreDataProperties.swift */; };
 		E7C6C590286D127C00E53786 /* InvoiceItem+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C6C58F286D127C00E53786 /* InvoiceItem+Codable.swift */; };
 		E7CE9714285F1CC9003C5F11 /* LocalStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */; };
@@ -122,6 +123,7 @@
 		E7B7D97E286376A3005836CF /* InvoiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManager.swift; sourceTree = "<group>"; };
 		E7B7D980286376D4005836CF /* InvoiceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceManagerProtocol.swift; sourceTree = "<group>"; };
 		E7B7D982286382CA005836CF /* Invoice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E7B81A172879F8E1004F9010 /* InfoPlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPlist.swift; sourceTree = "<group>"; };
 		E7BAE8CA286A644E00D41248 /* Invoice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Invoice+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E7C6C58F286D127C00E53786 /* InvoiceItem+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvoiceItem+Codable.swift"; sourceTree = "<group>"; };
 		E7CE9713285F1CC9003C5F11 /* LocalStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageProtocol.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		E760299B285E5245006B3237 /* Invoice */ = {
 			isa = PBXGroup;
 			children = (
+				E7B81A122879EEBB004F9010 /* Generated */,
 				E7B7D94B2862F807005836CF /* CoreData */,
 				E7CE9728285FDA63003C5F11 /* Extension */,
 				E7CE9712285F1A4E003C5F11 /* Model */,
@@ -307,6 +310,14 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		E7B81A122879EEBB004F9010 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				E7B81A172879F8E1004F9010 /* InfoPlist.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		E7CE9711285F1A1D003C5F11 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +404,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E76029C3285E5247006B3237 /* Build configuration list for PBXNativeTarget "Invoice" */;
 			buildPhases = (
+				E7B81A162879F83F004F9010 /* Swiftgen */,
 				E7602995285E5245006B3237 /* Sources */,
 				E7602996285E5245006B3237 /* Frameworks */,
 				E7602997285E5245006B3237 /* Resources */,
@@ -498,6 +510,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		E7B81A162879F83F004F9010 /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "swiftgen\n";
+		};
 		E7CE98292861C7EF003C5F11 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +558,7 @@
 				E7CE971A285F6943003C5F11 /* InvoiceListViewModelProtocol.swift in Sources */,
 				E7CE985A2861CA94003C5F11 /* AddIncoiceFormViewController.swift in Sources */,
 				E7CE985D2861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift in Sources */,
+				E7B81A182879F8E1004F9010 /* InfoPlist.swift in Sources */,
 				E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */,
 				E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */,
 				E7AA9BC02872B565004ED8D8 /* InvoiceListStateRestorationProtocol.swift in Sources */,

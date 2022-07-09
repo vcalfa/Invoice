@@ -132,8 +132,8 @@ extension InvoiceListViewController: StateRestorable {
 
     @discardableResult
     func restore(with userActivity: NSUserActivity?) -> Bool {
-        switch userActivity?.activityType {
-        case ActivityType.editInvoice?, ActivityType.takePhoto?:
+        switch userActivity?.registredActivityType {
+        case InfoPlist.ActivityType.editInvoice?, InfoPlist.ActivityType.takePhoto?:
             let restored = viewModel.inputs.restoreState(with: userActivity)
             return restored
         default:

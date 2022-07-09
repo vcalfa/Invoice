@@ -1,0 +1,12 @@
+plist:
+  inputs: Invoice/Resources/Info.plist
+  outputs:
+    # - templateName: runtime-swift5
+    #   output: Plist.swift
+    # - templateName: inline-swift5
+    #   output: Plist2.swift
+    - templatePath: ./inline-swift5-my.stencil
+      params: 
+        enumName: "InfoPlist"
+        # activityTypeEnumName: "At"
+      output: Invoice/Generated/InfoPlist.swift

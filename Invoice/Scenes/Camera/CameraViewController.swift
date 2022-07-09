@@ -100,7 +100,7 @@ extension CameraViewController: Instantiable {}
 
 extension CameraViewController: StateRestorable {
     var defaulUserActivity: NSUserActivity? {
-        NSUserActivity(activityType: ActivityType.takePhoto)
+        NSUserActivity(activity: .takePhoto)
     }
 
     func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity? {

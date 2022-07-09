@@ -8,12 +8,6 @@
 import Foundation
 import UIKit
 
-// NOTE: consider to use SwiftGen to generate this enum from Info.plist file
-enum ActivityType {
-    static let editInvoice = "sk.calfavladimir.visma.Invoice.activity.editInvoice"
-    static let takePhoto = "sk.calfavladimir.visma.Invoice.activity.takePhoto"
-}
-
 enum UserActivityKey {
     static let invoiceItemKey = "invoiceKey"
 }

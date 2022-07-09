@@ -22,12 +22,12 @@ struct InvoiceListStateRestoration: InvoiceListStateRestorationProtocol {
     func restore(_ userActivity: NSUserActivity?) -> Bool {
         dump(userActivity, name: "Restore with userActvityObject")
 
-        switch userActivity?.activityType {
-        case ActivityType.takePhoto?:
+        switch userActivity?.registredActivityType {
+        case InfoPlist.ActivityType.takePhoto?:
             let invoiceItem = InvoiceItem(userActivity: userActivity)
             navigateAddInvoice(invoiceItem)
             return true
-        case ActivityType.editInvoice?:
+        case InfoPlist.ActivityType.editInvoice?:
             guard let invoiceItem = InvoiceItem(userActivity: userActivity) else {
                 return false
             }

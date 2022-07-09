@@ -216,7 +216,7 @@ extension AddIncoiceFormViewController: Instantiable {}
 
 extension AddIncoiceFormViewController: StateRestorable {
     var defaulUserActivity: NSUserActivity? {
-        NSUserActivity(activityType: ActivityType.editInvoice)
+        NSUserActivity(activity: .editInvoice)
     }
 
     func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity? {
