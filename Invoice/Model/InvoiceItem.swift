@@ -11,7 +11,6 @@ import LoremSwiftum
 import UIKit
 
 struct InvoiceItem: Hashable {
-    // let identifier = UUID()
     let invoiceId: UUID?
     let date: Date?
     let total: Double?

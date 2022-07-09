@@ -33,7 +33,6 @@
 		E7A2A59B2865103000EFE717 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = E7A2A59A2865103000EFE717 /* LoremSwiftum */; };
 		E7A2A59F28653CC900EFE717 /* Currency+symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A59E28653CC900EFE717 /* Currency+symbol.swift */; };
 		E7A65CEA28622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */; };
-		E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */; };
 		E7AA9BC02872B565004ED8D8 /* InvoiceListStateRestorationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AA9BBF2872B565004ED8D8 /* InvoiceListStateRestorationProtocol.swift */; };
 		E7AA9BC22872BF42004ED8D8 /* InvoiceItem+UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AA9BC12872BF42004ED8D8 /* InvoiceItem+UserActivity.swift */; };
 		E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7B7D94C2862F82D005836CF /* MainModel.xcdatamodeld */; };
@@ -114,7 +113,6 @@
 		E7A2A59728650F8500EFE717 /* Date+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Random.swift"; sourceTree = "<group>"; };
 		E7A2A59E28653CC900EFE717 /* Currency+symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+symbol.swift"; sourceTree = "<group>"; };
 		E7A65CE928622D1E004A3E6A /* UIGestureRecognizer.Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.Publisher.swift; sourceTree = "<group>"; };
-		E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTest.swift; sourceTree = "<group>"; };
 		E7AA9BBF2872B565004ED8D8 /* InvoiceListStateRestorationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceListStateRestorationProtocol.swift; sourceTree = "<group>"; };
 		E7AA9BC12872BF42004ED8D8 /* InvoiceItem+UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InvoiceItem+UserActivity.swift"; sourceTree = "<group>"; };
 		E7B7D94D2862F82D005836CF /* MainModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MainModel.xcdatamodel; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */,
-				E7A65CEB2862893F004A3E6A /* CameraViewModelTest.swift */,
 				E7B7D95328633193005836CF /* ImageStoreTest.swift */,
 			);
 			path = InvoiceTests;
@@ -578,7 +575,6 @@
 			files = (
 				E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */,
 				E7B7D95428633193005836CF /* ImageStoreTest.swift in Sources */,
-				E7A65CEC2862893F004A3E6A /* CameraViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

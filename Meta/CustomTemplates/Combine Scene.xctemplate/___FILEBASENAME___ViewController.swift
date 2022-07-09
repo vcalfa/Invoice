@@ -12,8 +12,8 @@ final class ___VARIABLE_productName:identifier___ViewController: UIViewControlle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // setupUI()
-        // setupNavigationItem()
+        setupUI()
+        setupNavigationItem()
         configureViews()
         setupStyles()
         setupLayout()
@@ -31,15 +31,13 @@ final class ___VARIABLE_productName:identifier___ViewController: UIViewControlle
 // MARK: - View Configurations
 
 private extension ___VARIABLE_productName: identifier___ViewController {
-    // func setupUI() { }
+    func setupUI() {}
 
-    // func setupNavigationItem() { }
+    func setupNavigationItem() {}
 
     func configureViews() {}
 
-    func setupStyles() {
-        // view.backgroundColor = .green
-    }
+    func setupStyles() {}
 
     func setupLayout() {}
 

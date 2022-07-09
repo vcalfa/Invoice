@@ -88,12 +88,6 @@ extension InvoiceListViewController {
     }
 
     private func configureDataSource() {
-//        let headerRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Item> { (cell, indexPath, item) in
-//            var content = cell.defaultContentConfiguration()
-//            content.text = item.note
-//            cell.contentConfiguration = content
-//            cell.accessories = [.outlineDisclosure()]
-//        }
 
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, CoreDataItem> { cell, _, item in
             var content = cell.defaultContentConfiguration()

@@ -92,10 +92,6 @@ extension LocalStorage: LocalStoreProtocol {
         persistentContainer.viewContext
     }
 
-//    var bgViewContext: NSManagedObjectContext {
-//        persistentContainer.newBackgroundContext()
-//    }
-
     func fetchAllInvoices() -> [Invoice]? {
         return try? viewContext.fetch(Invoice.fetchRequest())
     }
@@ -143,7 +139,6 @@ extension LocalStorage: LocalStoreProtocol {
                 try backgroundContext.save()
 
                 backgroundContext.parent?.perform {
-                    // Save viewContext on the main queue in order to store changes persistently
                     try? backgroundContext.parent?.save()
                 }
 
