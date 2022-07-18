@@ -19,8 +19,8 @@ struct CameraRouter: CameraRouterProtocol {
         case .cancel:
             viewController?.dismiss(animated: true, completion: nil)
         case let .finishAction(invoice: invoice):
-            let configurator = AddIncoiceFormConfigurator(invoice: invoice)
-            let addInvoiceForm = AddIncoiceFormViewController.instance(configurator: configurator)
+            let configurator = AddInvoiceFormConfigurator(invoice: invoice)
+            let addInvoiceForm = AddInvoiceFormViewController(configurator: configurator)
             let navigationController = UINavigationController(rootViewController: addInvoiceForm)
             viewController?.dismiss(animated: true, completion: nil)
             viewController?.presentingViewController?.present(navigationController,

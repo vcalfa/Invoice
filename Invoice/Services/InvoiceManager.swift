@@ -17,17 +17,17 @@ class InvoiceManager: InvoiceManagerProtocol {
     private let localStore: LocalStoreProtocol
     private let imageStore: ImageStoreProtocol
 
-    private let savaQueue = DispatchQueue(label: "InvoiceManager.save", qos: .utility)
+    private let saveQueue = DispatchQueue(label: "InvoiceManager.save", qos: .utility)
 
     public init(localStore: LocalStoreProtocol, imageStore: ImageStoreProtocol) {
         self.localStore = localStore
         self.imageStore = imageStore
     }
 
-    func save(_ invoice: InvoiceItem, completition: ((Result<InvoiceItem, StoreError>) -> Void)?) {
-        savaQueue.async { [weak self] in
+    func save(_ invoice: InvoiceItem, completion: ((Result<InvoiceItem, StoreError>) -> Void)?) {
+        saveQueue.async { [weak self] in
             guard let self = self else {
-                completition?(.failure(.notSaved))
+                completion?(.failure(.notSaved))
                 return
             }
 
@@ -39,9 +39,9 @@ class InvoiceManager: InvoiceManagerProtocol {
             self.localStore.save(invoice: saveInvoice) { result in
                 switch result {
                 case .success:
-                    completition?(.success(invoice))
+                    completion?(.success(invoice))
                 case .failure:
-                    completition?(.failure(.notSaved))
+                    completion?(.failure(.notSaved))
                 }
             }
         }
@@ -53,25 +53,25 @@ class InvoiceManager: InvoiceManagerProtocol {
         return imageStore.save(image: image, uuid: invoice.imageId)
     }
 
-    func getImage(for invoice: InvoiceItem, completition: ((Result<UIImage?, ImageStoreError>) -> Void)?) {
+    func getImage(for invoice: InvoiceItem, completion: ((Result<UIImage?, ImageStoreError>) -> Void)?) {
         guard let imageId = invoice.imageId else {
-            completition?(.success(invoice.image))
+            completion?(.success(invoice.image))
             return
         }
 
         let result = imageStore.fetch(imageId: imageId)
         switch result {
-        case let .success((image, _)): completition?(.success(image))
-        case let .failure(error): completition?(.failure(error))
+        case let .success((image, _)): completion?(.success(image))
+        case let .failure(error): completion?(.failure(error))
         }
     }
 
-    func getInvoice(invoiceId: UUID, completition: ((Result<InvoiceItem, StoreError>) -> Void)?) {
+    func getInvoice(invoiceId: UUID, completion: ((Result<InvoiceItem, StoreError>) -> Void)?) {
         guard let storedInvoice = localStore.fetch(invoiceId: invoiceId) else {
-            completition?(.failure(.notFound))
+            completion?(.failure(.notFound))
             return
         }
 
-        completition?(.success(InvoiceItem(storedInvoice)))
+        completion?(.success(InvoiceItem(storedInvoice)))
     }
 }

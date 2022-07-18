@@ -67,7 +67,3 @@ extension ___VARIABLE_productName: identifier___ViewController {
 extension ___VARIABLE_productName:identifier___ViewController: ConfigurableViewControllerProtocol {
     typealias ViewModelType = ___VARIABLE_productName: identifier___ViewModelProtocol
 }
-
-// MARK: - Instantiable
-
-extension ___VARIABLE_productName:identifier___ViewController: Instantiable {}

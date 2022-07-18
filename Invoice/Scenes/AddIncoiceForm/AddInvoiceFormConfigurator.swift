@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-struct AddIncoiceFormConfigurator: ConfiguratorProtocol {
-    typealias Controller = AddIncoiceFormViewController
+struct AddInvoiceFormConfigurator: ConfiguratorProtocol {
+    typealias Controller = AddInvoiceFormViewController
     private let invoice: InvoiceItem?
     private let invoiceId: UUID?
 
     func configure(controller: Controller) -> Controller.ViewModelType {
-        return AddIncoiceFormViewModel(router: AddIncoiceFormRouter(controller),
+        return AddInvoiceFormViewModel(router: AddInvoiceFormRouter(controller),
                                        invoiceManager: InvoiceManager(localStore: LocalStorage.shared,
                                                                       imageStore: ImageStore()),
                                        invoice: invoice,

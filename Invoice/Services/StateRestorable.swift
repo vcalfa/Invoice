@@ -13,7 +13,7 @@ enum UserActivityKey {
 }
 
 protocol StateRestorable {
-    var defaulUserActivity: NSUserActivity? { get }
+    var defaultUserActivity: NSUserActivity? { get }
 
     func updateUserActivity(_ userActivity: NSUserActivity?) -> NSUserActivity?
 
@@ -34,7 +34,7 @@ extension StateRestorable where Self: UIViewController {
     }
     
     func configureUserActivity() {
-        let currentUserActivity = defaulUserActivity
+        let currentUserActivity = defaultUserActivity
         view.window?.windowScene?.userActivity = updateUserActivity(currentUserActivity)
     }
 

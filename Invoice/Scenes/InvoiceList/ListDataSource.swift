@@ -23,7 +23,7 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
     init(collectionView: UICollectionView,
          managedObjectContext: NSManagedObjectContext,
          bgManagedObjectContext: NSManagedObjectContext,
-         fetchrequest: NSFetchRequest<ResultType>,
+         fetchRequest: NSFetchRequest<ResultType>,
          cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, ResultType>)
     {
         self.collectionView = collectionView
@@ -42,7 +42,7 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: object)
         }
 
-        initializeFetchedResultsController(fetchRequest: fetchrequest)
+        initializeFetchedResultsController(fetchRequest: fetchRequest)
     }
 
     private func initializeFetchedResultsController(fetchRequest: NSFetchRequest<ResultType>) {
@@ -75,7 +75,9 @@ class ListDataSource<ResultType: NSFetchRequestResult>: NSObject, NSFetchedResul
         let currentSnapshot = diffableDataSource.snapshot() as NSDiffableDataSourceSnapshot<Date, NSManagedObjectID>
 
         let reloadIdentifiers: [NSManagedObjectID] = snapshot.itemIdentifiers.compactMap { itemIdentifier in
-            guard let currentIndex = currentSnapshot.indexOfItem(itemIdentifier), let index = snapshot.indexOfItem(itemIdentifier), index == currentIndex else {
+            guard let currentIndex = currentSnapshot.indexOfItem(itemIdentifier),
+                    let index = snapshot.indexOfItem(itemIdentifier),
+                    index == currentIndex else {
                 return nil
             }
 

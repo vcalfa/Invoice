@@ -1,5 +1,5 @@
 //
-//  AddIncoiceFormRouter.swift
+//  AddInvoiceFormRouter.swift
 //  Invoice
 //
 //  Created by Vladimir Calfa on 21/06/2022.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-struct AddIncoiceFormRouter: AddIncoiceFormRouterProtocol {
+struct AddInvoiceFormRouter: AddInvoiceFormRouterProtocol {
     private weak var viewController: UIViewController?
 
     init(_ viewController: UIViewController?) {
         self.viewController = viewController
     }
 
-    func route(to destination: AddIncoiceFormDestination) {
-        dump(destination, name: "AddIncoiceFormRouter")
+    func route(to destination: AddInvoiceFormDestination) {
+        dump(destination, name: "AddInvoiceFormRouter")
         switch destination {
         case .navigateBack:
             viewController?.dismiss(animated: true)

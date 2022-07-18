@@ -99,7 +99,7 @@ extension InvoiceListViewController {
         dataSource = ListDataSource(collectionView: collectionView,
                                     managedObjectContext: viewModel.outputs.managedObjectContext!,
                                     bgManagedObjectContext: viewModel.outputs.bgManagedObjectContext!,
-                                    fetchrequest: invoiceFetchRequest(),
+                                    fetchRequest: invoiceFetchRequest(),
                                     cellRegistration: cellRegistration)
     }
 
@@ -126,7 +126,7 @@ extension InvoiceListViewController: UICollectionViewDelegate {
 }
 
 extension InvoiceListViewController: StateRestorable {
-    var defaulUserActivity: NSUserActivity? { NSUserActivity(activityType: "") }
+    var defaultUserActivity: NSUserActivity? { NSUserActivity(activityType: "") }
 
     func updateUserActivity(_: NSUserActivity?) -> NSUserActivity? { nil }
 

@@ -45,17 +45,17 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
 
     private let router: InvoiceListRouter
     private let storage: LocalStoreProtocol
-    private let stateRostorationRouter: InvoiceListStateRestorationProtocol
+    private let stateRestorationRouter: InvoiceListStateRestorationProtocol
     private let invoiceManager: InvoiceManagerProtocol
 
     init(router: InvoiceListRouter,
          storage: LocalStoreProtocol,
-         stateRostorationRouter: InvoiceListStateRestorationProtocol,
+         stateRestorationRouter: InvoiceListStateRestorationProtocol,
          invoiceManager: InvoiceManagerProtocol)
     {
         self.router = router
         self.storage = storage
-        self.stateRostorationRouter = stateRostorationRouter
+        self.stateRestorationRouter = stateRestorationRouter
         self.invoiceManager = invoiceManager
 
         outputs.navigateToDestination
@@ -74,7 +74,7 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
                 for i in 1 ... Self.generateRandomInvoices {
                     dump(i, name: "Generate")
                     let invoice = InvoiceItem.random()
-                    self?.invoiceManager.save(invoice, completition: { result in
+                    self?.invoiceManager.save(invoice, completion: { result in
                         DispatchQueue.main.async {
                             dump(result)
                         }
@@ -85,7 +85,7 @@ class InvoiceListViewModel: InvoiceListViewModelProtocol, InvoiceListViewModelIn
     }
 
     func restoreState(with userActivity: NSUserActivity?) -> Bool {
-        stateRostorationRouter.restore(userActivity)
+        stateRestorationRouter.restore(userActivity)
     }
 
     // MARK: The CoreData

@@ -9,10 +9,10 @@ import Combine
 import CombineCocoa
 import UIKit
 
-final class AddIncoiceFormViewController: UIViewController {
+final class AddInvoiceFormViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
 
-    var viewModel: AddIncoiceFormViewModelProtocol!
+    var viewModel: AddInvoiceFormViewModelProtocol!
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var imageview: UIImageView!
@@ -55,7 +55,7 @@ final class AddIncoiceFormViewController: UIViewController {
 
 // MARK: - View Configurations
 
-private extension AddIncoiceFormViewController {
+private extension AddInvoiceFormViewController {
     func setupNavigationItem() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: nil, action: nil)
         // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: nil, action: nil)
@@ -162,7 +162,7 @@ private extension AddIncoiceFormViewController {
 
 // MARK: - adjust scrollView insets
 
-private extension AddIncoiceFormViewController {
+private extension AddInvoiceFormViewController {
     func registerKeyboardNotifications() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -206,16 +206,12 @@ private extension UIView {
 
 // MARK: - ConfigurableViewControllerProtocol
 
-extension AddIncoiceFormViewController: ConfigurableViewControllerProtocol {
-    typealias ViewModelType = AddIncoiceFormViewModelProtocol
+extension AddInvoiceFormViewController: ConfigurableViewControllerProtocol {
+    typealias ViewModelType = AddInvoiceFormViewModelProtocol
 }
 
-// MARK: - Instantiable
-
-extension AddIncoiceFormViewController: Instantiable {}
-
-extension AddIncoiceFormViewController: StateRestorable {
-    var defaulUserActivity: NSUserActivity? {
+extension AddInvoiceFormViewController: StateRestorable {
+    var defaultUserActivity: NSUserActivity? {
         NSUserActivity(activity: .editInvoice)
     }
 

@@ -26,7 +26,7 @@
 		E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029A0285E5245006B3237 /* InvoiceListViewController.swift */; };
 		E76029A6285E5247006B3237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76029A5285E5247006B3237 /* Assets.xcassets */; };
 		E76029A9285E5247006B3237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76029A7285E5247006B3237 /* LaunchScreen.storyboard */; };
-		E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */; };
+		E76029B4285E5247006B3237 /* AddInvoiceFormViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76029B3285E5247006B3237 /* AddInvoiceFormViewModelTest.swift */; };
 		E7A2A59028646DEC00EFE717 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = E7A2A58F28646DEC00EFE717 /* CombineExt */; };
 		E7A2A5962865019B00EFE717 /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A5952865019A00EFE717 /* ListDataSource.swift */; };
 		E7A2A59828650F8500EFE717 /* Date+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A59728650F8500EFE717 /* Date+Random.swift */; };
@@ -62,15 +62,15 @@
 		E7CE976628618E0F003C5F11 /* CameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE976128618E0F003C5F11 /* CameraRouter.swift */; };
 		E7CE976728618E0F003C5F11 /* CameraRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE976228618E0F003C5F11 /* CameraRouterProtocol.swift */; };
 		E7CE97FB2861B0EA003C5F11 /* InvoiceListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE97FA2861B0EA003C5F11 /* InvoiceListConfigurator.swift */; };
-		E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */; };
-		E7CE98592861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */; };
-		E7CE985A2861CA94003C5F11 /* AddIncoiceFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */; };
-		E7CE985B2861CA94003C5F11 /* AddIncoiceFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98552861CA94003C5F11 /* AddIncoiceFormViewModel.swift */; };
-		E7CE985C2861CA94003C5F11 /* AddIncoiceFormConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98562861CA94003C5F11 /* AddIncoiceFormConfigurator.swift */; };
-		E7CE985D2861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */; };
+		E7CE98582861CA94003C5F11 /* AddInvoiceFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98522861CA94003C5F11 /* AddInvoiceFormRouter.swift */; };
+		E7CE98592861CA94003C5F11 /* AddInvoiceFormViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98532861CA94003C5F11 /* AddInvoiceFormViewModelProtocol.swift */; };
+		E7CE985A2861CA94003C5F11 /* AddInvoiceFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98542861CA94003C5F11 /* AddInvoiceFormViewController.swift */; };
+		E7CE985B2861CA94003C5F11 /* AddInvoiceFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98552861CA94003C5F11 /* AddInvoiceFormViewModel.swift */; };
+		E7CE985C2861CA94003C5F11 /* AddInvoiceFormConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98562861CA94003C5F11 /* AddInvoiceFormConfigurator.swift */; };
+		E7CE985D2861CA94003C5F11 /* AddInvoiceFormRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98572861CA94003C5F11 /* AddInvoiceFormRouterProtocol.swift */; };
 		E7CE985F2861CF14003C5F11 /* CameraConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE985E2861CF14003C5F11 /* CameraConfigurator.swift */; };
 		E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE98602861EDA3003C5F11 /* SceneRouter.swift */; };
-		E7CE98632861FF19003C5F11 /* AddIncoiceFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7CE98622861FF19003C5F11 /* AddIncoiceFormViewController.xib */; };
+		E7CE98632861FF19003C5F11 /* AddInvoiceFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7CE98622861FF19003C5F11 /* AddInvoiceFormViewController.xib */; };
 		E7CFE0132872419C00E74749 /* StateRestorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFE0122872419C00E74749 /* StateRestorable.swift */; };
 		E7CFE01528724B8D00E74749 /* AddIncoiceFormViewModel+UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFE01428724B8D00E74749 /* AddIncoiceFormViewModel+UserActivity.swift */; };
 		E7CFE01728724FC400E74749 /* CameraViewModel+UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFE01628724FC400E74749 /* CameraViewModel+UserActivity.swift */; };
@@ -108,7 +108,7 @@
 		E76029A8285E5247006B3237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76029AA285E5247006B3237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E76029AF285E5247006B3237 /* InvoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModelTest.swift; sourceTree = "<group>"; };
+		E76029B3285E5247006B3237 /* AddInvoiceFormViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceFormViewModelTest.swift; sourceTree = "<group>"; };
 		E76029DC285EA03E006B3237 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		E7A2A5952865019A00EFE717 /* ListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
 		E7A2A59728650F8500EFE717 /* Date+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Random.swift"; sourceTree = "<group>"; };
@@ -150,15 +150,15 @@
 		E7CE98222861C75F003C5F11 /* ___FILEBASENAME___Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___Configurator.swift"; sourceTree = "<group>"; };
 		E7CE98232861C75F003C5F11 /* ___FILEBASENAME___RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___RouterProtocol.swift"; sourceTree = "<group>"; };
 		E7CE98242861C75F003C5F11 /* TemplateInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
-		E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormRouter.swift; sourceTree = "<group>"; };
-		E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModelProtocol.swift; sourceTree = "<group>"; };
-		E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewController.swift; sourceTree = "<group>"; };
-		E7CE98552861CA94003C5F11 /* AddIncoiceFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormViewModel.swift; sourceTree = "<group>"; };
-		E7CE98562861CA94003C5F11 /* AddIncoiceFormConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormConfigurator.swift; sourceTree = "<group>"; };
-		E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncoiceFormRouterProtocol.swift; sourceTree = "<group>"; };
+		E7CE98522861CA94003C5F11 /* AddInvoiceFormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceFormRouter.swift; sourceTree = "<group>"; };
+		E7CE98532861CA94003C5F11 /* AddInvoiceFormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceFormViewModelProtocol.swift; sourceTree = "<group>"; };
+		E7CE98542861CA94003C5F11 /* AddInvoiceFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceFormViewController.swift; sourceTree = "<group>"; };
+		E7CE98552861CA94003C5F11 /* AddInvoiceFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceFormViewModel.swift; sourceTree = "<group>"; };
+		E7CE98562861CA94003C5F11 /* AddInvoiceFormConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceFormConfigurator.swift; sourceTree = "<group>"; };
+		E7CE98572861CA94003C5F11 /* AddInvoiceFormRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInvoiceFormRouterProtocol.swift; sourceTree = "<group>"; };
 		E7CE985E2861CF14003C5F11 /* CameraConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurator.swift; sourceTree = "<group>"; };
 		E7CE98602861EDA3003C5F11 /* SceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneRouter.swift; sourceTree = "<group>"; };
-		E7CE98622861FF19003C5F11 /* AddIncoiceFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddIncoiceFormViewController.xib; sourceTree = "<group>"; };
+		E7CE98622861FF19003C5F11 /* AddInvoiceFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddInvoiceFormViewController.xib; sourceTree = "<group>"; };
 		E7CFE0122872419C00E74749 /* StateRestorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorable.swift; sourceTree = "<group>"; };
 		E7CFE01428724B8D00E74749 /* AddIncoiceFormViewModel+UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddIncoiceFormViewModel+UserActivity.swift"; sourceTree = "<group>"; };
 		E7CFE01628724FC400E74749 /* CameraViewModel+UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewModel+UserActivity.swift"; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		E76029B2285E5247006B3237 /* InvoiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				E76029B3285E5247006B3237 /* AddIncoiceFormViewModelTest.swift */,
+				E76029B3285E5247006B3237 /* AddInvoiceFormViewModelTest.swift */,
 				E7B7D95328633193005836CF /* ImageStoreTest.swift */,
 			);
 			path = InvoiceTests;
@@ -288,14 +288,14 @@
 		E76029DE285EA197006B3237 /* AddIncoiceForm */ = {
 			isa = PBXGroup;
 			children = (
-				E7CE98522861CA94003C5F11 /* AddIncoiceFormRouter.swift */,
-				E7CE98532861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift */,
-				E7CE98552861CA94003C5F11 /* AddIncoiceFormViewModel.swift */,
+				E7CE98522861CA94003C5F11 /* AddInvoiceFormRouter.swift */,
+				E7CE98532861CA94003C5F11 /* AddInvoiceFormViewModelProtocol.swift */,
+				E7CE98552861CA94003C5F11 /* AddInvoiceFormViewModel.swift */,
 				E7CFE01428724B8D00E74749 /* AddIncoiceFormViewModel+UserActivity.swift */,
-				E7CE98542861CA94003C5F11 /* AddIncoiceFormViewController.swift */,
-				E7CE98562861CA94003C5F11 /* AddIncoiceFormConfigurator.swift */,
-				E7CE98572861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift */,
-				E7CE98622861FF19003C5F11 /* AddIncoiceFormViewController.xib */,
+				E7CE98542861CA94003C5F11 /* AddInvoiceFormViewController.swift */,
+				E7CE98562861CA94003C5F11 /* AddInvoiceFormConfigurator.swift */,
+				E7CE98572861CA94003C5F11 /* AddInvoiceFormRouterProtocol.swift */,
+				E7CE98622861FF19003C5F11 /* AddInvoiceFormViewController.xib */,
 			);
 			path = AddIncoiceForm;
 			sourceTree = "<group>";
@@ -494,7 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CE98632861FF19003C5F11 /* AddIncoiceFormViewController.xib in Resources */,
+				E7CE98632861FF19003C5F11 /* AddInvoiceFormViewController.xib in Resources */,
 				E76029A9285E5247006B3237 /* LaunchScreen.storyboard in Resources */,
 				E76029A6285E5247006B3237 /* Assets.xcassets in Resources */,
 			);
@@ -554,10 +554,10 @@
 			files = (
 				E7CE9725285FBC98003C5F11 /* RootViewController.swift in Sources */,
 				E7CE972A285FDA79003C5F11 /* UIControl+Combine.swift in Sources */,
-				E7CE985B2861CA94003C5F11 /* AddIncoiceFormViewModel.swift in Sources */,
+				E7CE985B2861CA94003C5F11 /* AddInvoiceFormViewModel.swift in Sources */,
 				E7CE971A285F6943003C5F11 /* InvoiceListViewModelProtocol.swift in Sources */,
-				E7CE985A2861CA94003C5F11 /* AddIncoiceFormViewController.swift in Sources */,
-				E7CE985D2861CA94003C5F11 /* AddIncoiceFormRouterProtocol.swift in Sources */,
+				E7CE985A2861CA94003C5F11 /* AddInvoiceFormViewController.swift in Sources */,
+				E7CE985D2861CA94003C5F11 /* AddInvoiceFormRouterProtocol.swift in Sources */,
 				E7B81A182879F8E1004F9010 /* InfoPlist.swift in Sources */,
 				E7CE972C285FDE52003C5F11 /* InvoiceListRouter.swift in Sources */,
 				E76029A1285E5245006B3237 /* InvoiceListViewController.swift in Sources */,
@@ -581,19 +581,19 @@
 				E7A2A5962865019B00EFE717 /* ListDataSource.swift in Sources */,
 				E7CFE01728724FC400E74749 /* CameraViewModel+UserActivity.swift in Sources */,
 				E7CE98612861EDA3003C5F11 /* SceneRouter.swift in Sources */,
-				E7CE98582861CA94003C5F11 /* AddIncoiceFormRouter.swift in Sources */,
+				E7CE98582861CA94003C5F11 /* AddInvoiceFormRouter.swift in Sources */,
 				E7B7D94E2862F82E005836CF /* MainModel.xcdatamodeld in Sources */,
 				E7CE976628618E0F003C5F11 /* CameraRouter.swift in Sources */,
 				E7C6C590286D127C00E53786 /* InvoiceItem+Codable.swift in Sources */,
 				E7CE976728618E0F003C5F11 /* CameraRouterProtocol.swift in Sources */,
-				E7CE985C2861CA94003C5F11 /* AddIncoiceFormConfigurator.swift in Sources */,
+				E7CE985C2861CA94003C5F11 /* AddInvoiceFormConfigurator.swift in Sources */,
 				E7CE976328618E0F003C5F11 /* CameraViewController.swift in Sources */,
 				E760299D285E5245006B3237 /* AppDelegate.swift in Sources */,
 				E760299F285E5245006B3237 /* SceneDelegate.swift in Sources */,
 				E7CE985F2861CF14003C5F11 /* CameraConfigurator.swift in Sources */,
 				E7CFE01528724B8D00E74749 /* AddIncoiceFormViewModel+UserActivity.swift in Sources */,
 				E7AA9BC22872BF42004ED8D8 /* InvoiceItem+UserActivity.swift in Sources */,
-				E7CE98592861CA94003C5F11 /* AddIncoiceFormViewModelProtocol.swift in Sources */,
+				E7CE98592861CA94003C5F11 /* AddInvoiceFormViewModelProtocol.swift in Sources */,
 				E7B7D95228631AB0005836CF /* ImageStore.swift in Sources */,
 				E7A2A59F28653CC900EFE717 /* Currency+symbol.swift in Sources */,
 				E7CE976528618E0F003C5F11 /* CameraViewModelProtocol.swift in Sources */,
@@ -604,7 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E76029B4285E5247006B3237 /* AddIncoiceFormViewModelTest.swift in Sources */,
+				E76029B4285E5247006B3237 /* AddInvoiceFormViewModelTest.swift in Sources */,
 				E7B7D95428633193005836CF /* ImageStoreTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

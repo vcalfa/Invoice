@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: AddIncoiceFormViewModelInputs
 
-protocol AddIncoiceFormViewModelInputs {
+protocol AddInvoiceFormViewModelInputs {
     var viewDidLoad: PassthroughSubject<Void, Never> { get }
 
     var viewDidAppear: PassthroughSubject<Void, Never> { get }
@@ -32,9 +32,9 @@ protocol AddIncoiceFormViewModelInputs {
     var dateUpdated: PassthroughSubject<Date, Never> { get }
 }
 
-// MARK: AddIncoiceFormViewModelOutputs
+// MARK: AddInvoiceFormViewModelOutputs
 
-enum AddIncoiceFormDestination {
+enum AddInvoiceFormDestination {
     case navigateBack, cancel, editPhoto(invoice: InvoiceItem?)
 }
 
@@ -42,7 +42,7 @@ enum ActionType {
     case edit, add
 }
 
-protocol AddIncoiceFormViewModelOutputs {
+protocol AddInvoiceFormViewModelOutputs {
     var title: Published<String?>.Publisher { get }
 
     var image: Published<UIImage?>.Publisher { get }
@@ -57,13 +57,13 @@ protocol AddIncoiceFormViewModelOutputs {
 
     var action: Published<ActionType>.Publisher { get }
 
-    var navigateToDestination: PassthroughSubject<AddIncoiceFormDestination, Never> { get }
+    var navigateToDestination: PassthroughSubject<AddInvoiceFormDestination, Never> { get }
 }
 
-// MARK: AddIncoiceFormViewModelProtocol
+// MARK: AddInvoiceFormViewModelProtocol
 
-protocol AddIncoiceFormViewModelProtocol: AnyObject {
-    var inputs: AddIncoiceFormViewModelInputs { get }
-    var outputs: AddIncoiceFormViewModelOutputs { get }
+protocol AddInvoiceFormViewModelProtocol: AnyObject {
+    var inputs: AddInvoiceFormViewModelInputs { get }
+    var outputs: AddInvoiceFormViewModelOutputs { get }
     var userActivityDelegate: NSUserActivityDelegate { get }
 }

@@ -16,7 +16,7 @@ class ImageStoreTest: XCTestCase {
 
         switch result {
         case .success:
-            XCTFail("Notpossible to reach the success state")
+            XCTFail("Not possible to reach the success state")
         case let .failure(error):
             XCTAssertEqual(error, ImageStoreError.imageNotFound(uuid: randomId))
         }
@@ -29,15 +29,15 @@ class ImageStoreTest: XCTestCase {
         let result = store.save(image: image)
 
         switch result {
-        case let .success(saveuuid):
-            XCTAssertNotNil(saveuuid)
+        case let .success(saveUuid):
+            XCTAssertNotNil(saveUuid)
 
-            let result = store.fetch(imageId: saveuuid)
+            let result = store.fetch(imageId: saveUuid)
 
             switch result {
-            case .success(let (image, getuuid)):
-                XCTAssertNotNil(getuuid)
-                XCTAssertEqual(saveuuid, getuuid)
+            case .success(let (image, getUuid)):
+                XCTAssertNotNil(getUuid)
+                XCTAssertEqual(saveUuid, getUuid)
                 XCTAssertNotNil(image)
             case let .failure(error):
                 XCTFail("Image not saved: \(error)")

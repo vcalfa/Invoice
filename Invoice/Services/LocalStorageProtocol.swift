@@ -14,5 +14,5 @@ protocol LocalStoreProtocol {
 
     func fetchAllInvoices() -> [Invoice]?
     func fetch(invoiceId: UUID?) -> Invoice?
-    func save(invoice: InvoiceItem, completition: ((Result<InvoiceItem, Error>) -> Void)?)
+    func save(invoice: InvoiceItem, completion: ((Result<InvoiceItem, Error>) -> Void)?)
 }

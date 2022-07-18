@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension AddIncoiceFormViewModel: NSUserActivityDelegate {
+extension AddInvoiceFormViewModel: NSUserActivityDelegate {
     func userActivityWillSave(_ userActivity: NSUserActivity) {
         updatedValue?.addEntries(into: userActivity)
     }

@@ -45,8 +45,8 @@ struct InvoiceListStateRestoration: InvoiceListStateRestorationProtocol {
     }
 
     func showDetailInvoice(_ invoice: InvoiceItem?) {
-        let configurator = AddIncoiceFormConfigurator(invoice: invoice)
-        let addInvoiceForm = AddIncoiceFormViewController.instance(configurator: configurator)
+        let configurator = AddInvoiceFormConfigurator(invoice: invoice)
+        let addInvoiceForm = AddInvoiceFormViewController(configurator: configurator)
         let navigationController = UINavigationController(rootViewController: addInvoiceForm)
         viewController?.present(navigationController, animated: true, completion: nil)
     }

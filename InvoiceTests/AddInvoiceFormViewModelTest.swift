@@ -1,5 +1,5 @@
 //
-//  AddIncoiceFormViewModelTest.swift
+//  AddInvoiceFormViewModelTest.swift
 //  InvoiceTests
 //
 //  Created by Vladimir Calfa on 18/06/2022.
@@ -10,10 +10,10 @@ import XCTest
 
 @testable import Invoice
 
-class AddIncoiceFormViewModelTest: XCTestCase {
-    func testAddIncoiceForm1() throws {
+class AddInvoiceFormViewModelTest: XCTestCase {
+    func testAddInvoiceForm1() throws {
         var cancellables = Set<AnyCancellable>()
-        let viewModel = AddIncoiceFormViewModel(router: AddIncoiceFormRouter(nil),
+        let viewModel = AddInvoiceFormViewModel(router: AddInvoiceFormRouter(nil),
                                                 invoiceManager: InvoiceManager(localStore: LocalStorage(),
                                                                                imageStore: ImageStore()),
                                                 invoice: nil)
@@ -26,10 +26,10 @@ class AddIncoiceFormViewModelTest: XCTestCase {
         viewModel.outputs.date.sink { result in XCTAssertEqual(result.stripTime(), Date().stripTime()) }.store(in: &cancellables)
     }
 
-    func testAddIncoiceForm2() throws {
+    func testAddInvoiceForm2() throws {
         var cancellables = Set<AnyCancellable>()
         let invoice = InvoiceItem(invoiceId: nil, date: nil, total: nil, currencyCode: nil, note: "Test", image: nil, imageId: nil)
-        let viewModel = AddIncoiceFormViewModel(router: AddIncoiceFormRouter(nil),
+        let viewModel = AddInvoiceFormViewModel(router: AddInvoiceFormRouter(nil),
                                                 invoiceManager: InvoiceManager(localStore: LocalStorage(),
                                                                                imageStore: ImageStore()),
                                                 invoice: invoice)
@@ -40,10 +40,10 @@ class AddIncoiceFormViewModelTest: XCTestCase {
         viewModel.outputs.note.sink { result in XCTAssertEqual(result, "Test") }.store(in: &cancellables)
     }
 
-    func testAddIncoiceForm3() throws {
+    func testAddInvoiceForm3() throws {
         var cancellables = Set<AnyCancellable>()
         let invoice = InvoiceItem(invoiceId: UUID(), date: Date.now, total: 0.0, currencyCode: "USD", note: "Notee", image: nil, imageId: nil)
-        let viewModel = AddIncoiceFormViewModel(router: AddIncoiceFormRouter(nil),
+        let viewModel = AddInvoiceFormViewModel(router: AddInvoiceFormRouter(nil),
                                                 invoiceManager: InvoiceManager(localStore: LocalStorage(),
                                                                                imageStore: ImageStore()),
                                                 invoice: invoice)
@@ -54,10 +54,10 @@ class AddIncoiceFormViewModelTest: XCTestCase {
         viewModel.outputs.note.sink { result in XCTAssertEqual(result, "Notee") }.store(in: &cancellables)
     }
 
-    func testAddIncoiceForm4() throws {
+    func testAddInvoiceForm4() throws {
         var cancellables = Set<AnyCancellable>()
         let invoice = InvoiceItem(invoiceId: UUID(), date: Date.now, total: 1254.356, currencyCode: "USD", note: "Notee", image: nil, imageId: nil)
-        let viewModel = AddIncoiceFormViewModel(router: AddIncoiceFormRouter(nil),
+        let viewModel = AddInvoiceFormViewModel(router: AddInvoiceFormRouter(nil),
                                                 invoiceManager: InvoiceManager(localStore: LocalStorage(),
                                                                                imageStore: ImageStore()),
                                                 invoice: invoice)
@@ -68,10 +68,10 @@ class AddIncoiceFormViewModelTest: XCTestCase {
         viewModel.outputs.note.sink { result in XCTAssertEqual(result, "Notee") }.store(in: &cancellables)
     }
 
-    func testAddIncoiceForm5() throws {
+    func testAddInvoiceForm5() throws {
         var cancellables = Set<AnyCancellable>()
         let invoice = InvoiceItem(invoiceId: UUID(), date: Date.now, total: 1254.356, currencyCode: "USD", note: "Notee", image: nil, imageId: nil)
-        let viewModel = AddIncoiceFormViewModel(router: AddIncoiceFormRouter(nil),
+        let viewModel = AddInvoiceFormViewModel(router: AddInvoiceFormRouter(nil),
                                                 invoiceManager: InvoiceManager(localStore: LocalStorage(),
                                                                                imageStore: ImageStore()),
                                                 invoice: invoice,

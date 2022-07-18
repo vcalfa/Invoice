@@ -10,10 +10,10 @@ import CombineExt
 import Foundation
 import UIKit
 
-class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoiceFormViewModelOutputs {
-    private var cancellables = Set<AnyCancellable>()
+class AddInvoiceFormViewModel: NSObject, AddInvoiceFormViewModelInputs, AddInvoiceFormViewModelOutputs {
+    private var cancellable = Set<AnyCancellable>()
 
-    private lazy var totalFormater: NumberFormatter = {
+    private lazy var totalFormatter: NumberFormatter = {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .decimal
@@ -23,7 +23,7 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
         return currencyFormatter
     }()
 
-    // MARK: AddIncoiceFormViewModelOutputProtocol
+    // MARK: AddInvoiceFormViewModelOutputProtocol
 
     @Published private(set) var _title: String?
     var title: Published<String?>.Publisher { $_title }
@@ -48,11 +48,11 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
 
     @Published private(set) var updatedValue: InvoiceItem?
 
-    let navigateToDestination = PassthroughSubject<AddIncoiceFormDestination, Never>()
+    let navigateToDestination = PassthroughSubject<AddInvoiceFormDestination, Never>()
 
     // MARK: -
 
-    // MARK: AddIncoiceFormViewModelInputProtocol
+    // MARK: AddInvoiceFormViewModelInputProtocol
 
     let viewDidLoad = PassthroughSubject<Void, Never>()
 
@@ -78,11 +78,11 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
 
     private let initialValue = CurrentValueSubject<InvoiceItem?, Never>(nil)
     private let initialUUIDValue = CurrentValueSubject<UUID?, Never>(nil)
-    private let router: AddIncoiceFormRouter
+    private let router: AddInvoiceFormRouter
     private let invoiceManager: InvoiceManagerProtocol
     private let locale: Locale
 
-    init(router: AddIncoiceFormRouter,
+    init(router: AddInvoiceFormRouter,
          invoiceManager: InvoiceManagerProtocol,
          invoice: InvoiceItem? = nil,
          invoiceID: UUID? = nil,
@@ -101,12 +101,12 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
     private func bindUpdateInvoice() {
         initialValue
             .sink(receiveValue: setModel)
-            .store(in: &cancellables)
+            .store(in: &cancellable)
 
         initialUUIDValue
             .compactMap { $0 }
             .sink(receiveValue: { [weak self] invoiceId in
-                self?.invoiceManager.getInvoice(invoiceId: invoiceId, completition: { result in
+                self?.invoiceManager.getInvoice(invoiceId: invoiceId, completion: { result in
                     dump(result)
                     switch result {
                     case let .success(invoice):
@@ -116,14 +116,14 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
                     }
                 })
             })
-            .store(in: &cancellables)
+            .store(in: &cancellable)
 
         noteUpdated.combineLatest($updatedValue)
             .map { InvoiceItem(invoice: $1, note: $0) }
             .assign(to: &$updatedValue)
 
         totalUpdated.map { [weak self] in
-            $0.flatMap { self?.totalFormater.number(from: $0)?.doubleValue }
+            $0.flatMap { self?.totalFormatter.number(from: $0)?.doubleValue }
         }
         .combineLatest($updatedValue)
         .map { InvoiceItem(invoice: $1, total: $0) }
@@ -137,39 +137,39 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
     private func bindNavigation() {
         navigateToDestination
             .sink(receiveValue: router.route(to:))
-            .store(in: &cancellables)
+            .store(in: &cancellable)
 
         tapSaveAddAction.withLatestFrom($updatedValue)
             .compactMap { $0 }
             .sink(receiveValue: { [weak self] invoice in
                 dump(invoice)
-                self?.invoiceManager.save(invoice, completition: { result in
+                self?.invoiceManager.save(invoice, completion: { result in
                     dump(result)
                     DispatchQueue.main.async {
                         self?.tapCancel.send(())
                     }
                 })
             })
-            .store(in: &cancellables)
+            .store(in: &cancellable)
 
         let navigateEditPhoto = tapEditPhoto.combineLatest($updatedValue)
-            .map { _, invoice -> AddIncoiceFormDestination in
+            .map { _, invoice -> AddInvoiceFormDestination in
                 .editPhoto(invoice: invoice)
             }
 
-        tapNavigateBack.map { _ -> AddIncoiceFormDestination in .navigateBack }
-            .merge(with: tapCancel.map { _ -> AddIncoiceFormDestination in .cancel })
+        tapNavigateBack.map { _ -> AddInvoiceFormDestination in .navigateBack }
+            .merge(with: tapCancel.map { _ -> AddInvoiceFormDestination in .cancel })
             .merge(with: navigateEditPhoto)
             .subscribe(navigateToDestination)
-            .store(in: &cancellables)
+            .store(in: &cancellable)
     }
 
     private func setModel(_ invoice: InvoiceItem?) {
         if let image = invoice?.image {
             _image = image
         } else if let invoice = invoice, let _ = invoice.imageId {
-            invoiceManager.getImage(for: invoice) { [weak self] resul in
-                switch resul {
+            invoiceManager.getImage(for: invoice) { [weak self] result in
+                switch result {
                 case let .success(image):
                     self?._image = image
                 case .failure:
@@ -180,7 +180,7 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
         _date = invoice?.date ?? Date()
         _currencySymbol = invoice?.currencyCode.map { $0.currencySymbol }
         _total = invoice.flatMap { $0.total }
-            .flatMap { totalFormater.string(from: NSNumber(value: $0)) }
+            .flatMap { totalFormatter.string(from: NSNumber(value: $0)) }
         _note = invoice?.note
         _title = invoice?.invoiceId == nil ? "Add invoice" : "Edit invoice"
         _action = invoice?.invoiceId == nil ? .add : .edit
@@ -188,10 +188,10 @@ class AddIncoiceFormViewModel: NSObject, AddIncoiceFormViewModelInputs, AddIncoi
     }
 }
 
-extension AddIncoiceFormViewModel {}
+extension AddInvoiceFormViewModel {}
 
-extension AddIncoiceFormViewModel: AddIncoiceFormViewModelProtocol {
-    var inputs: AddIncoiceFormViewModelInputs { self }
-    var outputs: AddIncoiceFormViewModelOutputs { self }
+extension AddInvoiceFormViewModel: AddInvoiceFormViewModelProtocol {
+    var inputs: AddInvoiceFormViewModelInputs { self }
+    var outputs: AddInvoiceFormViewModelOutputs { self }
     var userActivityDelegate: NSUserActivityDelegate { self }
 }

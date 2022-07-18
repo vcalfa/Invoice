@@ -31,8 +31,8 @@ struct InvoiceListRouter: InvoiceListRouterProtocol {
     }
 
     func showDetailInvoice(_ id: UUID) {
-        let configurator = AddIncoiceFormConfigurator(invoiceId: id)
-        let addInvoiceForm = AddIncoiceFormViewController.instance(configurator: configurator)
+        let configurator = AddInvoiceFormConfigurator(invoiceId: id)
+        let addInvoiceForm = AddInvoiceFormViewController(configurator: configurator)
         let navigationController = UINavigationController(rootViewController: addInvoiceForm)
         viewController?.present(navigationController, animated: true, completion: nil)
     }

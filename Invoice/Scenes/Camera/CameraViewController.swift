@@ -95,11 +95,8 @@ extension CameraViewController: ConfigurableViewControllerProtocol {
     typealias ViewModelType = CameraViewModelProtocol
 }
 
-//// MARK: - CInstantiable
-extension CameraViewController: Instantiable {}
-
 extension CameraViewController: StateRestorable {
-    var defaulUserActivity: NSUserActivity? {
+    var defaultUserActivity: NSUserActivity? {
         NSUserActivity(activity: .takePhoto)
     }
 

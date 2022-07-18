@@ -118,7 +118,7 @@ extension LocalStorage: LocalStoreProtocol {
         }
     }
 
-    func save(invoice: InvoiceItem, completition: ((Result<InvoiceItem, Error>) -> Void)?) {
+    func save(invoice: InvoiceItem, completion: ((Result<InvoiceItem, Error>) -> Void)?) {
         let backgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         backgroundContext.parent = bgViewContext
         backgroundContext.automaticallyMergesChangesFromParent = true
@@ -142,10 +142,10 @@ extension LocalStorage: LocalStoreProtocol {
                     try? backgroundContext.parent?.save()
                 }
 
-                completition?(.success(invoice))
+                completion?(.success(invoice))
             } catch let error as NSError {
                 dump("Failed to save session data! \(error): \(error.userInfo)")
-                completition?(.failure(error))
+                completion?(.failure(error))
             }
         }
     }
